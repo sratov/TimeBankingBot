@@ -61,7 +61,6 @@ class Transaction(TransactionBase):
         from_attributes = True
 
 class FriendBase(BaseModel):
-    user_id: int
     friend_id: int
 
 class FriendCreate(FriendBase):
@@ -69,6 +68,7 @@ class FriendCreate(FriendBase):
 
 class Friend(FriendBase):
     id: int
+    user_id: int
     status: str
     created_at: datetime
     user: Optional[UserProfile] = None

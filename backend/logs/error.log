@@ -1,0 +1,24 @@
+2025-05-27 16:57:29,115 - main - ERROR - No init_data parameter provided in request
+C:\time_banking_bot\backend\main.py:1133
+No init_data parameter provided in request
+
+2025-05-27 16:57:29,115 - main - ERROR - Authentication failed with HTTPException
+C:\time_banking_bot\backend\main.py:1310
+Authentication failed with HTTPException
+
+2025-05-27 16:57:29,117 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\time_banking_bot\backend\main.py:181
+HTTP exception: 400 - Missing init_data parameter
+
+2025-05-27 16:59:05,434 - main - ERROR - No init_data parameter provided in request
+C:\time_banking_bot\backend\main.py:1133
+No init_data parameter provided in request
+
+2025-05-27 16:59:05,434 - main - ERROR - Authentication failed with HTTPException
+C:\time_banking_bot\backend\main.py:1310
+Authentication failed with HTTPException
+
+2025-05-27 16:59:05,440 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\time_banking_bot\backend\main.py:181
+HTTP exception: 400 - Missing init_data parameter
+
