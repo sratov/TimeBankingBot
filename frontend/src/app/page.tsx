@@ -12,7 +12,8 @@ import {
   acceptListing,
   confirmListing,
   completeListing,
-  payForListing
+  payForListing,
+  checkAuth
 } from "@/lib/api";
 
 declare global {
@@ -86,26 +87,36 @@ export default function Home() {
         console.log("Current origin:", window.location.origin);
         console.log("Environment API BASE:", process.env.NEXT_PUBLIC_API_BASE);
         
-        // Check for existing token
-        const token = localStorage.getItem('token');
-        if (token) {
-          console.log("Found existing token, trying to get current user...");
-          try {
-            const userData = await getCurrentUser();
-            setUserProfile(userData);
-            console.log("Successfully loaded user profile with existing token");
+        // Проверяем авторизацию через cookie
+        try {
+          console.log("Checking authentication status...");
+          const authData = await checkAuth();
+          
+          if (authData.authenticated) {
+            console.log("User is authenticated:", authData);
             
-            // Load listings after successful authentication
+            // Если есть данные пользователя в ответе, используем их
+            if (authData.user) {
+              setUserProfile(authData.user);
+              console.log("User profile set from auth check");
+            } else {
+              // Иначе запрашиваем данные пользователя отдельно
+              const userData = await getCurrentUser();
+              setUserProfile(userData);
+              console.log("User profile loaded separately");
+            }
+            
+            // Загружаем список заявок
             const listingsData = await getListings();
             setListings(listingsData);
-            return; // Exit early if we successfully loaded the user
-          } catch (error) {
-            console.error("Error loading user with existing token:", error);
-            console.error("Clearing token and trying to re-authenticate");
-            localStorage.removeItem('token');
-            // Continue execution for re-authentication
+            console.log("Listings loaded successfully");
+            
+            return; // Выходим, если пользователь уже авторизован
           }
-        } 
+        } catch (authError) {
+          console.log("Not authenticated or auth check failed:", authError);
+          // Продолжаем выполнение для аутентификации через Telegram
+        }
         
         // If no token or failed to load user, authenticate through Telegram
         if (window.Telegram?.WebApp) {
@@ -114,8 +125,17 @@ export default function Home() {
           
           // Log Telegram data
           console.log("Telegram WebApp data available:", !!webAppData);
-          console.log("Raw initData length:", webAppData.initData?.length || 0);
-          // Не выводим в лог полный initData, так как он содержит чувствительную информацию
+          
+          // Выводим информацию о данных Telegram, но не весь initData
+          if (webAppData.initData) {
+            console.log("Raw initData length:", webAppData.initData.length);
+            console.log("initData format check:", 
+              webAppData.initData.includes("hash=") ? "Contains hash" : "Missing hash", 
+              webAppData.initData.includes("user=") ? "Contains user" : "Missing user",
+              webAppData.initData.includes("auth_date=") ? "Contains auth_date" : "Missing auth_date"
+            );
+          }
+          
           if (webAppData.initDataUnsafe) {
             console.log("initDataUnsafe (auth_date):", webAppData.initDataUnsafe.auth_date);
             console.log("initDataUnsafe (user.id):", webAppData.initDataUnsafe.user?.id);
@@ -127,11 +147,18 @@ export default function Home() {
             if (webAppData.initData) {
               console.log("Sending authentication request to backend...");
               // Ensure we're not modifying the initData and passing it directly
-              const userData = await authenticateWithTelegram(webAppData.initData);
-              console.log("Authentication successful:", userData);
+              const authResponse = await authenticateWithTelegram(webAppData.initData);
+              console.log("Authentication successful:", authResponse);
               
-              setUserProfile(userData.user);
-              console.log("User profile set and token saved");
+              if (authResponse.user) {
+                setUserProfile(authResponse.user);
+                console.log("User profile set from auth response");
+              } else {
+                // Если данные пользователя не вернулись в ответе, запрашиваем отдельно
+                const userData = await getCurrentUser();
+                setUserProfile(userData);
+                console.log("User profile loaded separately after auth");
+              }
             } else {
               console.error("No Telegram initData available");
               alert('Error: No initialization data from Telegram');
@@ -337,30 +364,6 @@ export default function Home() {
     }
   };
 
-  const testAuth = async () => {
-    console.log("Testing authentication...");
-    try {
-      // Создаем тестовые данные, имитирующие данные от Telegram
-      const testData = `user=${encodeURIComponent(JSON.stringify({
-        id: 12345,
-        username: "test_user",
-        first_name: "Test"
-      }))}&hash=test_hash`;
-      
-      console.log("Test data:", testData);
-      
-      // Вызываем функцию авторизации
-      const userData = await authenticateWithTelegram(testData);
-      console.log("Test authentication successful:", userData);
-      
-      setUserProfile(userData.user);
-      alert("Authentication successful! Check console for details.");
-    } catch (error) {
-      console.error("Test authentication failed:", error);
-      alert("Authentication failed. Check console for details.");
-    }
-  };
-
   const renderMenu = () => (
     <div className="space-y-12">
       <div className="text-center space-y-4">
@@ -504,22 +507,6 @@ export default function Home() {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
         <div className="animate-spin rounded-full h-8 w-8 border border-white/20 border-t-white"></div>
-        <button 
-          onClick={testAuth}
-          style={{
-            position: 'fixed',
-            top: '10px',
-            right: '10px',
-            padding: '10px',
-            background: 'blue',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            zIndex: 9999
-          }}
-        >
-          Test Auth
-        </button>
       </div>
     );
   }
@@ -530,20 +517,11 @@ export default function Home() {
         <div className="text-center space-y-4 mb-8">
           <h1 className="text-2xl font-bold">Ошибка авторизации</h1>
           <p className="text-white/60">Пожалуйста, откройте приложение через Telegram</p>
+          <div className="mt-4 p-4 bg-red-500/20 rounded-md text-white/80 max-w-md text-sm">
+            <p>Это приложение работает только при открытии через Telegram Mini Apps.</p>
+            <p className="mt-2">Проверьте, что вы открыли приложение через бота @TimeBankingBot, а не напрямую через браузер.</p>
+          </div>
         </div>
-        <button 
-          onClick={testAuth}
-          style={{
-            padding: '10px',
-            background: 'blue',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            marginTop: '20px'
-          }}
-        >
-          Test Auth
-        </button>
       </div>
     );
   }

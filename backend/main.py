@@ -1,8 +1,9 @@
-from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Query, Request
+from fastapi import FastAPI, HTTPException, Depends, UploadFile, File, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
+from starlette.requests import ClientDisconnect
 from sqlalchemy.orm import Session, joinedload
 from typing import List, Optional
 import models
@@ -11,8 +12,8 @@ from database import SessionLocal, engine
 import os
 import shutil
 from pathlib import Path
-from auth import verify_telegram_hash, create_access_token, verify_token
-from config import BOT_TOKEN, JWT_ALGORITHM, JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+from auth import verify_telegram_hash, create_access_token, verify_token, get_current_user
+from config import BOT_TOKEN, JWT_ALGORITHM, JWT_ACCESS_TOKEN_EXPIRE_MINUTES, JWT_SECRET_KEY, ENVIRONMENT, IS_DEVELOPMENT
 import logging
 import sys
 import traceback
@@ -23,6 +24,9 @@ import time
 import json
 import re
 from pydantic import ValidationError
+import jwt
+import asyncio
+from fastapi import Request, Response, HTTPException
 
 # Ensure logs directory exists
 os.makedirs('logs', exist_ok=True)
@@ -151,13 +155,18 @@ async def log_requests(request: Request, call_next):
     if request.query_params:
         logger.info(f"[{request_id}] Query params: {dict(request.query_params)}")
     
-    # Попытка получить тело запроса (не всегда возможно)
-    try:
-        body = await request.body()
-        if body:
-            logger.info(f"[{request_id}] Request body: {body.decode()}")
-    except Exception as e:
-        logger.debug(f"[{request_id}] Could not log request body: {str(e)}")
+    # Попытка получить тело запроса (не всегда возможно и не для всех методов)
+    # Не будем читать тело для методов, которые обычно обрабатывают его в эндпоинтах,
+    # чтобы избежать потребления потока.
+    if request.method not in ("POST", "PUT", "PATCH"):
+        try:
+            body = await request.body()
+            if body:
+                logger.info(f"[{request_id}] Request body: {body.decode()}")
+        except Exception as e:
+            logger.debug(f"[{request_id}] Could not log request body: {str(e)}")
+    else:
+        logger.info(f"[{request_id}] Request body for {request.method} will be processed by endpoint.")
     
     # Замеряем время выполнения запроса
     start_time = time.time()
@@ -309,10 +318,11 @@ async def diagnostics(db: Session = Depends(get_db)):
         }
 
 @app.get("/user/me", response_model=schemas.UserProfile)
-def get_current_user(
-    token_data: dict = Depends(verify_token),
+def get_user_me(
+    request: Request,
     db: Session = Depends(get_db)
 ):
+    token_data = get_current_user(request)
     user = db.query(models.User).filter(
         models.User.id == int(token_data["sub"])
     ).first()
@@ -322,13 +332,20 @@ def get_current_user(
 
 @app.get("/listings/", response_model=List[schemas.Listing])
 def get_listings(
+    request: Request,
     skip: int = 0,
     limit: int = 5,
     status: Optional[str] = None,
     listing_type: Optional[str] = None,
-    db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    db: Session = Depends(get_db)
 ):
+    # Попробуем аутентифицировать пользователя, но не требуем этого
+    try:
+        get_current_user(request)
+    except HTTPException:
+        # Игнорируем ошибку, показываем общедоступные листинги
+        pass
+    
     query = db.query(models.Listing).options(
         joinedload(models.Listing.creator),
         joinedload(models.Listing.worker)
@@ -346,7 +363,7 @@ def get_listings(
 def create_listing(
     listing: schemas.ListingCreate,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     # Verify that the user is creating a listing for themselves
     if int(token_data["sub"]) != listing.user_id:
@@ -370,7 +387,7 @@ def create_listing(
 def apply_for_listing(
     listing_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     listing = db.query(models.Listing).filter(models.Listing.id == listing_id).first()
     if not listing:
@@ -395,7 +412,7 @@ def apply_for_listing(
 def accept_worker(
     listing_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     listing = db.query(models.Listing).filter(models.Listing.id == listing_id).first()
     if not listing:
@@ -459,7 +476,7 @@ def accept_worker(
 def reject_worker(
     listing_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     listing = db.query(models.Listing).filter(models.Listing.id == listing_id).first()
     if not listing:
@@ -481,7 +498,7 @@ def reject_worker(
 def make_payment(
     listing_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     listing = db.query(models.Listing).filter(models.Listing.id == listing_id).first()
     if not listing:
@@ -538,7 +555,7 @@ def make_payment(
 def complete_listing(
     listing_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     listing = db.query(models.Listing).filter(models.Listing.id == listing_id).first()
     if not listing:
@@ -564,7 +581,7 @@ def complete_listing(
 def confirm_completion(
     listing_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     listing = db.query(models.Listing).filter(models.Listing.id == listing_id).first()
     if not listing:
@@ -645,7 +662,7 @@ def confirm_completion(
 def cancel_listing(
     listing_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     listing = db.query(models.Listing).filter(models.Listing.id == listing_id).first()
     if not listing:
@@ -666,7 +683,7 @@ def cancel_listing(
 @app.get("/friends/", response_model=List[schemas.Friend])
 def get_friends(
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     user_id = int(token_data["sub"])
     friends = db.query(models.Friend).filter(
@@ -694,15 +711,15 @@ def get_friends(
 def send_friend_request(
     friend_request: schemas.FriendCreate,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
-    user_id = int(token_data["sub"])
+    sender_id = int(token_data["sub"])
     friend_id = friend_request.friend_id
     
     # Check if friend request already exists
     existing_request = db.query(models.Friend).filter(
-        ((models.Friend.user_id == user_id) & (models.Friend.friend_id == friend_id)) |
-        ((models.Friend.user_id == friend_id) & (models.Friend.friend_id == user_id))
+        ((models.Friend.user_id == sender_id) & (models.Friend.friend_id == friend_id)) |
+        ((models.Friend.user_id == friend_id) & (models.Friend.friend_id == sender_id))
     ).first()
     
     if existing_request:
@@ -710,7 +727,7 @@ def send_friend_request(
     
     # Create new friend request
     friend = models.Friend(
-        user_id=user_id,
+        user_id=sender_id,
         friend_id=friend_id,
         status="pending"
     )
@@ -728,13 +745,14 @@ def send_friend_request(
 def accept_friend_request(
     friend_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
+    current_user_id = int(token_data["sub"])
     friend_request = db.query(models.Friend).filter(models.Friend.id == friend_id).first()
     if not friend_request:
         raise HTTPException(status_code=404, detail="Friend request not found")
     
-    if friend_request.friend_id != int(token_data["sub"]):
+    if friend_request.friend_id != current_user_id:
         raise HTTPException(status_code=403, detail="Only the recipient can accept friend request")
     
     if friend_request.status != "pending":
@@ -749,13 +767,14 @@ def accept_friend_request(
 def reject_friend_request(
     friend_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
+    current_user_id = int(token_data["sub"])
     friend_request = db.query(models.Friend).filter(models.Friend.id == friend_id).first()
     if not friend_request:
         raise HTTPException(status_code=404, detail="Friend request not found")
     
-    if friend_request.friend_id != int(token_data["sub"]):
+    if friend_request.friend_id != current_user_id:
         raise HTTPException(status_code=403, detail="Only the recipient can reject friend request")
     
     if friend_request.status != "pending":
@@ -769,7 +788,7 @@ def reject_friend_request(
 def get_transactions(
     user_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     # Verify that the user is accessing their own transactions
     if int(token_data["sub"]) != user_id:
@@ -789,7 +808,7 @@ async def upload_avatar(
     user_id: int,
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     # Verify that the user is uploading their own avatar
     if int(token_data["sub"]) != user_id:
@@ -819,7 +838,7 @@ async def upload_avatar(
 def get_user_listings(
     user_id: int,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     # Проверяем, что пользователь запрашивает свои заявки или является другом
     current_user_id = int(token_data["sub"])
@@ -847,7 +866,7 @@ def get_user_listings(
 def search_users(
     username: str,
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     """
     Поиск пользователей по имени пользователя
@@ -865,7 +884,7 @@ def search_users(
 @app.get("/friends/pending", response_model=List[schemas.Friend])
 def get_pending_friend_requests(
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     """
     Получение входящих запросов в друзья
@@ -886,7 +905,7 @@ def get_pending_friend_requests(
 @app.get("/users/transactions", response_model=List[schemas.UserProfile])
 def get_transaction_partners(
     db: Session = Depends(get_db),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     """
     Получение списка пользователей, с которыми были сделки
@@ -914,25 +933,61 @@ def get_transaction_partners(
 
 @app.post("/debug/auth")
 async def debug_auth_post(
-    data: dict,
+    request: Request,
+    response: Response,
     db: Session = Depends(get_db)
 ):
     """
     Создаёт тестового пользователя и генерирует JWT токен для тестирования.
     Используется только в тестовом окружении.
     """
+    if not IS_DEVELOPMENT:
+        logger.warning("Debug auth POST requested but server is in production mode - rejecting")
+        raise HTTPException(status_code=403, detail="Debug endpoints are not allowed in production")
+    
     logger.warning("\n\n" + "*"*80)
-    logger.warning("=== Creating Test User for Auth ===")
+    logger.warning("=== Starting Debug Auth POST ===")
     logger.warning("*"*80)
     
-    # Валидация входных данных
-    if "telegram_id" not in data or "username" not in data:
-        raise HTTPException(status_code=400, detail="telegram_id and username are required")
+    body_str = None
+    data = None
+
+    try:
+        logger.debug("Attempting to read request body for /debug/auth POST...")
+        body_bytes = await asyncio.wait_for(request.body(), timeout=10.0) # Увеличен таймаут до 10с
+        
+        if not body_bytes:
+            logger.error("Request body is empty for /debug/auth POST")
+            raise HTTPException(status_code=400, detail="Request body is empty for debug auth")
+        
+        body_str = body_bytes.decode('utf-8')
+        logger.info(f"Successfully read body for /debug/auth POST, length: {len(body_str)}")
+        logger.debug(f"Raw request body for /debug/auth POST: {body_str[:500]}...")
+
+        data = json.loads(body_str)
+        logger.debug(f"Parsed JSON data for /debug/auth POST: {data}")
+
+    except asyncio.TimeoutError:
+        logger.error("Timeout (10s) reading request body for /debug/auth POST")
+        raise HTTPException(status_code=408, detail="Request timeout reading body for debug auth")
+    except ClientDisconnect:
+        logger.error("ClientDisconnect while reading request body for /debug/auth POST")
+        raise HTTPException(status_code=400, detail="Client disconnected during debug auth request")
+    except json.JSONDecodeError as e:
+        logger.error(f"JSON decode error for /debug/auth POST: {str(e)}. Body was: {body_str[:200]}...")
+        raise HTTPException(status_code=400, detail=f"Invalid JSON body for debug auth: {str(e)}")
+    except Exception as e:
+        logger.error(f"Error processing request body for /debug/auth POST: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=400, detail=f"Invalid request body for debug auth: {str(e)}")
+    
+    if not data or "telegram_id" not in data or "username" not in data:
+        logger.error(f"Missing telegram_id or username in parsed data for /debug/auth: {data}")
+        raise HTTPException(status_code=400, detail="telegram_id and username are required in JSON body for debug auth")
     
     telegram_id = data["telegram_id"]
     username = data["username"]
     
-    logger.warning(f"Creating test user: telegram_id={telegram_id}, username={username}")
+    logger.warning(f"Creating/fetching test user for /debug/auth: telegram_id={telegram_id}, username={username}")
     
     # Ищем пользователя в БД или создаём нового
     user = db.query(models.User).filter(models.User.telegram_id == telegram_id).first()
@@ -953,32 +1008,71 @@ async def debug_auth_post(
     else:
         logger.warning(f"User {telegram_id} found in database, using existing user")
     
-    # Генерируем JWT токен
+    # Генерируем JWT токен с правильным типом
     access_token = create_access_token(
-        data={"sub": str(user.id), "telegram_id": user.telegram_id}
+        data={"sub": str(user.id), "telegram_id": user.telegram_id, "type": "access"}
     )
     
-    logger.warning(f"Generated token for user {telegram_id}")
+    # Создаем refresh токен с более долгим сроком жизни
+    from datetime import datetime, timedelta
+    refresh_token = create_access_token({
+        "sub": str(user.id),
+        "telegram_id": str(user.telegram_id),
+        "username": user.username,
+        "type": "refresh",
+        "exp": datetime.utcnow() + timedelta(days=7)
+    })
+    
+    logger.warning(f"Generated tokens for user {telegram_id}")
     logger.warning("=== Test User Created Successfully ===")
     logger.warning("*"*80 + "\n\n")
     
-    # Возвращаем токен и данные пользователя
-    return {
-        "access_token": access_token,
-        "token_type": "bearer",
+    # Используем cookies вместо возврата токена напрямую
+    response = JSONResponse(content={
+        "success": True,
         "user": {
             "id": user.id,
             "telegram_id": user.telegram_id,
             "username": user.username,
             "balance": user.balance
-        }
+        },
+        "test_mode": True
+    })
+    
+    # Устанавливаем токены в cookie
+    cookie_options = {
+        "httponly": True,
+        "secure": request.url.scheme == "https",
+        "samesite": "strict",
+        "path": "/"
     }
+    
+    response.set_cookie(
+        key="access_token", 
+        value=access_token, 
+        max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+        **cookie_options
+    )
+    
+    response.set_cookie(
+        key="refresh_token", 
+        value=refresh_token, 
+        max_age=60 * 60 * 24 * 7,  # 7 дней
+        **cookie_options
+    )
+    
+    return response
 
 @app.get("/debug/auth")
 async def debug_auth(request: Request):
     """
     Диагностический эндпоинт для отладки авторизации Telegram
     """
+    # Проверяем режим работы сервера
+    if not IS_DEVELOPMENT:
+        logger.warning("Debug auth endpoint requested but server is in production mode - rejecting")
+        raise HTTPException(status_code=403, detail="Debug endpoints are not allowed in production")
+    
     logger.info("\n\n" + "*"*80)
     logger.info("=== Starting Auth Debug ===")
     logger.info("*"*80)
@@ -1104,7 +1198,7 @@ async def debug_auth(request: Request):
 async def view_logs(
     log_name: str,
     lines: int = Query(100, ge=1, le=1000),
-    token_data: dict = Depends(verify_token)
+    token_data: dict = Depends(get_current_user)
 ):
     """
     Просмотр логов приложения.
@@ -1185,12 +1279,15 @@ async def view_logs(
 @app.post("/auth/telegram")
 async def telegram_auth(
     request: Request,
+    response: Response,
     db: Session = Depends(get_db)
 ):
     """
     Authenticate user with Telegram WebApp data.
     Gets raw init_data from query params or form data.
+    Sets JWT tokens in HTTP-only cookies.
     """
+    import json # <--- ДОБАВЛЕН ЯВНЫЙ ИМПОРТ ЗДЕСЬ
     try:
         logger.info("\n\n" + "*"*80)
         logger.info("=== Starting Telegram Authentication ===")
@@ -1201,57 +1298,200 @@ async def telegram_auth(
         for header, value in request.headers.items():
             logger.debug(f"  {header}: {value}")
             
-        # Log all query parameters
-        logger.debug("Query parameters:")
-        for param, value in request.query_params.items():
-            if param != "init_data":  # Не логируем полное значение init_data из соображений безопасности
-                logger.debug(f"  {param}: {value}")
-            else:
-                logger.debug(f"  {param}: [длина: {len(value)}]")
+        # Log request method
+        logger.debug(f"Request method: {request.method}")
         
         # Пытаемся получить init_data из разных источников
         raw_init_data = None
-        test_mode = "test" in request.query_params or "test_mode" in request.query_params
+        test_mode = False
         
-        # 1. Сначала проверяем query параметры
-        if "init_data" in request.query_params:
-            raw_init_data = request.query_params.get("init_data", "")
-            logger.debug("Got init_data from query params")
-        
-        # 2. Если в query параметрах нет, пытаемся прочитать из формы или JSON
-        if not raw_init_data:
+        if request.method == "GET":
+            # 1. Из query параметров для GET запроса
+            if "init_data" in request.query_params:
+                raw_init_data = request.query_params.get("init_data", "")
+                logger.debug("Got init_data from query params (GET)")
+        else:  # POST
+            raw_init_data = None # Инициализируем здесь
+            test_mode = False # Инициализируем здесь
+            body_str = None
+
+            logger.debug("POST request to /auth/telegram. Processing body...")
+            
+            # Попытка 1: Чтение тела как единого блока (предпочтительно для JSON)
             try:
-                # Пробуем получить из формы
-                form_data = await request.form()
-                if "init_data" in form_data:
-                    raw_init_data = form_data.get("init_data", "")
-                    logger.debug("Got init_data from form data")
-                    if "test_mode" in form_data:
-                        test_mode = True
-            except Exception as e:
-                logger.debug(f"Error reading form data: {str(e)}")
+                logger.debug("Attempt 1: Reading entire request body for POST with timeout...")
+                body_bytes = await asyncio.wait_for(request.body(), timeout=10.0)
                 
-                # Пробуем получить из JSON
+                if body_bytes:
+                    body_str = body_bytes.decode('utf-8')
+                    logger.info(f"Successfully read entire body (POST), length: {len(body_str)}")
+                    logger.debug(f"Raw request body (POST): {body_str[:500]}...") # Логируем только начало большого тела
+
+                    # Пробуем распарсить JSON
+                    try:
+                        json_data = json.loads(body_str)
+                        logger.debug(f"Parsed JSON data: {json_data}")
+                        
+                        if "init_data" in json_data:
+                            raw_init_data = json_data.get("init_data")
+                            test_mode = json_data.get("test_mode", False)
+                            logger.info(f"Got init_data from JSON body (POST), test_mode={test_mode}")
+                            
+                            # Обработка test_mode (этот блок уже доработан и должен быть здесь)
+                            if test_mode:
+                                logger.warning("Test mode detected in /auth/telegram! Creating test user...")
+                                if not IS_DEVELOPMENT:
+                                    logger.error("Test mode for /auth/telegram requested but server is in production mode - rejecting")
+                                    raise HTTPException(status_code=403, detail="Test mode for /auth/telegram is not allowed in production")
+
+                                test_user = db.query(models.User).filter(models.User.telegram_id == 12345).first()
+                                if not test_user:
+                                    logger.info("Creating test user with id 12345 for /auth/telegram")
+                                    test_user = models.User(
+                                        telegram_id=12345, username="test_user", balance=100.0,
+                                        earned_hours=0.0, spent_hours=0.0
+                                    )
+                                    db.add(test_user)
+                                    db.commit(); db.refresh(test_user)
+                                else:
+                                    logger.info("Found existing test user for /auth/telegram")
+                                
+                                access_token = create_access_token({"sub": str(test_user.id), "telegram_id": str(test_user.telegram_id), "username": test_user.username, "type": "access"})
+                                from datetime import datetime, timedelta
+                                refresh_token_val = create_access_token({"sub": str(test_user.id), "telegram_id": str(test_user.telegram_id), "username": test_user.username, "type": "refresh", "exp": datetime.utcnow() + timedelta(days=7)})
+                                
+                                cookie_options = {"httponly": True, "secure": request.url.scheme == "https", "samesite": "strict", "path": "/"}
+                                response.set_cookie(key="access_token", value=access_token, max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60, **cookie_options)
+                                response.set_cookie(key="refresh_token", value=refresh_token_val, max_age=60 * 60 * 24 * 7, **cookie_options)
+                                
+                                logger.info("Returning test user data and token in cookies for /auth/telegram (test_mode=true)")
+                                return {"success": True, "user": test_user, "test_mode": True} # ИЗМЕНЕНО ЗДЕСЬ
+
+                    except json.JSONDecodeError:
+                        logger.warning(f"Body (POST) was not valid JSON. Content starts with: {body_str[:200]}...")
+                        # Если это не JSON, и raw_init_data все еще None, то дальше попробуем форму (но raw_init_data уже не будет None, если init_data был в JSON)
+                else:
+                    logger.warning("Attempt 1: Request body (POST) was empty after reading.")
+
+            except asyncio.TimeoutError:
+                logger.error("Attempt 1: Timeout (10s) reading request body (POST).")
+            except ClientDisconnect:
+                logger.error("Attempt 1: ClientDisconnect while reading request body (POST).")
+            except Exception as e:
+                logger.error(f"Attempt 1: Error reading request body (POST): {str(e)}", exc_info=True)
+
+            # Попытка 2: Чтение как form-data (если init_data еще не получен и тело не было JSON)
+            # Это имеет смысл, только если body_str был None (т.е. первая попытка полностью провалилась) или не был JSON
+            if not raw_init_data and (not body_str or not isinstance(json.loads(body_str) if body_str else None, dict)):
+                logger.info("Attempt 2: init_data not found in JSON body or body read failed/was not JSON. Trying to read as form data...")
                 try:
-                    body = await request.json()
-                    if "init_data" in body:
-                        raw_init_data = body.get("init_data", "")
-                        logger.debug("Got init_data from JSON body")
-                    if "test_mode" in body:
-                        test_mode = True
-                except Exception as json_error:
-                    logger.debug(f"Error reading JSON body: {str(json_error)}")
+                    form_data = await asyncio.wait_for(request.form(), timeout=5.0)
+                    if "init_data" in form_data:
+                        raw_init_data = form_data.get("init_data", "")
+                        test_mode_form = str(form_data.get("test_mode", "false")).lower() == "true" # Обработка test_mode из формы
+                        if test_mode_form and not test_mode : # Если test_mode еще не был установлен из JSON
+                             test_mode = True
+                        logger.info(f"Got init_data from form data (POST), test_mode from form: {test_mode}")
+                    elif form_data:
+                        logger.warning(f"Attempt 2: init_data not in form data. Form fields: {list(form_data.keys())}")
+                    else:
+                        logger.warning("Attempt 2: Form data (POST) is empty.")
+                except asyncio.TimeoutError:
+                    logger.error("Attempt 2: Timeout (5s) reading form data (POST).")
+                except ClientDisconnect:
+                    logger.error("Attempt 2: ClientDisconnect while reading form data (POST).")
+                except Exception as form_error:
+                    logger.error(f"Attempt 2: Error reading form data (POST): {str(form_error)}", exc_info=True)
         
-        # Если init_data не найден, возвращаем ошибку
+        # Если init_data не найден ни одним из способов, возвращаем ошибку
         if not raw_init_data:
             logger.error("No init_data found in request")
             raise HTTPException(status_code=400, detail="Missing init_data parameter")
+            
+        logger.debug(f"Raw init_data: {raw_init_data}")
         
-        # Если режим тестирования, логируем это
+        # Тестовый режим для отладки
         if test_mode:
-            logger.warning("Test mode detected - auth verification will be bypassed")
+            # Проверяем режим работы сервера
+            if not IS_DEVELOPMENT:
+                logger.warning("Test mode requested but server is in production mode - rejecting")
+                raise HTTPException(status_code=403, detail="Test mode is not allowed in production")
+            
+            logger.warning("Test mode active - bypassing hash verification")
+            
+            # Используем заглушку пользователя для тестов
+            try:
+                # Создаем тестового пользователя
+                test_user = db.query(models.User).filter(models.User.telegram_id == 12345).first()
+                if not test_user:
+                    logger.info("Creating test user with id 12345")
+                    test_user = models.User(
+                        telegram_id=12345,
+                        username="test_user",
+                        balance=100.0,
+                        earned_hours=0.0,
+                        spent_hours=0.0
+                    )
+                    db.add(test_user)
+                    db.commit()
+                    db.refresh(test_user)
+                
+                # Создаем токены для тестового пользователя
+                access_token = create_access_token({
+                    "sub": str(test_user.id),
+                    "telegram_id": str(test_user.telegram_id),
+                    "username": test_user.username,
+                    "type": "access"  # Добавляем тип токена
+                })
+                
+                # Создаем refresh токен с более долгим сроком жизни
+                from datetime import datetime, timedelta
+                refresh_token = create_access_token({
+                    "sub": str(test_user.id),
+                    "telegram_id": str(test_user.telegram_id),
+                    "username": test_user.username,
+                    "type": "refresh",
+                    "exp": datetime.utcnow() + timedelta(days=7)
+                })
+                
+                # Устанавливаем токены в cookie
+                cookie_options = {
+                    "httponly": True,
+                    "secure": request.url.scheme == "https",
+                    "samesite": "strict",
+                    "path": "/"
+                }
+                
+                response.set_cookie(
+                    key="access_token", 
+                    value=access_token, 
+                    max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+                    **cookie_options
+                )
+                
+                response.set_cookie(
+                    key="refresh_token", 
+                    value=refresh_token, 
+                    max_age=60 * 60 * 24 * 7,  # 7 дней
+                    **cookie_options
+                )
+                
+                logger.info("Returning test user data and token in cookies")
+                return {
+                    "success": True,
+                    "user": test_user,
+                    "test_mode": True
+                }
+            except Exception as test_error:
+                logger.error(f"Error in test mode: {str(test_error)}")
+                logger.exception(test_error)
         
-        # Extract hash before any parsing/decoding
+        # Extract hash from init_data
+        if "hash=" not in raw_init_data:
+            logger.error("No hash parameter found in init_data")
+            raise HTTPException(status_code=400, detail="No hash provided")
+            
+        # Разбиваем init_data на параметры для извлечения хеша
         pairs = [s.split("=", 1) for s in raw_init_data.split("&") if "=" in s]
         data = {k: v for k, v in pairs}
         
@@ -1264,23 +1504,18 @@ async def telegram_auth(
         
         hash_value = data.get('hash')
         if not hash_value:
-            logger.error("No hash parameter found in init_data")
-            if test_mode:
-                logger.warning("Test mode: proceeding without hash verification")
-            else:
-                raise HTTPException(status_code=400, detail="No hash provided")
+            logger.error("No hash parameter found in parsed data")
+            raise HTTPException(status_code=400, detail="No hash provided")
             
         logger.debug(f"Extracted hash value length: {len(hash_value) if hash_value else 0}")
             
         # Verify hash with raw init_data
         logger.info("Verifying Telegram hash...")
-        hash_verified = verify_telegram_hash(raw_init_data, hash_value) if hash_value else False
+        hash_verified = verify_telegram_hash(raw_init_data, hash_value)
         
-        if not hash_verified and not test_mode:
+        if not hash_verified:
             logger.warning("Hash verification failed")
             raise HTTPException(status_code=401, detail="Invalid hash")
-        elif not hash_verified and test_mode:
-            logger.warning("Hash verification failed but test mode enabled - proceeding anyway")
         else:
             logger.info("Hash verification successful")
             
@@ -1293,18 +1528,7 @@ async def telegram_auth(
             # Если user_data пустой, значит данные отсутствуют
             if not user_data:
                 logger.error("No user data found in init_data")
-                
-                # Для тестирования позволяем использовать тестовые данные
-                if test_mode:
-                    logger.warning("TEST MODE - using test user data")
-                    user_info = {
-                        "id": 12345,
-                        "username": "test_user",
-                        "first_name": "Test User"
-                    }
-                    telegram_id = 12345
-                else:
-                    raise HTTPException(status_code=400, detail="Missing user data in init_data")
+                raise HTTPException(status_code=400, detail="Missing user data in init_data")
             else:
                 # Parse user data from URL-encoded JSON
                 import json
@@ -1412,28 +1636,64 @@ async def telegram_auth(
             logger.error(f"Database error: {str(e)}", exc_info=True)
             raise HTTPException(status_code=500, detail="Database error")
             
-        # Create JWT token
+        # Create JWT tokens
         try:
-            logger.info(f"Creating JWT token for user: {user.username}")
-            token_data = {
-                "sub": str(user.id),
-                "telegram_id": str(telegram_id),  # Convert to string to avoid JSON serialization issues
-                "username": user.username
-            }
-            logger.debug(f"Token data: {token_data}")
+            logger.info(f"Creating JWT tokens for user: {user.username}")
             
-            token = create_access_token(token_data)
-            logger.info(f"JWT token created successfully")
+            # Access token с коротким сроком жизни
+            access_token_data = {
+                "sub": str(user.id),
+                "telegram_id": str(telegram_id),
+                "username": user.username,
+                "type": "access"
+            }
+            access_token = create_access_token(access_token_data)
+            
+            # Refresh token с длительным сроком жизни (7 дней)
+            from datetime import datetime, timedelta
+            refresh_token_data = {
+                "sub": str(user.id),
+                "telegram_id": str(telegram_id),
+                "username": user.username,
+                "type": "refresh",
+                "exp": datetime.utcnow() + timedelta(days=7)
+            }
+            refresh_token = create_access_token(refresh_token_data)
+            
+            logger.debug(f"Access token data: {access_token_data}")
+            logger.info(f"JWT tokens created successfully")
+            
+            # Устанавливаем токены в cookie
+            cookie_options = {
+                "httponly": True,
+                "secure": request.url.scheme == "https",
+                "samesite": "strict",
+                "path": "/"
+            }
+            
+            response.set_cookie(
+                key="access_token", 
+                value=access_token, 
+                max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+                **cookie_options
+            )
+            
+            response.set_cookie(
+                key="refresh_token", 
+                value=refresh_token, 
+                max_age=60 * 60 * 24 * 7,  # 7 дней
+                **cookie_options
+            )
         except Exception as e:
-            logger.error(f"Error creating token: {str(e)}", exc_info=True)
-            raise HTTPException(status_code=500, detail="Error creating authentication token")
+            logger.error(f"Error creating tokens: {str(e)}", exc_info=True)
+            raise HTTPException(status_code=500, detail="Error creating authentication tokens")
         
         logger.info("=== Authentication Successful ===")
         logger.info("*"*80 + "\n\n")
         
+        # Возвращаем успех и данные пользователя (без токенов, они в cookie)
         return {
-            "access_token": token,
-            "token_type": "bearer",
+            "success": True,
             "user": user
         }
         
@@ -1442,4 +1702,243 @@ async def telegram_auth(
         raise
     except Exception as e:
         logger.error(f"Unexpected error in auth: {str(e)}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}") 
+        raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
+
+@app.get("/auth/refresh")
+async def refresh_token(
+    request: Request,
+    response: Response,
+    db: Session = Depends(get_db)
+):
+    """
+    Refresh access token using refresh token from cookie.
+    """
+    try:
+        logger.info("=== Starting Token Refresh ===")
+        
+        # Получаем refresh_token из cookie
+        refresh_token = request.cookies.get("refresh_token")
+        if not refresh_token:
+            logger.error("No refresh token in cookies")
+            raise HTTPException(status_code=401, detail="No refresh token")
+        
+        # Проверяем refresh_token
+        try:
+            # Проверяем и декодируем токен
+            payload = jwt.decode(refresh_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+            
+            # Проверяем тип токена
+            if payload.get("type") != "refresh":
+                logger.error("Invalid token type in refresh token")
+                raise HTTPException(status_code=401, detail="Invalid token type")
+            
+            # Получаем данные пользователя
+            user_id = payload.get("sub")
+            if not user_id:
+                logger.error("No user ID in refresh token")
+                raise HTTPException(status_code=401, detail="Invalid token")
+                
+            # Находим пользователя в БД
+            user = db.query(models.User).filter(models.User.id == int(user_id)).first()
+            if not user:
+                logger.error(f"User with ID {user_id} not found")
+                raise HTTPException(status_code=404, detail="User not found")
+                
+            # Создаем новые токены
+            access_token_data = {
+                "sub": str(user.id),
+                "telegram_id": str(user.telegram_id),
+                "username": user.username,
+                "type": "access"
+            }
+            new_access_token = create_access_token(access_token_data)
+            
+            # Создаем новый refresh токен
+            from datetime import datetime, timedelta
+            refresh_token_data = {
+                "sub": str(user.id),
+                "telegram_id": str(user.telegram_id),
+                "username": user.username,
+                "type": "refresh",
+                "exp": datetime.utcnow() + timedelta(days=7)
+            }
+            new_refresh_token = create_access_token(refresh_token_data)
+            
+            # Устанавливаем токены в cookie
+            cookie_options = {
+                "httponly": True,
+                "secure": request.url.scheme == "https",
+                "samesite": "strict",
+                "path": "/"
+            }
+            
+            response.set_cookie(
+                key="access_token", 
+                value=new_access_token, 
+                max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+                **cookie_options
+            )
+            
+            response.set_cookie(
+                key="refresh_token", 
+                value=new_refresh_token, 
+                max_age=60 * 60 * 24 * 7,  # 7 дней
+                **cookie_options
+            )
+            
+            logger.info(f"Tokens refreshed for user {user.username}")
+            
+            return {
+                "success": True,
+                "user": user
+            }
+            
+        except jwt.JWTError as e:
+            logger.error(f"JWT error: {str(e)}")
+            raise HTTPException(status_code=401, detail="Invalid refresh token")
+        
+    except HTTPException:
+        # Удаляем куки при ошибке
+        response.delete_cookie(key="access_token")
+        response.delete_cookie(key="refresh_token")
+        raise
+    except Exception as e:
+        logger.error(f"Error refreshing token: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/auth/protected")
+async def protected_route(
+    request: Request,
+    response: Response,
+    db: Session = Depends(get_db)
+):
+    """
+    Protected route that requires authentication.
+    Checks access token and refreshes if needed.
+    """
+    try:
+        # Получаем токены из cookie
+        access_token = request.cookies.get("access_token")
+        refresh_token = request.cookies.get("refresh_token")
+        
+        if not access_token and not refresh_token:
+            logger.error("No tokens in cookies")
+            raise HTTPException(status_code=401, detail="Authentication required")
+        
+        # Сначала проверяем access token
+        if access_token:
+            try:
+                # Проверяем и декодируем токен
+                payload = jwt.decode(access_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+                
+                # Проверяем тип токена
+                if payload.get("type") != "access":
+                    logger.warning("Invalid token type in access token")
+                    # Продолжаем выполнение, чтобы попробовать refresh token
+                else:
+                    # Токен валиден, возвращаем успех
+                    return {"authenticated": True}
+            except jwt.ExpiredSignatureError:
+                logger.info("Access token expired, trying refresh token")
+                # Продолжаем выполнение для проверки refresh token
+            except jwt.JWTError as e:
+                logger.error(f"JWT error in access token: {str(e)}")
+                # Продолжаем выполнение для проверки refresh token
+        
+        # Если access token невалиден или отсутствует, проверяем refresh token
+        if refresh_token:
+            try:
+                # Проверяем и декодируем токен
+                payload = jwt.decode(refresh_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+                
+                # Проверяем тип токена
+                if payload.get("type") != "refresh":
+                    logger.error("Invalid token type in refresh token")
+                    raise HTTPException(status_code=401, detail="Invalid token type")
+                
+                # Получаем данные пользователя
+                user_id = payload.get("sub")
+                if not user_id:
+                    logger.error("No user ID in refresh token")
+                    raise HTTPException(status_code=401, detail="Invalid token")
+                    
+                # Находим пользователя в БД
+                user = db.query(models.User).filter(models.User.id == int(user_id)).first()
+                if not user:
+                    logger.error(f"User with ID {user_id} not found")
+                    raise HTTPException(status_code=404, detail="User not found")
+                    
+                # Создаем новые токены
+                access_token_data = {
+                    "sub": str(user.id),
+                    "telegram_id": str(user.telegram_id),
+                    "username": user.username,
+                    "type": "access"
+                }
+                new_access_token = create_access_token(access_token_data)
+                
+                # Создаем новый refresh токен
+                from datetime import datetime, timedelta
+                refresh_token_data = {
+                    "sub": str(user.id),
+                    "telegram_id": str(user.telegram_id),
+                    "username": user.username,
+                    "type": "refresh",
+                    "exp": datetime.utcnow() + timedelta(days=7)
+                }
+                new_refresh_token = create_access_token(refresh_token_data)
+                
+                # Устанавливаем токены в cookie
+                cookie_options = {
+                    "httponly": True,
+                    "secure": request.url.scheme == "https",
+                    "samesite": "strict",
+                    "path": "/"
+                }
+                
+                response.set_cookie(
+                    key="access_token", 
+                    value=new_access_token, 
+                    max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+                    **cookie_options
+                )
+                
+                response.set_cookie(
+                    key="refresh_token", 
+                    value=new_refresh_token, 
+                    max_age=60 * 60 * 24 * 7,  # 7 дней
+                    **cookie_options
+                )
+                
+                logger.info(f"Tokens refreshed for user {user.username}")
+                
+                return {
+                    "authenticated": True,
+                    "refreshed": True,
+                    "user": user
+                }
+                
+            except jwt.JWTError as e:
+                logger.error(f"JWT error in refresh token: {str(e)}")
+                # Удаляем куки при ошибке
+                response.delete_cookie(key="access_token")
+                response.delete_cookie(key="refresh_token")
+                raise HTTPException(status_code=401, detail="Invalid refresh token")
+        
+        # Если оба токена невалидны
+        raise HTTPException(status_code=401, detail="Authentication required")
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error in protected route: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.post("/auth/logout")
+async def logout(response: Response):
+    """
+    Logout user by clearing auth cookies.
+    """
+    response.delete_cookie(key="access_token")
+    response.delete_cookie(key="refresh_token")
+    return {"success": True, "message": "Logged out successfully"} 
