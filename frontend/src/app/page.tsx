@@ -619,6 +619,7 @@ export default function Home() {
                 spent_hours={userProfile.spent_hours}
                 created_at={userProfile.created_at}
                 onAvatarUpdate={handleAvatarUpdate}
+                onGoToMenu={() => setActiveView("menu")}
               />
             );
           }
@@ -638,9 +639,9 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4">
-      {renderDebugPanel()} 
+      {/* {renderDebugPanel()} */}
       {/* Add some margin to the main content to avoid overlap with debug panel */}
-      <div style={{ paddingTop: '210px' }}> 
+      <div style={{ paddingTop: userProfile ? '0px' : '210px' }}> 
         {renderPageContent()}
       </div>
     </div>

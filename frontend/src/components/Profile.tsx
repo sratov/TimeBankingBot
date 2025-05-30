@@ -60,6 +60,7 @@ interface ProfileProps {
   spent_hours: number;
   created_at: string;
   onAvatarUpdate?: (avatarUrl: string) => void;
+  onGoToMenu?: () => void;
 }
 
 export default function Profile({
@@ -71,6 +72,7 @@ export default function Profile({
   spent_hours,
   avatar,
   onAvatarUpdate,
+  onGoToMenu,
 }: ProfileProps) {
   console.log("[Profile.tsx] Received props:", { id, telegram_id, username, balance, earned_hours, spent_hours, avatar });
   const [isEditingAvatar, setIsEditingAvatar] = useState(false);
@@ -82,22 +84,20 @@ export default function Profile({
   const [isLoadingListings, setIsLoadingListings] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   
-  // Новые состояния
   const [searchResults, setSearchResults] = useState<User[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [pendingRequests, setPendingRequests] = useState<Friend[]>([]);
   const [transactionPartners, setTransactionPartners] = useState<User[]>([]);
   const [activeTab, setActiveTab] = useState<'friends' | 'search' | 'pending' | 'partners'>('friends');
 
-  // Загружаем данные, когда id пользователя доступен
   useEffect(() => {
-    if (id) { // Only run if id is available
+    if (id) {
       loadFriends();
-      loadUserListings(); // This uses the 'id' prop
+      loadUserListings(); 
       loadPendingRequests();
       loadTransactionPartners();
     }
-  }, [id]); // Add id to the dependency array
+  }, [id]);
 
   const loadFriends = async () => {
     try {
@@ -130,7 +130,7 @@ export default function Profile({
   };
 
   const loadUserListings = async () => {
-    if (!id) return; // Extra guard just in case
+    if (!id) return;
     try {
       setIsLoadingListings(true);
       const listingsData = await getUserListings(id);
@@ -145,7 +145,6 @@ export default function Profile({
   const handleAcceptListing = async (listingId: number) => {
     try {
       const updatedListing = await acceptListing(listingId);
-      // Обновляем список заявок
       setListings(listings.map(listing => 
         listing.id === listingId ? updatedListing : listing
       ));
@@ -179,7 +178,6 @@ export default function Profile({
 
   const handleSearchUsers = async () => {
     if (!friendUsername || friendUsername.length < 2) return;
-
     try {
       setIsSearching(true);
       const results = await searchUsers(friendUsername);
@@ -196,10 +194,7 @@ export default function Profile({
     try {
       setFriendRequestStatus("sending");
       await sendFriendRequest(friendId);
-      
-      // Обновляем список друзей
       await loadFriends();
-      
       setFriendRequestStatus("success");
       setTimeout(() => setFriendRequestStatus(null), 3000);
     } catch (error: any) {
@@ -212,7 +207,6 @@ export default function Profile({
   const handleAcceptFriendRequest = async (friendId: number) => {
     try {
       await acceptFriendRequest(friendId);
-      // Обновляем списки
       loadFriends();
       loadPendingRequests();
     } catch (error) {
@@ -223,14 +217,12 @@ export default function Profile({
   const handleRejectFriendRequest = async (friendId: number) => {
     try {
       await rejectFriendRequest(friendId);
-      // Обновляем список входящих запросов
       loadPendingRequests();
     } catch (error) {
       console.error("Error rejecting friend request:", error);
     }
   };
 
-  // Функция для отображения аватара пользователя
   const renderUserAvatar = (user: { username: string, avatar?: string }) => {
     const avatarSrc = user.avatar && (user.avatar.startsWith('http://') || user.avatar.startsWith('https://'))
       ? user.avatar
@@ -249,7 +241,6 @@ export default function Profile({
     );
   };
 
-  // Функция для открытия диалога в Telegram
   const openTelegramChat = (username: string) => {
     window.open(`https://t.me/${username}`, '_blank');
   };
@@ -258,7 +249,7 @@ export default function Profile({
     <>
       <div className="space-y-8">
         <div className="card p-8 glass-card border border-white/10 backdrop-blur-md">
-          <div className="flex items-start gap-8 mb-8">
+          <div className="flex items-start gap-8 mb-4">
             <div 
               onClick={handleAvatarClick}
               className="group relative cursor-pointer"
@@ -287,6 +278,14 @@ export default function Profile({
               <p className="text-white/40 text-sm tracking-widest">ID: {telegram_id !== undefined ? telegram_id : 'N/A'}</p>
             </div>
           </div>
+          {onGoToMenu && (
+            <button 
+              onClick={onGoToMenu}
+              className="btn-ghost w-full mb-6 text-sm flex items-center justify-center gap-2"
+            >
+              &larr; В главное меню
+            </button>
+          )}
           <div className="grid grid-cols-2 gap-4">
             <div className="card bg-black/40 p-6 text-center border border-white/10 backdrop-blur-md">
               <p className="text-3xl font-bold">{balance !== undefined ? balance.toFixed(1) : 'N/A'}</p>
@@ -299,7 +298,6 @@ export default function Profile({
           </div>
         </div>
 
-        {/* Секция друзей */}
         <div className="space-y-6">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
@@ -318,7 +316,6 @@ export default function Profile({
             </div>
           </div>
 
-          {/* Форма поиска друзей */}
           <div className="card p-6 glass-card border border-white/10 backdrop-blur-md mb-6">
             <h3 className="text-lg font-medium mb-4">Найти друзей</h3>
             <div className="flex gap-2">
@@ -339,7 +336,6 @@ export default function Profile({
             </div>
           </div>
 
-          {/* Табы для переключения между разделами */}
           <div className="flex border-b border-white/10 mb-4">
             <button 
               onClick={() => setActiveTab('friends')}
@@ -372,7 +368,6 @@ export default function Profile({
             </button>
           </div>
 
-          {/* Содержимое активного таба */}
           <div className="grid grid-cols-2 gap-4">
             {activeTab === 'friends' && (
               <>
@@ -386,9 +381,7 @@ export default function Profile({
                   </div>
                 ) : (
                   friends.map((friend) => {
-                    // Определяем, какой пользователь является другом (не текущим пользователем)
                     const friendUser = friend.user_id === id ? friend.friend : friend.user;
-                    
                     return (
                       <div key={friend.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -518,7 +511,6 @@ export default function Profile({
                   </div>
                 ) : (
                   transactionPartners.map((user) => {
-                    // Проверяем, является ли пользователь уже другом
                     const isAlreadyFriend = friends.some(friend => 
                       (friend.user_id === user.id && friend.friend_id === id) || 
                       (friend.user_id === id && friend.friend_id === user.id)
@@ -564,7 +556,6 @@ export default function Profile({
           </div>
         </div>
 
-        {/* История заявок */}
         <div className="space-y-6">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
@@ -605,7 +596,6 @@ export default function Profile({
                   <h3 className="text-lg font-medium">{listing.title}</h3>
                   <p className="text-white/90">{listing.description}</p>
                   
-                  {/* Информация о статусе */}
                   <div className="mt-2">
                     <span className={`inline-block px-3 py-1 text-xs tracking-wider uppercase border ${
                       listing.status === "completed"
@@ -622,23 +612,19 @@ export default function Profile({
                     </span>
                   </div>
                   
-                  {/* Информация об исполнителе */}
                   {listing.worker && listing.status !== "active" && (
                     <div className="text-white/60 text-sm mt-2">
                       Исполнитель: @{listing.worker.username}
                     </div>
                   )}
                   
-                  {/* Кнопки действий */}
                   <div className="flex justify-end mt-4">
-                    {/* Кнопка для отмены активной заявки */}
                     {listing.status === "active" && listing.user_id === id && (
                       <button className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all">
                         Отменить
                       </button>
                     )}
                     
-                    {/* Кнопка для принятия заявки исполнителем */}
                     {listing.status === "pending_worker" && listing.user_id === id && listing.worker && (
                       <button 
                         onClick={() => handleAcceptListing(listing.id)}
