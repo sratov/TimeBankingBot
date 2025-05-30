@@ -1,0 +1,256 @@
+2025-05-30 14:40:31,256 - test_app - INFO - 
+
+2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:40:31,256 - test_app - INFO - «¿œ”—  “≈—“»–Œ¬¿Õ»ﬂ TIME BANKING APP
+2025-05-30 14:40:31,256 - test_app - INFO - API URL: https://66fb-77-91-101-132.ngrok-free.app/api
+2025-05-30 14:40:31,256 - test_app - INFO - “ÓÍÂÌ ·ÓÚ‡ (ÒÍ˚Ú): 80221..._4-bU
+2025-05-30 14:40:31,256 - test_app - INFO - ¬ÂÏˇ Á‡ÔÛÒÍ‡: 2025-05-30 14:40:31
+2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:40:31,256 - test_app - INFO - 
+
+2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:40:31,256 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_01_api_health
+2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:40:31,256 - test_app - INFO - Testing API health endpoint
+2025-05-30 14:40:32,134 - test_app - DEBUG - Health check response: {"message":"Time Banking API is running"}
+2025-05-30 14:40:32,134 - test_app - INFO - API health check successful
+2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,136 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_01_api_health
+2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,136 - test_app - INFO - 
+
+
+2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,136 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_02_authentication
+2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,137 - test_app - INFO - Testing user authentication
+2025-05-30 14:40:32,137 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:40:32,137 - test_app - DEBUG - Generated init_data: auth_date=1748605232&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605232
+2025-05-30 14:40:32,137 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:32,137 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605232%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605232
+2025-05-30 14:40:32,711 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:32,711 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:31 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:32,711 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMyfQ.ElfBHt1ovBYH7PrvbPJayiM6tLymNeTFnG_a1wZ6nAw","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:40:32,711 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMyfQ.ElfBHt1ovBYH7PrvbPJayiM6tLymNeTFnG_a1wZ6nAw', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:40:32,712 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:40:32,712 - test_app - INFO - User authenticated successfully: {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}
+2025-05-30 14:40:32,712 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,712 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_02_authentication
+2025-05-30 14:40:32,712 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,713 - test_app - INFO - 
+
+
+2025-05-30 14:40:32,713 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,713 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_03_get_current_user
+2025-05-30 14:40:32,713 - test_app - INFO - ================================================================================
+2025-05-30 14:40:32,713 - test_app - INFO - Testing current user endpoint
+2025-05-30 14:40:32,713 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:40:32,713 - test_app - DEBUG - Generated init_data: auth_date=1748605232&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605232
+2025-05-30 14:40:32,713 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:32,713 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605232%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605232
+2025-05-30 14:40:33,291 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:33,291 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:32 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:33,292 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMzfQ.Mq9fBUXzacFry5NBxUTssZ3UqQwP_eyxHRp-WoC09Oc","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:40:33,292 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMzfQ.Mq9fBUXzacFry5NBxUTssZ3UqQwP_eyxHRp-WoC09Oc', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:40:33,292 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:40:34,913 - test_app - DEBUG - Current user response: {"username":"test_user","balance":10.0,"earned_hours":5.0,"spent_hours":0.0,"id":1,"telegram_id":12345,"avatar":null,"created_at":"2025-05-22T14:30:03"}
+2025-05-30 14:40:34,913 - test_app - INFO - Current user data retrieved successfully: {'username': 'test_user', 'balance': 10.0, 'earned_hours': 5.0, 'spent_hours': 0.0, 'id': 1, 'telegram_id': 12345, 'avatar': None, 'created_at': '2025-05-22T14:30:03'}
+2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:40:34,915 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_03_get_current_user
+2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:40:34,915 - test_app - INFO - 
+
+
+2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:40:34,915 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_04_create_listing
+2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:40:34,915 - test_app - INFO - Testing listing creation
+2025-05-30 14:40:34,915 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:40:34,915 - test_app - DEBUG - Generated init_data: auth_date=1748605234&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605234
+2025-05-30 14:40:34,915 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:34,915 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605234%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605234
+2025-05-30 14:40:35,435 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:35,435 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:34 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:35,435 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM1fQ.FDH3JyuUQrwM55v_SyXJsP_toNZphV6h0gQ0lIorjgo","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:40:35,435 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM1fQ.FDH3JyuUQrwM55v_SyXJsP_toNZphV6h0gQ0lIorjgo', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:40:35,436 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:40:35,990 - test_app - DEBUG - Creating listing with data: {'listing_type': 'request', 'title': 'Test Request', 'description': 'This is a test request created by automated tests', 'hours': 1.0, 'user_id': 1}
+2025-05-30 14:40:38,711 - test_app - ERROR - Listing creation failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:40:38,741 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_04_create_listing
+2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:40:38,741 - test_app - INFO - 
+
+
+2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:40:38,741 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_05_get_listings
+2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:40:38,741 - test_app - INFO - Testing listing retrieval
+2025-05-30 14:40:38,741 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:40:38,744 - test_app - DEBUG - Generated init_data: auth_date=1748605238&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605238
+2025-05-30 14:40:38,744 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:38,744 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605238%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605238
+2025-05-30 14:40:39,326 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:39,327 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:38 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:39,327 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM5fQ.mRdQZY-SWz4A3v3gHS7rrXRaUQ_aQbOA7AdMLllmnLA","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:40:39,327 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM5fQ.mRdQZY-SWz4A3v3gHS7rrXRaUQ_aQbOA7AdMLllmnLA', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:40:39,327 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:40:42,176 - test_app - ERROR - Listings retrieval failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:40:42,177 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_05_get_listings
+2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:40:42,177 - test_app - INFO - 
+
+
+2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:40:42,177 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_06_full_listing_workflow
+2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:40:42,177 - test_app - INFO - Testing full listing workflow
+2025-05-30 14:40:42,177 - test_app - INFO - Authenticating user id=12345, username=creator_user
+2025-05-30 14:40:42,177 - test_app - DEBUG - Generated init_data: auth_date=1748605242&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22creator_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605242
+2025-05-30 14:40:42,177 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:42,177 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605242%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522creator_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605242
+2025-05-30 14:40:43,147 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:43,147 - test_app - INFO - Authentication response headers: {'Content-Length': '387', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:42 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:43,148 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoiY3JlYXRvcl91c2VyIiwiZXhwIjoxNzQ4NjkxNjQyfQ.c5OTQqVPC_9xH-ewgfudnViF63_Q3ygtrZ4gggCtglw","token_type":"bearer","user":{"earned_hours":5.0,"id":1,"telegram_id":12345,"created_at":"2025-05-22T14:30:03","avatar":null,"balance":10.0,"username":"creator_user","spent_hours":0.0}}
+2025-05-30 14:40:43,148 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoiY3JlYXRvcl91c2VyIiwiZXhwIjoxNzQ4NjkxNjQyfQ.c5OTQqVPC_9xH-ewgfudnViF63_Q3ygtrZ4gggCtglw', 'token_type': 'bearer', 'user': {'earned_hours': 5.0, 'id': 1, 'telegram_id': 12345, 'created_at': '2025-05-22T14:30:03', 'avatar': None, 'balance': 10.0, 'username': 'creator_user', 'spent_hours': 0.0}}
+2025-05-30 14:40:43,148 - test_app - INFO - Successfully authenticated user: creator_user
+2025-05-30 14:40:43,148 - test_app - INFO - Authenticating user id=54321, username=worker_user
+2025-05-30 14:40:43,148 - test_app - DEBUG - Generated init_data: auth_date=1748605243&query_id=test_query_id&user=%7B%22id%22%3A%2054321%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22worker_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605243
+2025-05-30 14:40:43,148 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:43,148 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605243%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252054321%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522worker_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605243
+2025-05-30 14:40:43,686 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:43,686 - test_app - INFO - Authentication response headers: {'Content-Length': '383', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:43 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:43,686 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidGVsZWdyYW1faWQiOiI1NDMyMSIsInVzZXJuYW1lIjoid29ya2VyX3VzZXIiLCJleHAiOjE3NDg2OTE2NDN9.WeqlvrW-kjdTW1bWOGnwHn0Y00FKzJnIXBvPluhLlqs","token_type":"bearer","user":{"id":4,"telegram_id":54321,"earned_hours":0.0,"created_at":"2025-05-30T11:40:43","username":"worker_user","avatar":null,"balance":5.0,"spent_hours":0.0}}
+2025-05-30 14:40:43,686 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidGVsZWdyYW1faWQiOiI1NDMyMSIsInVzZXJuYW1lIjoid29ya2VyX3VzZXIiLCJleHAiOjE3NDg2OTE2NDN9.WeqlvrW-kjdTW1bWOGnwHn0Y00FKzJnIXBvPluhLlqs', 'token_type': 'bearer', 'user': {'id': 4, 'telegram_id': 54321, 'earned_hours': 0.0, 'created_at': '2025-05-30T11:40:43', 'username': 'worker_user', 'avatar': None, 'balance': 5.0, 'spent_hours': 0.0}}
+2025-05-30 14:40:43,686 - test_app - INFO - Successfully authenticated user: worker_user
+2025-05-30 14:40:46,942 - test_app - ERROR - Workflow test failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:40:46,947 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_06_full_listing_workflow
+2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:40:46,947 - test_app - INFO - 
+
+
+2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:40:46,947 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_07_friend_management
+2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:40:46,947 - test_app - INFO - Testing friend management
+2025-05-30 14:40:46,947 - test_app - INFO - Authenticating user id=11111, username=user_one
+2025-05-30 14:40:46,947 - test_app - DEBUG - Generated init_data: auth_date=1748605246&query_id=test_query_id&user=%7B%22id%22%3A%2011111%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22user_one%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605246
+2025-05-30 14:40:46,947 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:46,947 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605246%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252011111%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522user_one%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605246
+2025-05-30 14:40:47,545 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:47,546 - test_app - INFO - Authentication response headers: {'Content-Length': '376', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:46 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:47,546 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1IiwidGVsZWdyYW1faWQiOiIxMTExMSIsInVzZXJuYW1lIjoidXNlcl9vbmUiLCJleHAiOjE3NDg2OTE2NDd9.whB8hENJL0fOG3krjGbctB-sI8zsw5Xn-6foEFxLJhQ","token_type":"bearer","user":{"id":5,"telegram_id":11111,"earned_hours":0.0,"created_at":"2025-05-30T11:40:47","username":"user_one","avatar":null,"balance":5.0,"spent_hours":0.0}}
+2025-05-30 14:40:47,546 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1IiwidGVsZWdyYW1faWQiOiIxMTExMSIsInVzZXJuYW1lIjoidXNlcl9vbmUiLCJleHAiOjE3NDg2OTE2NDd9.whB8hENJL0fOG3krjGbctB-sI8zsw5Xn-6foEFxLJhQ', 'token_type': 'bearer', 'user': {'id': 5, 'telegram_id': 11111, 'earned_hours': 0.0, 'created_at': '2025-05-30T11:40:47', 'username': 'user_one', 'avatar': None, 'balance': 5.0, 'spent_hours': 0.0}}
+2025-05-30 14:40:47,547 - test_app - INFO - Successfully authenticated user: user_one
+2025-05-30 14:40:47,547 - test_app - INFO - Authenticating user id=22222, username=user_two
+2025-05-30 14:40:47,547 - test_app - DEBUG - Generated init_data: auth_date=1748605247&query_id=test_query_id&user=%7B%22id%22%3A%2022222%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22user_two%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605247
+2025-05-30 14:40:47,547 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:40:47,547 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605247%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252022222%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522user_two%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605247
+2025-05-30 14:40:48,064 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:40:48,064 - test_app - INFO - Authentication response headers: {'Content-Length': '376', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:47 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:40:48,064 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2IiwidGVsZWdyYW1faWQiOiIyMjIyMiIsInVzZXJuYW1lIjoidXNlcl90d28iLCJleHAiOjE3NDg2OTE2NDd9.RUcv6n5K5Y7gRAetF9e5q2P8u02gg4iiFAtqD-VW4hc","token_type":"bearer","user":{"id":6,"telegram_id":22222,"earned_hours":0.0,"created_at":"2025-05-30T11:40:47","username":"user_two","avatar":null,"balance":5.0,"spent_hours":0.0}}
+2025-05-30 14:40:48,064 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2IiwidGVsZWdyYW1faWQiOiIyMjIyMiIsInVzZXJuYW1lIjoidXNlcl90d28iLCJleHAiOjE3NDg2OTE2NDd9.RUcv6n5K5Y7gRAetF9e5q2P8u02gg4iiFAtqD-VW4hc', 'token_type': 'bearer', 'user': {'id': 6, 'telegram_id': 22222, 'earned_hours': 0.0, 'created_at': '2025-05-30T11:40:47', 'username': 'user_two', 'avatar': None, 'balance': 5.0, 'spent_hours': 0.0}}
+2025-05-30 14:40:48,064 - test_app - INFO - Successfully authenticated user: user_two
+2025-05-30 14:40:49,060 - test_app - INFO - User 1 DB ID: 5
+2025-05-30 14:40:49,060 - test_app - INFO - User 2 DB ID: 6
+2025-05-30 14:41:20,556 - test_app - ERROR - Friend management test failed: 500 != 200
+2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:20,557 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_07_friend_management
+2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:20,557 - test_app - INFO - 
+
+
+2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:20,557 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_08_transaction_history
+2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:20,557 - test_app - INFO - Testing transaction history
+2025-05-30 14:41:20,557 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:20,557 - test_app - DEBUG - Generated init_data: auth_date=1748605280&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605280
+2025-05-30 14:41:20,557 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:41:20,557 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605280%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605280
+2025-05-30 14:41:21,340 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:21,340 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:20 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:21,340 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgxfQ.hd2yK5JN7GFJPaQaNEgBMptKn0rUo7yEWRhn-O8S7bE","token_type":"bearer","user":{"earned_hours":5.0,"id":1,"telegram_id":12345,"created_at":"2025-05-22T14:30:03","avatar":null,"balance":10.0,"username":"test_user","spent_hours":0.0}}
+2025-05-30 14:41:21,341 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgxfQ.hd2yK5JN7GFJPaQaNEgBMptKn0rUo7yEWRhn-O8S7bE', 'token_type': 'bearer', 'user': {'earned_hours': 5.0, 'id': 1, 'telegram_id': 12345, 'created_at': '2025-05-22T14:30:03', 'avatar': None, 'balance': 10.0, 'username': 'test_user', 'spent_hours': 0.0}}
+2025-05-30 14:41:21,341 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:22,495 - test_app - INFO - User has 0 transactions
+2025-05-30 14:41:22,495 - test_app - INFO - Transaction history test completed successfully
+2025-05-30 14:41:22,495 - test_app - INFO - ================================================================================
+2025-05-30 14:41:22,495 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_08_transaction_history
+2025-05-30 14:41:22,495 - test_app - INFO - ================================================================================
+2025-05-30 14:41:22,495 - test_app - INFO - 
+
+
+2025-05-30 14:41:22,496 - test_app - INFO - ================================================================================
+2025-05-30 14:41:22,496 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_09_search_users
+2025-05-30 14:41:22,496 - test_app - INFO - ================================================================================
+2025-05-30 14:41:22,496 - test_app - INFO - Testing user search
+2025-05-30 14:41:22,496 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:22,496 - test_app - DEBUG - Generated init_data: auth_date=1748605282&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605282
+2025-05-30 14:41:22,496 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:41:22,496 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605282%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605282
+2025-05-30 14:41:23,022 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:23,022 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:21 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:23,022 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgyfQ.0hXnA7tlSF6qppXb4RJgnJHgrSD9byZuSS0gfhkwgx0","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:23,023 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgyfQ.0hXnA7tlSF6qppXb4RJgnJHgrSD9byZuSS0gfhkwgx0', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:23,023 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:23,594 - test_app - INFO - Found 3 users matching 'user'
+2025-05-30 14:41:23,594 - test_app - DEBUG - User 1: ID=4, Username=worker_user
+2025-05-30 14:41:23,594 - test_app - DEBUG - User 2: ID=5, Username=user_one
+2025-05-30 14:41:23,594 - test_app - DEBUG - User 3: ID=6, Username=user_two
+2025-05-30 14:41:23,594 - test_app - INFO - User search test completed successfully
+2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:23,595 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_09_search_users
+2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:23,595 - test_app - INFO - 
+
+
+2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:23,595 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_10_profile_view
+2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:23,595 - test_app - INFO - Testing profile view
+2025-05-30 14:41:23,595 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:23,596 - test_app - DEBUG - Generated init_data: auth_date=1748605283&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605283
+2025-05-30 14:41:23,596 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:41:23,596 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605283%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605283
+2025-05-30 14:41:24,173 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:24,173 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:23 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:24,173 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg0fQ.zjx75OeP7o-6zvRRQtdA-VhAB-2e-nENlxcyidOoRL0","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:24,173 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg0fQ.zjx75OeP7o-6zvRRQtdA-VhAB-2e-nENlxcyidOoRL0', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:24,173 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:25,183 - test_app - INFO - User has 1 listings
+2025-05-30 14:41:25,184 - test_app - DEBUG - Listing 1: ID=1, Title=ÔËÒˇ, Type=request, Status=active
+2025-05-30 14:41:25,184 - test_app - INFO - Profile view test completed successfully
+2025-05-30 14:41:25,184 - test_app - INFO - ================================================================================
+2025-05-30 14:41:25,184 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_10_profile_view
+2025-05-30 14:41:25,185 - test_app - INFO - ================================================================================
+2025-05-30 14:41:25,185 - test_app - INFO - 
+
+
+2025-05-30 14:41:25,185 - test_app - INFO - ================================================================================
+2025-05-30 14:41:25,185 - test_app - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_11_diagnostics
+2025-05-30 14:41:25,185 - test_app - INFO - ================================================================================
+2025-05-30 14:41:25,185 - test_app - INFO - Testing diagnostics endpoint
+2025-05-30 14:41:25,185 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:25,185 - test_app - DEBUG - Generated init_data: auth_date=1748605285&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605285
+2025-05-30 14:41:25,185 - test_app - DEBUG - Authentication URL: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram
+2025-05-30 14:41:25,185 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605285%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605285
+2025-05-30 14:41:25,746 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:25,746 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:25 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:25,746 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg1fQ.pVPHNAXek0Zz1y0pcQV_ircyzoeAjLZStSkkntx-5XQ","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:25,746 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg1fQ.pVPHNAXek0Zz1y0pcQV_ircyzoeAjLZStSkkntx-5XQ', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:25,746 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,291 - test_app - DEBUG - Diagnostics response: 200 - {"api_status":"ok","database":{"connection":true,"error":null,"user_count":6},"auth_config":{"jwt_algorithm":"HS256","jwt_expiry_minutes":1440,"bot_token_length":46,"bot_token_first_chars":"8022","bot_token_last_chars":"4-bU"},"filesystem":{"uploads_dir_exists":true,"logs_dir_exists":true,"db_file_exists":true,"db_file_size":65536},"timestamp":"2025-05-30T11:41:26.137324"}
+2025-05-30 14:41:26,292 - test_app - INFO - Database connection: True
+2025-05-30 14:41:26,292 - test_app - INFO - Database user count: 6
+2025-05-30 14:41:26,292 - test_app - INFO - Uploads directory exists: True
+2025-05-30 14:41:26,292 - test_app - INFO - Logs directory exists: True
+2025-05-30 14:41:26,292 - test_app - INFO - Diagnostics test completed successfully
+2025-05-30 14:41:26,293 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,293 - test_app - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_11_diagnostics
+2025-05-30 14:41:26,293 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,293 - test_app - INFO - 
+
+

@@ -153,3 +153,623 @@
 2025-05-30 12:50:39,615 - Starting Time Banking API
 2025-05-30 12:50:39,615 - ================================================================================
 2025-05-30 12:50:39,615 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 13:04:39,680 - ================================================================================
+2025-05-30 13:04:39,680 - Starting Time Banking API
+2025-05-30 13:04:39,680 - ================================================================================
+2025-05-30 13:04:39,680 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 13:27:56,616 - ================================================================================
+2025-05-30 13:27:56,616 - Starting Time Banking API
+2025-05-30 13:27:56,616 - ================================================================================
+2025-05-30 13:27:56,616 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 13:47:12,019 - ================================================================================
+2025-05-30 13:47:12,019 - Starting Time Banking API
+2025-05-30 13:47:12,020 - ================================================================================
+2025-05-30 13:47:12,020 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 13:56:47,580 - ================================================================================
+2025-05-30 13:56:47,580 - Starting Time Banking API
+2025-05-30 13:56:47,580 - ================================================================================
+2025-05-30 13:56:47,580 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 14:01:47,529 - ================================================================================
+2025-05-30 14:01:47,530 - Starting Time Banking API
+2025-05-30 14:01:47,530 - ================================================================================
+2025-05-30 14:01:47,530 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 14:06:53,063 - [3e746a59-f860-43b2-9af7-18e75601028d] Request from 127.0.0.1:52154 - POST /debug/auth
+2025-05-30 14:06:53,063 - [3e746a59-f860-43b2-9af7-18e75601028d] Request body: {"telegram_id": 12345, "username": "test_user", "create_test_user": true}
+2025-05-30 14:16:34,471 - [3e746a59-f860-43b2-9af7-18e75601028d] Response status: 400 - Completed in 581.4076s
+2025-05-30 14:16:44,607 - [443cf24d-37a3-421f-9a86-f7772bd7529d] Request from 127.0.0.1:60922 - POST /debug/auth
+2025-05-30 14:16:44,611 - [443cf24d-37a3-421f-9a86-f7772bd7529d] Request body: {"telegram_id": 12345, "username": "test_user", "create_test_user": true}
+2025-05-30 14:21:30,570 - ================================================================================
+2025-05-30 14:21:30,570 - Starting Time Banking API
+2025-05-30 14:21:30,571 - ================================================================================
+2025-05-30 14:21:30,571 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 14:40:32,017 - [1729be08-acb3-4b00-9c56-5d0b21e44dfb] Request from 77.91.101.132:0 - GET /
+2025-05-30 14:40:32,021 - [1729be08-acb3-4b00-9c56-5d0b21e44dfb] Response status: 200 - Completed in 0.0041s
+2025-05-30 14:40:32,549 - [46e4d5bb-236f-4b5d-b19e-bf9f3ba67a79] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:32,549 - [46e4d5bb-236f-4b5d-b19e-bf9f3ba67a79] Query params: {'init_data': 'auth_date=1748605232&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605232'}
+2025-05-30 14:40:32,549 - 
+
+********************************************************************************
+2025-05-30 14:40:32,549 - === Starting Telegram Authentication ===
+2025-05-30 14:40:32,549 - ********************************************************************************
+2025-05-30 14:40:32,567 - Verifying Telegram hash...
+2025-05-30 14:40:32,574 - Hash verification successful
+2025-05-30 14:40:32,575 - Parsing user data...
+2025-05-30 14:40:32,578 - Looking up user with telegram_id: 12345
+2025-05-30 14:40:32,581 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:40:32,581 - Creating JWT token for user: test_user
+2025-05-30 14:40:32,596 - JWT token created successfully
+2025-05-30 14:40:32,603 - === Authentication Successful ===
+2025-05-30 14:40:32,603 - ********************************************************************************
+
+
+2025-05-30 14:40:32,606 - [46e4d5bb-236f-4b5d-b19e-bf9f3ba67a79] Response status: 200 - Completed in 0.0570s
+2025-05-30 14:40:33,088 - [c3bd18e3-bacd-423f-9b95-006605af24ea] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:33,090 - [c3bd18e3-bacd-423f-9b95-006605af24ea] Query params: {'init_data': 'auth_date=1748605232&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605232'}
+2025-05-30 14:40:33,091 - 
+
+********************************************************************************
+2025-05-30 14:40:33,092 - === Starting Telegram Authentication ===
+2025-05-30 14:40:33,092 - ********************************************************************************
+2025-05-30 14:40:33,106 - Verifying Telegram hash...
+2025-05-30 14:40:33,116 - Hash verification successful
+2025-05-30 14:40:33,117 - Parsing user data...
+2025-05-30 14:40:33,121 - Looking up user with telegram_id: 12345
+2025-05-30 14:40:33,123 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:40:33,124 - Creating JWT token for user: test_user
+2025-05-30 14:40:33,126 - JWT token created successfully
+2025-05-30 14:40:33,128 - === Authentication Successful ===
+2025-05-30 14:40:33,128 - ********************************************************************************
+
+
+2025-05-30 14:40:33,128 - [c3bd18e3-bacd-423f-9b95-006605af24ea] Response status: 200 - Completed in 0.0378s
+2025-05-30 14:40:34,801 - [18daf0e7-d862-4866-8c6c-22d55bd39017] Request from 77.91.101.132:0 - GET /user/me
+2025-05-30 14:40:34,811 - [18daf0e7-d862-4866-8c6c-22d55bd39017] Response status: 200 - Completed in 0.0086s
+2025-05-30 14:40:35,301 - [2aa8f4fd-4fed-4ec0-804f-976678c4f126] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:35,302 - [2aa8f4fd-4fed-4ec0-804f-976678c4f126] Query params: {'init_data': 'auth_date=1748605234&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605234'}
+2025-05-30 14:40:35,304 - 
+
+********************************************************************************
+2025-05-30 14:40:35,304 - === Starting Telegram Authentication ===
+2025-05-30 14:40:35,305 - ********************************************************************************
+2025-05-30 14:40:35,317 - Verifying Telegram hash...
+2025-05-30 14:40:35,317 - Hash verification successful
+2025-05-30 14:40:35,317 - Parsing user data...
+2025-05-30 14:40:35,326 - Looking up user with telegram_id: 12345
+2025-05-30 14:40:35,328 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:40:35,328 - Creating JWT token for user: test_user
+2025-05-30 14:40:35,328 - JWT token created successfully
+2025-05-30 14:40:35,332 - === Authentication Successful ===
+2025-05-30 14:40:35,332 - ********************************************************************************
+
+
+2025-05-30 14:40:35,332 - [2aa8f4fd-4fed-4ec0-804f-976678c4f126] Response status: 200 - Completed in 0.0292s
+2025-05-30 14:40:35,803 - [87444ae3-71c8-4907-901b-8d1e131bd5a3] Request from 77.91.101.132:0 - GET /user/me
+2025-05-30 14:40:35,807 - [87444ae3-71c8-4907-901b-8d1e131bd5a3] Response status: 200 - Completed in 0.0029s
+2025-05-30 14:40:36,576 - [a03b5e54-8ab5-4863-8a1c-1e65ef996ad6] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 14:40:36,577 - [a03b5e54-8ab5-4863-8a1c-1e65ef996ad6] Request body: {"listing_type": "request", "title": "Test Request", "description": "This is a test request created by automated tests", "hours": 1.0, "user_id": 1}
+2025-05-30 14:40:36,578 - [a03b5e54-8ab5-4863-8a1c-1e65ef996ad6] Response status: 307 - Completed in 0.0005s
+2025-05-30 14:40:39,193 - [f06155e6-f073-4cd0-b585-6a673a7a76e1] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:39,193 - [f06155e6-f073-4cd0-b585-6a673a7a76e1] Query params: {'init_data': 'auth_date=1748605238&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605238'}
+2025-05-30 14:40:39,198 - 
+
+********************************************************************************
+2025-05-30 14:40:39,198 - === Starting Telegram Authentication ===
+2025-05-30 14:40:39,200 - ********************************************************************************
+2025-05-30 14:40:39,212 - Verifying Telegram hash...
+2025-05-30 14:40:39,216 - Hash verification successful
+2025-05-30 14:40:39,216 - Parsing user data...
+2025-05-30 14:40:39,216 - Looking up user with telegram_id: 12345
+2025-05-30 14:40:39,216 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:40:39,216 - Creating JWT token for user: test_user
+2025-05-30 14:40:39,226 - JWT token created successfully
+2025-05-30 14:40:39,227 - === Authentication Successful ===
+2025-05-30 14:40:39,227 - ********************************************************************************
+
+
+2025-05-30 14:40:39,229 - [f06155e6-f073-4cd0-b585-6a673a7a76e1] Response status: 200 - Completed in 0.0338s
+2025-05-30 14:40:40,004 - [df832923-8794-430c-99b5-b49c4b323d7a] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:40:40,005 - [df832923-8794-430c-99b5-b49c4b323d7a] Response status: 307 - Completed in 0.0000s
+2025-05-30 14:40:42,919 - [bdd24275-df6e-4798-bcad-4a8a123a49bc] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:42,920 - [bdd24275-df6e-4798-bcad-4a8a123a49bc] Query params: {'init_data': 'auth_date=1748605242&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22creator_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605242'}
+2025-05-30 14:40:42,922 - 
+
+********************************************************************************
+2025-05-30 14:40:42,922 - === Starting Telegram Authentication ===
+2025-05-30 14:40:42,923 - ********************************************************************************
+2025-05-30 14:40:42,937 - Verifying Telegram hash...
+2025-05-30 14:40:42,941 - Hash verification successful
+2025-05-30 14:40:42,941 - Parsing user data...
+2025-05-30 14:40:42,947 - Looking up user with telegram_id: 12345
+2025-05-30 14:40:42,947 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:40:42,949 - Updated username from test_user to: creator_user
+2025-05-30 14:40:42,958 - Creating JWT token for user: creator_user
+2025-05-30 14:40:42,963 - JWT token created successfully
+2025-05-30 14:40:42,963 - === Authentication Successful ===
+2025-05-30 14:40:42,963 - ********************************************************************************
+
+
+2025-05-30 14:40:42,965 - [bdd24275-df6e-4798-bcad-4a8a123a49bc] Response status: 200 - Completed in 0.0448s
+2025-05-30 14:40:43,536 - [65e9765e-e686-441e-946c-5abdb7708645] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:43,537 - [65e9765e-e686-441e-946c-5abdb7708645] Query params: {'init_data': 'auth_date=1748605243&query_id=test_query_id&user=%7B%22id%22%3A%2054321%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22worker_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605243'}
+2025-05-30 14:40:43,539 - 
+
+********************************************************************************
+2025-05-30 14:40:43,540 - === Starting Telegram Authentication ===
+2025-05-30 14:40:43,540 - ********************************************************************************
+2025-05-30 14:40:43,552 - Verifying Telegram hash...
+2025-05-30 14:40:43,557 - Hash verification successful
+2025-05-30 14:40:43,557 - Parsing user data...
+2025-05-30 14:40:43,561 - Looking up user with telegram_id: 54321
+2025-05-30 14:40:43,563 - Creating new user with telegram_id: 54321
+2025-05-30 14:40:43,573 - New user created: worker_user (ID: 4, Telegram ID: 54321)
+2025-05-30 14:40:43,576 - Creating JWT token for user: worker_user
+2025-05-30 14:40:43,579 - JWT token created successfully
+2025-05-30 14:40:43,579 - === Authentication Successful ===
+2025-05-30 14:40:43,579 - ********************************************************************************
+
+
+2025-05-30 14:40:43,579 - [65e9765e-e686-441e-946c-5abdb7708645] Response status: 200 - Completed in 0.0410s
+2025-05-30 14:40:44,036 - [ce3dfc87-5762-47b8-8ebb-f209fcb289ee] Request from 77.91.101.132:0 - GET /user/me
+2025-05-30 14:40:44,040 - [ce3dfc87-5762-47b8-8ebb-f209fcb289ee] Response status: 200 - Completed in 0.0027s
+2025-05-30 14:40:44,781 - [ad019dea-55c6-4c82-953d-dcb8e94a6731] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 14:40:44,782 - [ad019dea-55c6-4c82-953d-dcb8e94a6731] Request body: {"listing_type": "request", "title": "Workflow Test Request", "description": "This is a test request for workflow testing", "hours": 1.0, "user_id": 1}
+2025-05-30 14:40:44,783 - [ad019dea-55c6-4c82-953d-dcb8e94a6731] Response status: 307 - Completed in 0.0000s
+2025-05-30 14:40:47,352 - [f1566754-0ddc-469e-a153-a227179c9031] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:47,353 - [f1566754-0ddc-469e-a153-a227179c9031] Query params: {'init_data': 'auth_date=1748605246&query_id=test_query_id&user=%7B%22id%22%3A%2011111%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22user_one%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605246'}
+2025-05-30 14:40:47,355 - 
+
+********************************************************************************
+2025-05-30 14:40:47,355 - === Starting Telegram Authentication ===
+2025-05-30 14:40:47,356 - ********************************************************************************
+2025-05-30 14:40:47,366 - Verifying Telegram hash...
+2025-05-30 14:40:47,369 - Hash verification successful
+2025-05-30 14:40:47,369 - Parsing user data...
+2025-05-30 14:40:47,377 - Looking up user with telegram_id: 11111
+2025-05-30 14:40:47,380 - Creating new user with telegram_id: 11111
+2025-05-30 14:40:47,389 - New user created: user_one (ID: 5, Telegram ID: 11111)
+2025-05-30 14:40:47,389 - Creating JWT token for user: user_one
+2025-05-30 14:40:47,389 - JWT token created successfully
+2025-05-30 14:40:47,394 - === Authentication Successful ===
+2025-05-30 14:40:47,395 - ********************************************************************************
+
+
+2025-05-30 14:40:47,396 - [f1566754-0ddc-469e-a153-a227179c9031] Response status: 200 - Completed in 0.0422s
+2025-05-30 14:40:47,922 - [f50d0e98-f15d-42ca-b712-477e19545c0f] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:40:47,923 - [f50d0e98-f15d-42ca-b712-477e19545c0f] Query params: {'init_data': 'auth_date=1748605247&query_id=test_query_id&user=%7B%22id%22%3A%2022222%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22user_two%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605247'}
+2025-05-30 14:40:47,925 - 
+
+********************************************************************************
+2025-05-30 14:40:47,925 - === Starting Telegram Authentication ===
+2025-05-30 14:40:47,926 - ********************************************************************************
+2025-05-30 14:40:47,938 - Verifying Telegram hash...
+2025-05-30 14:40:47,944 - Hash verification successful
+2025-05-30 14:40:47,945 - Parsing user data...
+2025-05-30 14:40:47,949 - Looking up user with telegram_id: 22222
+2025-05-30 14:40:47,949 - Creating new user with telegram_id: 22222
+2025-05-30 14:40:47,957 - New user created: user_two (ID: 6, Telegram ID: 22222)
+2025-05-30 14:40:47,957 - Creating JWT token for user: user_two
+2025-05-30 14:40:47,962 - JWT token created successfully
+2025-05-30 14:40:47,962 - === Authentication Successful ===
+2025-05-30 14:40:47,962 - ********************************************************************************
+
+
+2025-05-30 14:40:47,965 - [f50d0e98-f15d-42ca-b712-477e19545c0f] Response status: 200 - Completed in 0.0403s
+2025-05-30 14:40:48,420 - [6ea84b71-0bc0-4a28-ac0e-11fae8015a50] Request from 77.91.101.132:0 - GET /user/me
+2025-05-30 14:40:48,423 - [6ea84b71-0bc0-4a28-ac0e-11fae8015a50] Response status: 200 - Completed in 0.0022s
+2025-05-30 14:40:48,903 - [b0cac1d6-1c71-4b6a-8e2f-fc8a439f66d6] Request from 77.91.101.132:0 - GET /user/me
+2025-05-30 14:40:48,907 - [b0cac1d6-1c71-4b6a-8e2f-fc8a439f66d6] Response status: 200 - Completed in 0.0027s
+2025-05-30 14:40:50,451 - [fa570d89-cb2f-40d6-9846-66700ae562d6] Request from 77.91.101.132:0 - POST /friends/request
+2025-05-30 14:40:50,453 - [fa570d89-cb2f-40d6-9846-66700ae562d6] Request body: {"friend_id": 6}
+2025-05-30 14:41:20,457 - [fa570d89-cb2f-40d6-9846-66700ae562d6] Response status: 400 - Completed in 30.0031s
+2025-05-30 14:41:21,176 - [ff8ff208-b0a2-401f-b8ce-6571d1ec1a7b] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:41:21,185 - [ff8ff208-b0a2-401f-b8ce-6571d1ec1a7b] Query params: {'init_data': 'auth_date=1748605280&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605280'}
+2025-05-30 14:41:21,187 - 
+
+********************************************************************************
+2025-05-30 14:41:21,187 - === Starting Telegram Authentication ===
+2025-05-30 14:41:21,187 - ********************************************************************************
+2025-05-30 14:41:21,201 - Verifying Telegram hash...
+2025-05-30 14:41:21,209 - Hash verification successful
+2025-05-30 14:41:21,210 - Parsing user data...
+2025-05-30 14:41:21,211 - Looking up user with telegram_id: 12345
+2025-05-30 14:41:21,215 - Found existing user: creator_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:41:21,215 - Updated username from creator_user to: test_user
+2025-05-30 14:41:21,217 - Creating JWT token for user: test_user
+2025-05-30 14:41:21,226 - JWT token created successfully
+2025-05-30 14:41:21,227 - === Authentication Successful ===
+2025-05-30 14:41:21,227 - ********************************************************************************
+
+
+2025-05-30 14:41:21,227 - [ff8ff208-b0a2-401f-b8ce-6571d1ec1a7b] Response status: 200 - Completed in 0.0407s
+2025-05-30 14:41:21,856 - [72d511cb-5948-445e-ae11-b9b5acce1c40] Request from 77.91.101.132:0 - GET /user/me
+2025-05-30 14:41:21,856 - [72d511cb-5948-445e-ae11-b9b5acce1c40] Response status: 200 - Completed in 0.0000s
+2025-05-30 14:41:22,352 - [10ac7821-07c9-4f98-9121-dac5776bd222] Request from 77.91.101.132:0 - GET /transactions/1
+2025-05-30 14:41:22,362 - [10ac7821-07c9-4f98-9121-dac5776bd222] Response status: 200 - Completed in 0.0091s
+2025-05-30 14:41:22,889 - [752e9fed-e4fa-4ee6-811c-c386fdc2a73a] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:41:22,890 - [752e9fed-e4fa-4ee6-811c-c386fdc2a73a] Query params: {'init_data': 'auth_date=1748605282&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605282'}
+2025-05-30 14:41:22,891 - 
+
+********************************************************************************
+2025-05-30 14:41:22,892 - === Starting Telegram Authentication ===
+2025-05-30 14:41:22,892 - ********************************************************************************
+2025-05-30 14:41:22,905 - Verifying Telegram hash...
+2025-05-30 14:41:22,910 - Hash verification successful
+2025-05-30 14:41:22,911 - Parsing user data...
+2025-05-30 14:41:22,911 - Looking up user with telegram_id: 12345
+2025-05-30 14:41:22,915 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:41:22,915 - Creating JWT token for user: test_user
+2025-05-30 14:41:22,915 - JWT token created successfully
+2025-05-30 14:41:22,915 - === Authentication Successful ===
+2025-05-30 14:41:22,915 - ********************************************************************************
+
+
+2025-05-30 14:41:22,915 - [752e9fed-e4fa-4ee6-811c-c386fdc2a73a] Response status: 200 - Completed in 0.0251s
+2025-05-30 14:41:23,437 - [cd04558e-516a-4e4c-8257-06071d6fbfc9] Request from 77.91.101.132:0 - GET /users/search
+2025-05-30 14:41:23,437 - [cd04558e-516a-4e4c-8257-06071d6fbfc9] Query params: {'username': 'user'}
+2025-05-30 14:41:23,445 - [cd04558e-516a-4e4c-8257-06071d6fbfc9] Response status: 200 - Completed in 0.0088s
+2025-05-30 14:41:23,985 - [897fba5b-d868-4046-8747-0b238d0423a6] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:41:23,986 - [897fba5b-d868-4046-8747-0b238d0423a6] Query params: {'init_data': 'auth_date=1748605283&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605283'}
+2025-05-30 14:41:23,990 - 
+
+********************************************************************************
+2025-05-30 14:41:23,990 - === Starting Telegram Authentication ===
+2025-05-30 14:41:23,990 - ********************************************************************************
+2025-05-30 14:41:24,006 - Verifying Telegram hash...
+2025-05-30 14:41:24,013 - Hash verification successful
+2025-05-30 14:41:24,014 - Parsing user data...
+2025-05-30 14:41:24,016 - Looking up user with telegram_id: 12345
+2025-05-30 14:41:24,016 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:41:24,020 - Creating JWT token for user: test_user
+2025-05-30 14:41:24,020 - JWT token created successfully
+2025-05-30 14:41:24,020 - === Authentication Successful ===
+2025-05-30 14:41:24,020 - ********************************************************************************
+
+
+2025-05-30 14:41:24,024 - [897fba5b-d868-4046-8747-0b238d0423a6] Response status: 200 - Completed in 0.0370s
+2025-05-30 14:41:24,562 - [d3ca7603-ae27-427a-adc6-21811d537202] Request from 77.91.101.132:0 - GET /user/me
+2025-05-30 14:41:24,566 - [d3ca7603-ae27-427a-adc6-21811d537202] Response status: 200 - Completed in 0.0032s
+2025-05-30 14:41:25,073 - [26d5e13b-2167-44a9-a66a-4179868c386a] Request from 77.91.101.132:0 - GET /listings/user/1
+2025-05-30 14:41:25,085 - [26d5e13b-2167-44a9-a66a-4179868c386a] Response status: 200 - Completed in 0.0107s
+2025-05-30 14:41:25,550 - [e93313c8-cad5-485b-8326-1377186a4fa2] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:41:25,552 - [e93313c8-cad5-485b-8326-1377186a4fa2] Query params: {'init_data': 'auth_date=1748605285&query_id=test_query_id&user=%7B%22id%22%3A%2012345%2C%20%22first_name%22%3A%20%22Test%22%2C%20%22username%22%3A%20%22test_user%22%2C%20%22language_code%22%3A%20%22ru%22%7D&test_mode=true&hash=test_hash_1748605285'}
+2025-05-30 14:41:25,554 - 
+
+********************************************************************************
+2025-05-30 14:41:25,555 - === Starting Telegram Authentication ===
+2025-05-30 14:41:25,556 - ********************************************************************************
+2025-05-30 14:41:25,575 - Verifying Telegram hash...
+2025-05-30 14:41:25,580 - Hash verification successful
+2025-05-30 14:41:25,585 - Parsing user data...
+2025-05-30 14:41:25,588 - Looking up user with telegram_id: 12345
+2025-05-30 14:41:25,588 - Found existing user: test_user (ID: 1, Telegram ID: 12345)
+2025-05-30 14:41:25,594 - Creating JWT token for user: test_user
+2025-05-30 14:41:25,596 - JWT token created successfully
+2025-05-30 14:41:25,598 - === Authentication Successful ===
+2025-05-30 14:41:25,598 - ********************************************************************************
+
+
+2025-05-30 14:41:25,598 - [e93313c8-cad5-485b-8326-1377186a4fa2] Response status: 200 - Completed in 0.0448s
+2025-05-30 14:41:26,131 - [b8b98520-2214-4134-bad8-84be24d8be8e] Request from 77.91.101.132:0 - GET /diagnostics
+2025-05-30 14:41:26,137 - [b8b98520-2214-4134-bad8-84be24d8be8e] Response status: 200 - Completed in 0.0049s
+2025-05-30 14:45:03,516 - [4acca6a9-157f-4c08-8c9c-24f69c1b0817] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:45:03,518 - [4acca6a9-157f-4c08-8c9c-24f69c1b0817] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TQAnEL3&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605470&signature=M7fohAzI5uFCwf2rqg8un6jf1TMVwm9nXAKTOFwq10IyNUCXYLZeniWlnspw_tMKwYuVQN_S3smc-HGdbismAg&hash=0fe5aded28ecf83d2f03eb06bcc759f947b38c435214835ca59074b9b61ce5ef'}
+2025-05-30 14:45:03,519 - [4acca6a9-157f-4c08-8c9c-24f69c1b0817] Request body: null
+2025-05-30 14:45:03,521 - [52a0367f-9247-461a-9b9b-7f55a4da6444] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:45:03,521 - [52a0367f-9247-461a-9b9b-7f55a4da6444] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TQAnEL3&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605470&signature=M7fohAzI5uFCwf2rqg8un6jf1TMVwm9nXAKTOFwq10IyNUCXYLZeniWlnspw_tMKwYuVQN_S3smc-HGdbismAg&hash=0fe5aded28ecf83d2f03eb06bcc759f947b38c435214835ca59074b9b61ce5ef'}
+2025-05-30 14:45:03,523 - [52a0367f-9247-461a-9b9b-7f55a4da6444] Request body: null
+2025-05-30 14:45:03,524 - 
+
+********************************************************************************
+2025-05-30 14:45:03,525 - === Starting Telegram Authentication ===
+2025-05-30 14:45:03,525 - ********************************************************************************
+2025-05-30 14:45:03,548 - Verifying Telegram hash...
+2025-05-30 14:45:03,557 - Hash verification failed
+2025-05-30 14:45:03,558 - Authentication failed with HTTPException
+2025-05-30 14:45:03,560 - 
+
+********************************************************************************
+2025-05-30 14:45:03,561 - === Starting Telegram Authentication ===
+2025-05-30 14:45:03,561 - ********************************************************************************
+2025-05-30 14:45:03,584 - Verifying Telegram hash...
+2025-05-30 14:45:03,593 - Hash verification failed
+2025-05-30 14:45:03,594 - Authentication failed with HTTPException
+2025-05-30 14:45:03,595 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:45:03,596 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:45:03,597 - [4acca6a9-157f-4c08-8c9c-24f69c1b0817] Response status: 401 - Completed in 0.0772s
+2025-05-30 14:45:03,598 - [52a0367f-9247-461a-9b9b-7f55a4da6444] Response status: 401 - Completed in 0.0747s
+2025-05-30 14:45:09,295 - [dd3b9858-1e90-4201-b4bd-917b015aadad] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:45:09,296 - [dd3b9858-1e90-4201-b4bd-917b015aadad] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:45:09,297 - [dd3b9858-1e90-4201-b4bd-917b015aadad] Response status: 307 - Completed in 0.0005s
+2025-05-30 14:45:09,530 - [25c41d8e-a9b8-4b61-8459-bb3354a0d969] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:45:09,531 - [25c41d8e-a9b8-4b61-8459-bb3354a0d969] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:45:09,533 - [25c41d8e-a9b8-4b61-8459-bb3354a0d969] Response status: 307 - Completed in 0.0005s
+2025-05-30 14:47:01,832 - ================================================================================
+2025-05-30 14:47:01,832 - Starting Time Banking API
+2025-05-30 14:47:01,832 - ================================================================================
+2025-05-30 14:47:01,832 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 14:48:04,135 - [af219356-a0f8-46a1-bd1f-35545f7a3d06] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:48:04,136 - [af219356-a0f8-46a1-bd1f-35545f7a3d06] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TSb1246&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605670&signature=FDdsfQzCpBmRq6I1IoDQB405--AfuL-4c57hT6tJuIgR5fl-WxYoSsFbuuPCmrKqhSsyirGV2Rv5Yd-Bwc7GAQ&hash=752140a57997c20a1ab93cb52e3520b869e5c552a3f26c238a39b59f0e83178a'}
+2025-05-30 14:48:04,137 - [af219356-a0f8-46a1-bd1f-35545f7a3d06] Request body: null
+2025-05-30 14:48:04,139 - [c22c90ca-ef77-42d0-bf02-78bf952c80a8] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:48:04,140 - [c22c90ca-ef77-42d0-bf02-78bf952c80a8] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TSb1246&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605670&signature=FDdsfQzCpBmRq6I1IoDQB405--AfuL-4c57hT6tJuIgR5fl-WxYoSsFbuuPCmrKqhSsyirGV2Rv5Yd-Bwc7GAQ&hash=752140a57997c20a1ab93cb52e3520b869e5c552a3f26c238a39b59f0e83178a'}
+2025-05-30 14:48:04,141 - [c22c90ca-ef77-42d0-bf02-78bf952c80a8] Request body: null
+2025-05-30 14:48:04,143 - 
+
+********************************************************************************
+2025-05-30 14:48:04,144 - === Starting Telegram Authentication ===
+2025-05-30 14:48:04,144 - ********************************************************************************
+2025-05-30 14:48:04,166 - Verifying Telegram hash...
+2025-05-30 14:48:04,176 - Hash verification failed
+2025-05-30 14:48:04,176 - Authentication failed with HTTPException
+2025-05-30 14:48:04,177 - 
+
+********************************************************************************
+2025-05-30 14:48:04,179 - === Starting Telegram Authentication ===
+2025-05-30 14:48:04,180 - ********************************************************************************
+2025-05-30 14:48:04,199 - Verifying Telegram hash...
+2025-05-30 14:48:04,207 - Hash verification failed
+2025-05-30 14:48:04,207 - Authentication failed with HTTPException
+2025-05-30 14:48:04,209 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:48:04,209 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:48:04,211 - [af219356-a0f8-46a1-bd1f-35545f7a3d06] Response status: 401 - Completed in 0.0732s
+2025-05-30 14:48:04,212 - [c22c90ca-ef77-42d0-bf02-78bf952c80a8] Response status: 401 - Completed in 0.0712s
+2025-05-30 14:48:09,809 - [e104bbc7-02ee-493d-bd99-7bda293ef902] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:48:09,810 - [e104bbc7-02ee-493d-bd99-7bda293ef902] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:48:09,811 - [e104bbc7-02ee-493d-bd99-7bda293ef902] Response status: 307 - Completed in 0.0005s
+2025-05-30 14:50:26,612 - ================================================================================
+2025-05-30 14:50:26,612 - Starting Time Banking API
+2025-05-30 14:50:26,615 - ================================================================================
+2025-05-30 14:50:26,615 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 14:52:01,910 - [f847233e-429f-4167-bb55-78c9489133ef] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:52:01,912 - [f847233e-429f-4167-bb55-78c9489133ef] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TQNt4ri&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605911&signature=NqmKOKhDTNrqVciK8qw889ZmnVcnq4K_s6whfi_yawZ601WBxBYup_gAPbizEo7gv2ZMjqn1M6dERVQ7kqcGAQ&hash=d7a863a61936f4ecee242c2c559bdf2070d5feff6851a640dd16945e14fd294f'}
+2025-05-30 14:52:01,913 - [f847233e-429f-4167-bb55-78c9489133ef] Request body: null
+2025-05-30 14:52:01,916 - [58bd5c29-12c4-49ee-a9a4-2db730c1f786] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:52:01,917 - [58bd5c29-12c4-49ee-a9a4-2db730c1f786] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TQNt4ri&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605911&signature=NqmKOKhDTNrqVciK8qw889ZmnVcnq4K_s6whfi_yawZ601WBxBYup_gAPbizEo7gv2ZMjqn1M6dERVQ7kqcGAQ&hash=d7a863a61936f4ecee242c2c559bdf2070d5feff6851a640dd16945e14fd294f'}
+2025-05-30 14:52:01,919 - [58bd5c29-12c4-49ee-a9a4-2db730c1f786] Request body: null
+2025-05-30 14:52:01,922 - 
+
+********************************************************************************
+2025-05-30 14:52:01,922 - === Starting Telegram Authentication ===
+2025-05-30 14:52:01,924 - ********************************************************************************
+2025-05-30 14:52:01,946 - Verifying Telegram hash...
+2025-05-30 14:52:01,957 - Hash verification failed
+2025-05-30 14:52:01,957 - Authentication failed with HTTPException
+2025-05-30 14:52:01,959 - 
+
+********************************************************************************
+2025-05-30 14:52:01,959 - === Starting Telegram Authentication ===
+2025-05-30 14:52:01,960 - ********************************************************************************
+2025-05-30 14:52:01,981 - Verifying Telegram hash...
+2025-05-30 14:52:01,990 - Hash verification failed
+2025-05-30 14:52:01,991 - Authentication failed with HTTPException
+2025-05-30 14:52:01,993 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:52:01,994 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:52:01,995 - [f847233e-429f-4167-bb55-78c9489133ef] Response status: 401 - Completed in 0.0813s
+2025-05-30 14:52:01,996 - [58bd5c29-12c4-49ee-a9a4-2db730c1f786] Response status: 401 - Completed in 0.0773s
+2025-05-30 14:52:10,253 - [aea31736-7bbb-4e9b-93cb-5d77c5842a14] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:52:10,254 - [aea31736-7bbb-4e9b-93cb-5d77c5842a14] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:52:10,256 - [aea31736-7bbb-4e9b-93cb-5d77c5842a14] Response status: 307 - Completed in 0.0000s
+2025-05-30 14:52:10,462 - [0e2c9b95-a716-4e0e-aaec-172074f21080] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:52:10,463 - [0e2c9b95-a716-4e0e-aaec-172074f21080] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:52:10,464 - [0e2c9b95-a716-4e0e-aaec-172074f21080] Response status: 307 - Completed in 0.0005s
+2025-05-30 14:52:14,941 - [093ebc87-0b58-4eff-8658-abb04d331422] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:52:14,942 - [093ebc87-0b58-4eff-8658-abb04d331422] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TQNt4ri&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605911&signature=NqmKOKhDTNrqVciK8qw889ZmnVcnq4K_s6whfi_yawZ601WBxBYup_gAPbizEo7gv2ZMjqn1M6dERVQ7kqcGAQ&hash=d7a863a61936f4ecee242c2c559bdf2070d5feff6851a640dd16945e14fd294f'}
+2025-05-30 14:52:14,942 - [093ebc87-0b58-4eff-8658-abb04d331422] Request body: null
+2025-05-30 14:52:14,944 - [522ba588-3b65-43c5-9b29-3c0b1d560bd1] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:52:14,946 - [522ba588-3b65-43c5-9b29-3c0b1d560bd1] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TQNt4ri&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748605911&signature=NqmKOKhDTNrqVciK8qw889ZmnVcnq4K_s6whfi_yawZ601WBxBYup_gAPbizEo7gv2ZMjqn1M6dERVQ7kqcGAQ&hash=d7a863a61936f4ecee242c2c559bdf2070d5feff6851a640dd16945e14fd294f'}
+2025-05-30 14:52:14,946 - [522ba588-3b65-43c5-9b29-3c0b1d560bd1] Request body: null
+2025-05-30 14:52:14,949 - 
+
+********************************************************************************
+2025-05-30 14:52:14,949 - === Starting Telegram Authentication ===
+2025-05-30 14:52:14,950 - ********************************************************************************
+2025-05-30 14:52:14,973 - Verifying Telegram hash...
+2025-05-30 14:52:14,984 - Hash verification failed
+2025-05-30 14:52:14,986 - Authentication failed with HTTPException
+2025-05-30 14:52:14,987 - 
+
+********************************************************************************
+2025-05-30 14:52:14,988 - === Starting Telegram Authentication ===
+2025-05-30 14:52:14,989 - ********************************************************************************
+2025-05-30 14:52:15,012 - Verifying Telegram hash...
+2025-05-30 14:52:15,023 - Hash verification failed
+2025-05-30 14:52:15,024 - Authentication failed with HTTPException
+2025-05-30 14:52:15,025 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:52:15,026 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:52:15,027 - [093ebc87-0b58-4eff-8658-abb04d331422] Response status: 401 - Completed in 0.0834s
+2025-05-30 14:52:15,029 - [522ba588-3b65-43c5-9b29-3c0b1d560bd1] Response status: 401 - Completed in 0.0824s
+2025-05-30 14:52:20,454 - [11bc9ae4-e0df-4330-8f60-aa74008be5a0] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:52:20,455 - [11bc9ae4-e0df-4330-8f60-aa74008be5a0] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:52:20,456 - [11bc9ae4-e0df-4330-8f60-aa74008be5a0] Response status: 307 - Completed in 0.0006s
+2025-05-30 14:52:20,678 - [42eb6e84-357c-4ec4-8098-02cc0306762c] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:52:20,679 - [42eb6e84-357c-4ec4-8098-02cc0306762c] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:52:20,681 - [42eb6e84-357c-4ec4-8098-02cc0306762c] Response status: 307 - Completed in 0.0011s
+2025-05-30 14:54:53,851 - ================================================================================
+2025-05-30 14:54:53,852 - Starting Time Banking API
+2025-05-30 14:54:53,852 - ================================================================================
+2025-05-30 14:54:53,853 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 14:55:44,973 - [4c5da705-097c-478d-accf-e16c314fad24] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:55:44,975 - [4c5da705-097c-478d-accf-e16c314fad24] Request body: ------WebKitFormBoundaryQJDPBmZsYR4nPJhV
+Content-Disposition: form-data; name="init_data"
+
+query_id=AAFreO00AAAAAGt47TTLNlJ_&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606136&signature=oNBDKZzSekRlcYjp2SAivGvRHDu-pSSrtbupUsV9s7Lb9J4q3or5CbDn3WnjIsqAD3C8iEWhDptiaVgGfx2YDA&hash=0e9edf9074354fd75d0739c566da9f46298294d9d98414f3f02cae226b6316bf
+------WebKitFormBoundaryQJDPBmZsYR4nPJhV--
+
+2025-05-30 14:55:44,979 - [2ae1c7f0-a7f4-4339-9fa8-70993be29ce6] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:55:44,981 - [2ae1c7f0-a7f4-4339-9fa8-70993be29ce6] Request body: ------WebKitFormBoundaryKWnsBml5zf7bOY4I
+Content-Disposition: form-data; name="init_data"
+
+query_id=AAFreO00AAAAAGt47TTLNlJ_&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606136&signature=oNBDKZzSekRlcYjp2SAivGvRHDu-pSSrtbupUsV9s7Lb9J4q3or5CbDn3WnjIsqAD3C8iEWhDptiaVgGfx2YDA&hash=0e9edf9074354fd75d0739c566da9f46298294d9d98414f3f02cae226b6316bf
+------WebKitFormBoundaryKWnsBml5zf7bOY4I--
+
+2025-05-30 14:55:44,985 - 
+
+********************************************************************************
+2025-05-30 14:55:44,986 - === Starting Telegram Authentication ===
+2025-05-30 14:55:44,987 - ********************************************************************************
+2025-05-30 14:55:45,014 - No init_data parameter provided in request
+2025-05-30 14:55:45,016 - Authentication failed with HTTPException
+2025-05-30 14:55:45,017 - 
+
+********************************************************************************
+2025-05-30 14:55:45,018 - === Starting Telegram Authentication ===
+2025-05-30 14:55:45,020 - ********************************************************************************
+2025-05-30 14:55:45,046 - No init_data parameter provided in request
+2025-05-30 14:55:45,047 - Authentication failed with HTTPException
+2025-05-30 14:55:45,049 - HTTP exception: 400 - Missing init_data parameter
+2025-05-30 14:55:45,051 - HTTP exception: 400 - Missing init_data parameter
+2025-05-30 14:55:45,053 - [4c5da705-097c-478d-accf-e16c314fad24] Response status: 400 - Completed in 0.0757s
+2025-05-30 14:55:45,054 - [2ae1c7f0-a7f4-4339-9fa8-70993be29ce6] Response status: 400 - Completed in 0.0722s
+2025-05-30 14:55:45,285 - [2f680b9e-2ce3-47db-beea-c4d6b79b42c6] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:55:45,287 - [2f680b9e-2ce3-47db-beea-c4d6b79b42c6] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TTLNlJ_&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606136&signature=oNBDKZzSekRlcYjp2SAivGvRHDu-pSSrtbupUsV9s7Lb9J4q3or5CbDn3WnjIsqAD3C8iEWhDptiaVgGfx2YDA&hash=0e9edf9074354fd75d0739c566da9f46298294d9d98414f3f02cae226b6316bf'}
+2025-05-30 14:55:45,288 - [f2f12ece-74af-4eb6-954d-bdbcb777ec0d] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 14:55:45,289 - [f2f12ece-74af-4eb6-954d-bdbcb777ec0d] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TTLNlJ_&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606136&signature=oNBDKZzSekRlcYjp2SAivGvRHDu-pSSrtbupUsV9s7Lb9J4q3or5CbDn3WnjIsqAD3C8iEWhDptiaVgGfx2YDA&hash=0e9edf9074354fd75d0739c566da9f46298294d9d98414f3f02cae226b6316bf'}
+2025-05-30 14:55:45,291 - 
+
+********************************************************************************
+2025-05-30 14:55:45,292 - === Starting Telegram Authentication ===
+2025-05-30 14:55:45,293 - ********************************************************************************
+2025-05-30 14:55:45,317 - Verifying Telegram hash...
+2025-05-30 14:55:45,329 - Hash verification failed
+2025-05-30 14:55:45,329 - Authentication failed with HTTPException
+2025-05-30 14:55:45,330 - 
+
+********************************************************************************
+2025-05-30 14:55:45,331 - === Starting Telegram Authentication ===
+2025-05-30 14:55:45,332 - ********************************************************************************
+2025-05-30 14:55:45,356 - Verifying Telegram hash...
+2025-05-30 14:55:45,366 - Hash verification failed
+2025-05-30 14:55:45,367 - Authentication failed with HTTPException
+2025-05-30 14:55:45,369 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:55:45,369 - HTTP exception: 401 - Invalid hash
+2025-05-30 14:55:45,371 - [2f680b9e-2ce3-47db-beea-c4d6b79b42c6] Response status: 401 - Completed in 0.0833s
+2025-05-30 14:55:45,372 - [f2f12ece-74af-4eb6-954d-bdbcb777ec0d] Response status: 401 - Completed in 0.0818s
+2025-05-30 14:56:21,456 - [e7dcf22a-844f-4a94-ac50-0dfc7d1a28e8] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 14:56:21,457 - [e7dcf22a-844f-4a94-ac50-0dfc7d1a28e8] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 14:56:21,459 - [e7dcf22a-844f-4a94-ac50-0dfc7d1a28e8] Response status: 307 - Completed in 0.0011s
+2025-05-30 14:59:54,273 - ================================================================================
+2025-05-30 14:59:54,274 - Starting Time Banking API
+2025-05-30 14:59:54,274 - ================================================================================
+2025-05-30 14:59:54,275 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 15:00:00,353 - [26568488-d25d-4ea4-8a69-bd290e7aeaac] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:00:00,355 - [26568488-d25d-4ea4-8a69-bd290e7aeaac] Request body: ------WebKitFormBoundaryEF0EtjvLBRjA7vPW
+Content-Disposition: form-data; name="init_data"
+
+query_id=AAFreO00AAAAAGt47TSMMiWh&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606392&signature=OqbVCR7Rq5lGm-Ngi3GVbpxNTrUPkWwBk5igEAgGQVs4yohzU8uHQehd_mh2cyv5pav0twovCzcZHvLL0NqZDg&hash=ea4bd4c4bb6747e73537ad5f28b68e8c4a57f7bdde2e33e9629a9265b442d3e4
+------WebKitFormBoundaryEF0EtjvLBRjA7vPW--
+
+2025-05-30 15:00:00,356 - [ed0240cd-3320-4fcf-b638-e4626f80c4a2] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:00:00,357 - [ed0240cd-3320-4fcf-b638-e4626f80c4a2] Request body: ------WebKitFormBoundaryeX3ZnHcFoVJ87qnz
+Content-Disposition: form-data; name="init_data"
+
+query_id=AAFreO00AAAAAGt47TSMMiWh&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606392&signature=OqbVCR7Rq5lGm-Ngi3GVbpxNTrUPkWwBk5igEAgGQVs4yohzU8uHQehd_mh2cyv5pav0twovCzcZHvLL0NqZDg&hash=ea4bd4c4bb6747e73537ad5f28b68e8c4a57f7bdde2e33e9629a9265b442d3e4
+------WebKitFormBoundaryeX3ZnHcFoVJ87qnz--
+
+2025-05-30 15:00:00,359 - 
+
+********************************************************************************
+2025-05-30 15:00:00,360 - === Starting Telegram Authentication ===
+2025-05-30 15:00:00,361 - ********************************************************************************
+2025-05-30 15:00:00,378 - No init_data parameter provided in request
+2025-05-30 15:00:00,379 - Authentication failed with HTTPException
+2025-05-30 15:00:00,380 - 
+
+********************************************************************************
+2025-05-30 15:00:00,381 - === Starting Telegram Authentication ===
+2025-05-30 15:00:00,382 - ********************************************************************************
+2025-05-30 15:00:00,399 - No init_data parameter provided in request
+2025-05-30 15:00:00,400 - Authentication failed with HTTPException
+2025-05-30 15:00:00,402 - HTTP exception: 400 - Missing init_data parameter
+2025-05-30 15:00:00,404 - HTTP exception: 400 - Missing init_data parameter
+2025-05-30 15:00:00,406 - [26568488-d25d-4ea4-8a69-bd290e7aeaac] Response status: 400 - Completed in 0.0495s
+2025-05-30 15:00:00,408 - [ed0240cd-3320-4fcf-b638-e4626f80c4a2] Response status: 400 - Completed in 0.0495s
+2025-05-30 15:00:00,701 - [e2342bd3-5de2-4cf8-9f70-f501cf05d0ed] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:00:00,703 - [e2342bd3-5de2-4cf8-9f70-f501cf05d0ed] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TSMMiWh&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606392&signature=OqbVCR7Rq5lGm-Ngi3GVbpxNTrUPkWwBk5igEAgGQVs4yohzU8uHQehd_mh2cyv5pav0twovCzcZHvLL0NqZDg&hash=ea4bd4c4bb6747e73537ad5f28b68e8c4a57f7bdde2e33e9629a9265b442d3e4'}
+2025-05-30 15:00:00,704 - 
+
+********************************************************************************
+2025-05-30 15:00:00,705 - === Starting Telegram Authentication ===
+2025-05-30 15:00:00,706 - ********************************************************************************
+2025-05-30 15:00:00,727 - Verifying Telegram hash...
+2025-05-30 15:00:00,736 - Hash verification failed
+2025-05-30 15:00:00,737 - Authentication failed with HTTPException
+2025-05-30 15:00:00,739 - HTTP exception: 401 - Invalid hash
+2025-05-30 15:00:00,740 - [e2342bd3-5de2-4cf8-9f70-f501cf05d0ed] Response status: 401 - Completed in 0.0364s
+2025-05-30 15:00:00,769 - [dd57bf49-22a8-4389-8c48-2d7d2583c307] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:00:00,771 - [dd57bf49-22a8-4389-8c48-2d7d2583c307] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TSMMiWh&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606392&signature=OqbVCR7Rq5lGm-Ngi3GVbpxNTrUPkWwBk5igEAgGQVs4yohzU8uHQehd_mh2cyv5pav0twovCzcZHvLL0NqZDg&hash=ea4bd4c4bb6747e73537ad5f28b68e8c4a57f7bdde2e33e9629a9265b442d3e4'}
+2025-05-30 15:00:00,774 - 
+
+********************************************************************************
+2025-05-30 15:00:00,774 - === Starting Telegram Authentication ===
+2025-05-30 15:00:00,775 - ********************************************************************************
+2025-05-30 15:00:00,797 - Verifying Telegram hash...
+2025-05-30 15:00:00,808 - Hash verification failed
+2025-05-30 15:00:00,810 - Authentication failed with HTTPException
+2025-05-30 15:00:00,811 - HTTP exception: 401 - Invalid hash
+2025-05-30 15:00:00,812 - [dd57bf49-22a8-4389-8c48-2d7d2583c307] Response status: 401 - Completed in 0.0396s
+2025-05-30 15:00:04,828 - [fc9e5701-0a77-4b58-b310-290b4db19492] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 15:00:04,829 - [fc9e5701-0a77-4b58-b310-290b4db19492] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 15:00:04,831 - [fc9e5701-0a77-4b58-b310-290b4db19492] Response status: 307 - Completed in 0.0005s
+2025-05-30 15:00:05,108 - [353268b6-a42a-40f0-b52c-e0f44b36bb3f] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 15:00:05,109 - [353268b6-a42a-40f0-b52c-e0f44b36bb3f] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 15:00:05,111 - [353268b6-a42a-40f0-b52c-e0f44b36bb3f] Response status: 307 - Completed in 0.0000s
+2025-05-30 15:01:01,300 - ================================================================================
+2025-05-30 15:01:01,300 - Starting Time Banking API
+2025-05-30 15:01:01,300 - ================================================================================
+2025-05-30 15:01:01,303 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 15:01:08,772 - [13b4c8d7-8968-4bed-ae10-02c9ab4cd135] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:01:08,774 - [13b4c8d7-8968-4bed-ae10-02c9ab4cd135] Request body: ------WebKitFormBoundary9HXkL5NwG2oRozkb
+Content-Disposition: form-data; name="init_data"
+
+query_id=AAFreO00AAAAAGt47TSxQD0R&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606464&signature=dHIeASBTJOWifS007aLqiPqNVNkAB94Jq9sBmN98DPSfPHoeM7fGYRFKlISOM0JoNXBqwdnhFanto8bYXb2yAw&hash=94e901b9750d3cbb133e552109e7d44cdd3c073d5dd3793aacafff68f99e6fd7
+------WebKitFormBoundary9HXkL5NwG2oRozkb--
+
+2025-05-30 15:01:08,776 - [80b9603b-6c51-4428-afb0-f523e96feaae] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:01:08,776 - [80b9603b-6c51-4428-afb0-f523e96feaae] Request body: ------WebKitFormBoundaryV5Q8PPAnBGUmV6YB
+Content-Disposition: form-data; name="init_data"
+
+query_id=AAFreO00AAAAAGt47TSxQD0R&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606464&signature=dHIeASBTJOWifS007aLqiPqNVNkAB94Jq9sBmN98DPSfPHoeM7fGYRFKlISOM0JoNXBqwdnhFanto8bYXb2yAw&hash=94e901b9750d3cbb133e552109e7d44cdd3c073d5dd3793aacafff68f99e6fd7
+------WebKitFormBoundaryV5Q8PPAnBGUmV6YB--
+
+2025-05-30 15:01:08,778 - 
+
+********************************************************************************
+2025-05-30 15:01:08,778 - === Starting Telegram Authentication ===
+2025-05-30 15:01:08,778 - ********************************************************************************
+2025-05-30 15:01:08,790 - No init_data parameter provided in request
+2025-05-30 15:01:08,796 - Authentication failed with HTTPException
+2025-05-30 15:01:08,796 - 
+
+********************************************************************************
+2025-05-30 15:01:08,797 - === Starting Telegram Authentication ===
+2025-05-30 15:01:08,797 - ********************************************************************************
+2025-05-30 15:01:08,811 - No init_data parameter provided in request
+2025-05-30 15:01:08,811 - Authentication failed with HTTPException
+2025-05-30 15:01:08,813 - HTTP exception: 400 - Missing init_data parameter
+2025-05-30 15:01:08,815 - HTTP exception: 400 - Missing init_data parameter
+2025-05-30 15:01:08,817 - [13b4c8d7-8968-4bed-ae10-02c9ab4cd135] Response status: 400 - Completed in 0.0407s
+2025-05-30 15:01:08,818 - [80b9603b-6c51-4428-afb0-f523e96feaae] Response status: 400 - Completed in 0.0414s
+2025-05-30 15:01:09,122 - [5870ce04-148c-4df7-9e33-f186b2ab733b] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:01:09,123 - [5870ce04-148c-4df7-9e33-f186b2ab733b] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TSxQD0R&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606464&signature=dHIeASBTJOWifS007aLqiPqNVNkAB94Jq9sBmN98DPSfPHoeM7fGYRFKlISOM0JoNXBqwdnhFanto8bYXb2yAw&hash=94e901b9750d3cbb133e552109e7d44cdd3c073d5dd3793aacafff68f99e6fd7'}
+2025-05-30 15:01:09,125 - [037c324c-dedb-44ec-b50d-de6967d785f2] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 15:01:09,125 - [037c324c-dedb-44ec-b50d-de6967d785f2] Query params: {'init_data': 'query_id=AAFreO00AAAAAGt47TSxQD0R&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748606464&signature=dHIeASBTJOWifS007aLqiPqNVNkAB94Jq9sBmN98DPSfPHoeM7fGYRFKlISOM0JoNXBqwdnhFanto8bYXb2yAw&hash=94e901b9750d3cbb133e552109e7d44cdd3c073d5dd3793aacafff68f99e6fd7'}
+2025-05-30 15:01:09,127 - 
+
+********************************************************************************
+2025-05-30 15:01:09,128 - === Starting Telegram Authentication ===
+2025-05-30 15:01:09,128 - ********************************************************************************
+2025-05-30 15:01:09,150 - Verifying Telegram hash...
+2025-05-30 15:01:09,160 - Hash verification failed
+2025-05-30 15:01:09,161 - Authentication failed with HTTPException
+2025-05-30 15:01:09,162 - 
+
+********************************************************************************
+2025-05-30 15:01:09,163 - === Starting Telegram Authentication ===
+2025-05-30 15:01:09,164 - ********************************************************************************
+2025-05-30 15:01:09,183 - Verifying Telegram hash...
+2025-05-30 15:01:09,193 - Hash verification failed
+2025-05-30 15:01:09,193 - Authentication failed with HTTPException
+2025-05-30 15:01:09,195 - HTTP exception: 401 - Invalid hash
+2025-05-30 15:01:09,196 - HTTP exception: 401 - Invalid hash
+2025-05-30 15:01:09,197 - [5870ce04-148c-4df7-9e33-f186b2ab733b] Response status: 401 - Completed in 0.0726s
+2025-05-30 15:01:09,198 - [037c324c-dedb-44ec-b50d-de6967d785f2] Response status: 401 - Completed in 0.0720s

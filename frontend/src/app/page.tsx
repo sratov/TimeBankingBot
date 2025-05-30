@@ -83,6 +83,8 @@ export default function Home() {
     const initializeUser = async () => {
       try {
         console.log("Starting user initialization...");
+        console.log("Current origin:", window.location.origin);
+        console.log("Environment API BASE:", process.env.NEXT_PUBLIC_API_BASE);
         
         // Check for existing token
         const token = localStorage.getItem('token');
@@ -99,6 +101,7 @@ export default function Home() {
             return; // Exit early if we successfully loaded the user
           } catch (error) {
             console.error("Error loading user with existing token:", error);
+            console.error("Clearing token and trying to re-authenticate");
             localStorage.removeItem('token');
             // Continue execution for re-authentication
           }
@@ -111,13 +114,19 @@ export default function Home() {
           
           // Log Telegram data
           console.log("Telegram WebApp data available:", !!webAppData);
-          console.log("Raw initData:", webAppData.initData);
-          console.log("initDataUnsafe:", JSON.stringify(webAppData.initDataUnsafe, null, 2));
+          console.log("Raw initData length:", webAppData.initData?.length || 0);
+          // Не выводим в лог полный initData, так как он содержит чувствительную информацию
+          if (webAppData.initDataUnsafe) {
+            console.log("initDataUnsafe (auth_date):", webAppData.initDataUnsafe.auth_date);
+            console.log("initDataUnsafe (user.id):", webAppData.initDataUnsafe.user?.id);
+            console.log("initDataUnsafe (user.username):", webAppData.initDataUnsafe.user?.username);
+          }
           
           try {
             // If Telegram data is available, send auth request
             if (webAppData.initData) {
               console.log("Sending authentication request to backend...");
+              // Ensure we're not modifying the initData and passing it directly
               const userData = await authenticateWithTelegram(webAppData.initData);
               console.log("Authentication successful:", userData);
               
@@ -125,38 +134,19 @@ export default function Home() {
               console.log("User profile set and token saved");
             } else {
               console.error("No Telegram initData available");
-              
-              // Fallback to using initDataUnsafe if available
-              if (webAppData.initDataUnsafe?.user) {
-                console.log("Using initDataUnsafe.user for authentication (fallback)");
-                const userData = await authenticateWithTelegram(
-                  `user=${encodeURIComponent(JSON.stringify(webAppData.initDataUnsafe.user))}&hash=debug_hash`
-                );
-                console.log("Fallback authentication successful:", userData);
-                
-                setUserProfile(userData.user);
-                console.log("User profile set and token saved (fallback mode)");
-              } else {
-                alert('Error: No initialization data from Telegram');
-              }
+              alert('Error: No initialization data from Telegram');
             }
           } catch (error: any) {
             console.error("Authentication error:", error);
-            console.error("Error details:", error.response?.data);
-            
-            // Last resort: try test user
-            try {
-              console.log("Trying test user authentication as last resort...");
-              const testData = `user=${encodeURIComponent(JSON.stringify({id: 12345, username: "test_user"}))}&hash=test_hash`;
-              const userData = await authenticateWithTelegram(testData);
-              console.log("Test authentication successful:", userData);
-              
-              setUserProfile(userData.user);
-              console.log("Test user profile set");
-            } catch (testError) {
-              console.error("Test authentication also failed:", testError);
-              alert('Authentication error. Check console for details.');
+            if (error.response) {
+              console.error("Error status:", error.response.status);
+              console.error("Error data:", error.response.data);
+            } else if (error.request) {
+              console.error("No response received:", error.request);
+            } else {
+              console.error("Error message:", error.message);
             }
+            alert('Authentication error. Please try refreshing the page.');
           }
         } else {
           console.error("No Telegram WebApp data available");
@@ -166,13 +156,28 @@ export default function Home() {
         
         // Load listings after authentication
         console.log("Loading listings...");
-        const listingsData = await getListings();
-        setListings(listingsData);
-        console.log("Listings loaded successfully");
+        try {
+          const listingsData = await getListings();
+          setListings(listingsData);
+          console.log("Listings loaded successfully");
+        } catch (listingsError: any) {
+          console.error("Error loading listings:", listingsError);
+          if (listingsError.response) {
+            console.error("Listings error status:", listingsError.response.status);
+            console.error("Listings error data:", listingsError.response.data);
+          }
+        }
       } catch (error: any) {
         console.error('Error during initialization:', error);
-        console.error('Error details:', error.response?.data);
-        alert('Initialization error. Please try again later.');
+        if (error.response) {
+          console.error('Error status:', error.response.status);
+          console.error('Error data:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received:', error.request);
+        } else {
+          console.error('Error message:', error.message);
+        }
+        alert('Initialization error. Please try refreshing the page.');
       } finally {
         setLoading(false);
       }

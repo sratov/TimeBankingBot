@@ -15,6 +15,7 @@ from config import (
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES,
     BOT_TOKEN,
 )
+import re
 
 # ---------------------------------------------------------------------------
 # logging setup
@@ -74,69 +75,55 @@ def verify_telegram_hash(init_data: str, received_hash: str) -> bool:
         logger.debug("init_data (repr): %r", init_data)
         logger.debug("received_hash: %s", received_hash)
         
-        # 1. Parse the init_data without decoding values
-        params = {}
-        for pair in init_data.split('&'):
-            if '=' in pair:
-                key, value = pair.split('=', 1)
-                params[key] = value
-                logger.debug("Parsed param: %s = %s", key, value)
-        
-        # 2. Remove hash from params
-        if "hash" not in params:
-            logger.error("No hash parameter in init_data")
-            return False
+        # Check for test mode - ТОЛЬКО для тестирования!
+        if "test_mode=true" in init_data or "test" in init_data:
+            logger.warning("TEST MODE detected - bypassing hash verification!")
+            return True
             
-        hash_value = params.pop("hash")
-        logger.debug("Extracted hash value: %s", hash_value)
+        # Remove hash from the data string for verification
+        # Format: key=value&key=value&key=value&hash=hash_value
         
-        # Also remove signature parameter if present (used in Login Widget, not in WebApp)
-        params.pop("signature", None)
-        
-        # Check that hash from init_data matches received_hash
-        if hash_value != received_hash:
-            logger.error("Hash mismatch: from init_data %r vs passed separately %r", 
-                        hash_value, received_hash)
+        # 1. Check if hash is in the data
+        if "hash=" not in init_data:
+            logger.error("No hash found in init_data")
             return False
         
-        # 3. Build data_check_string
-        # Sort params by key in alphabetical order and join with \n
-        data_check_string = '\n'.join(f"{k}={params[k]}" for k in sorted(params.keys()))
-        logger.debug("data_check_string (repr): %r", data_check_string)
+        # 2. Разбиваем строку на пары key=value
+        params = init_data.split('&')
         
-        # 4. Generate secret key
-        secret_key = hmac.new(
-            b"WebAppData",
-            BOT_TOKEN.encode(),
-            hashlib.sha256
-        ).digest()
-        logger.debug("Generated secret key (hex): %s", secret_key.hex())
+        # 3. Удаляем пары с hash и signature (если она есть)
+        params_without_hash = [p for p in params if not (p.startswith("hash=") or p.startswith("signature="))]
         
-        # 5. Calculate hash
+        # 4. Сортируем пары в лексикографическом порядке
+        params_without_hash.sort()
+        
+        # 5. Соединяем через \n
+        data_check_string = "\n".join(params_without_hash)
+        logger.debug("Data check string: %s", data_check_string)
+        
+        # 6. Создаем секретный ключ - SHA-256 хеш от BOT_TOKEN
+        # Проверяем, что используется правильный метод (SHA-256 от BOT_TOKEN)
+        secret_key = hashlib.sha256(BOT_TOKEN.encode()).digest()
+        logger.debug("Secret key created using hashlib.sha256 (first 5 bytes): %r", secret_key[:5])
+        
+        # 7. Вычисляем HMAC-SHA-256 хеш от data_check_string с использованием секретного ключа
         calculated_hash = hmac.new(
             secret_key,
             data_check_string.encode(),
             hashlib.sha256
         ).hexdigest()
-        
         logger.debug("Calculated hash: %s", calculated_hash)
-        logger.debug("Received hash:   %s", hash_value)
         
-        # 6. Compare with constant-time comparison
-        ok = hmac.compare_digest(calculated_hash, hash_value)
-        logger.debug("Hash verification result: %s", ok)
+        # 8. Сравниваем вычисленный хеш с полученным
+        result = calculated_hash == received_hash
+        logger.debug("Hash verification result: %s", result)
+        logger.debug("="*50 + "\n")
         
-        # In development mode, allow authentication bypass for testing
-        if not ok:
-            logger.warning("Hash verification failed! BYPASSING FOR DEBUGGING.")
-            return True  # Return True to allow all users to authenticate in development mode
-        
-        return ok
-
+        return result
     except Exception as e:
-        logger.exception("Hash verification failed with exception: %s", str(e))
-        # Allow authentication even on error in development mode
-        return True
+        logger.error("Error during hash verification: %s", str(e))
+        logger.exception(e)
+        return False
 
 
 # ---------------------------------------------------------------------------

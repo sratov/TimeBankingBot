@@ -1,0 +1,555 @@
+2025-05-30 14:40:30,693 - test_runner - INFO - ================================================================================
+2025-05-30 14:40:30,693 - test_runner - INFO - ЗАПУСК ТЕСТИРОВАНИЯ TIME BANKING APP
+2025-05-30 14:40:30,695 - test_runner - INFO - Время запуска: 2025-05-30 14:40:30
+2025-05-30 14:40:30,695 - test_runner - INFO - API URL: https://66fb-77-91-101-132.ngrok-free.app/api
+2025-05-30 14:40:30,695 - test_runner - INFO - Frontend URL: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 14:40:30,696 - test_runner - INFO - ================================================================================
+2025-05-30 14:40:30,696 - test_runner - INFO - ================================================================================
+2025-05-30 14:40:30,697 - test_runner - INFO - ЗАПУСК ТЕСТОВ БЭКЕНДА
+2025-05-30 14:40:30,697 - test_runner - INFO - ================================================================================
+2025-05-30 14:40:30,697 - test_runner - INFO - Запуск файла test_app.py
+2025-05-30 14:41:26,327 - test_runner - INFO - Тесты бэкенда завершены за 55.63 секунд
+2025-05-30 14:41:26,327 - test_runner - INFO - Статус выполнения: с ошибками
+2025-05-30 14:41:26,327 - test_runner - DEBUG - Вывод тестов бэкенда:
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - ЗАПУСК ТЕСТИРОВАНИЯ TIME BANKING APP
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - API URL: https://66fb-77-91-101-132.ngrok-free.app/api
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - Токен бота (скрыт): 80221..._4-bU
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - Время запуска: 2025-05-30 14:40:31
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - НАЧАЛО ТЕСТА: test_01_api_health
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:31,256 - test_app - INFO - Testing API health endpoint
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,134 - test_app - INFO - API health check successful
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,136 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_01_api_health
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,136 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,136 - test_app - INFO - НАЧАЛО ТЕСТА: test_02_authentication
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,136 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,137 - test_app - INFO - Testing user authentication
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,137 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,137 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605232%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605232
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,711 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,711 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:31 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,711 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMyfQ.ElfBHt1ovBYH7PrvbPJayiM6tLymNeTFnG_a1wZ6nAw","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,711 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMyfQ.ElfBHt1ovBYH7PrvbPJayiM6tLymNeTFnG_a1wZ6nAw', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,712 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,712 - test_app - INFO - User authenticated successfully: {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,712 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,712 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_02_authentication
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,712 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,713 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,713 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,713 - test_app - INFO - НАЧАЛО ТЕСТА: test_03_get_current_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,713 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,713 - test_app - INFO - Testing current user endpoint
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,713 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:32,713 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605232%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605232
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:33,291 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:33,291 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:32 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:33,292 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMzfQ.Mq9fBUXzacFry5NBxUTssZ3UqQwP_eyxHRp-WoC09Oc","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:33,292 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjMzfQ.Mq9fBUXzacFry5NBxUTssZ3UqQwP_eyxHRp-WoC09Oc', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:33,292 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,913 - test_app - INFO - Current user data retrieved successfully: {'username': 'test_user', 'balance': 10.0, 'earned_hours': 5.0, 'spent_hours': 0.0, 'id': 1, 'telegram_id': 12345, 'avatar': None, 'created_at': '2025-05-22T14:30:03'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_03_get_current_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - НАЧАЛО ТЕСТА: test_04_create_listing
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - Testing listing creation
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:34,915 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605234%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605234
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:35,435 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:35,435 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:34 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:35,435 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM1fQ.FDH3JyuUQrwM55v_SyXJsP_toNZphV6h0gQ0lIorjgo","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:35,435 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM1fQ.FDH3JyuUQrwM55v_SyXJsP_toNZphV6h0gQ0lIorjgo', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:35,436 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,711 - test_app - ERROR - Listing creation failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_04_create_listing
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - НАЧАЛО ТЕСТА: test_05_get_listings
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - Testing listing retrieval
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,741 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:38,744 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605238%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605238
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:39,326 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:39,327 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:38 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:39,327 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM5fQ.mRdQZY-SWz4A3v3gHS7rrXRaUQ_aQbOA7AdMLllmnLA","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:39,327 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjM5fQ.mRdQZY-SWz4A3v3gHS7rrXRaUQ_aQbOA7AdMLllmnLA', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:39,327 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,176 - test_app - ERROR - Listings retrieval failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_05_get_listings
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - НАЧАЛО ТЕСТА: test_06_full_listing_workflow
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - Testing full listing workflow
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - Authenticating user id=12345, username=creator_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:42,177 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605242%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522creator_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605242
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,147 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,147 - test_app - INFO - Authentication response headers: {'Content-Length': '387', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:42 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,148 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoiY3JlYXRvcl91c2VyIiwiZXhwIjoxNzQ4NjkxNjQyfQ.c5OTQqVPC_9xH-ewgfudnViF63_Q3ygtrZ4gggCtglw","token_type":"bearer","user":{"earned_hours":5.0,"id":1,"telegram_id":12345,"created_at":"2025-05-22T14:30:03","avatar":null,"balance":10.0,"username":"creator_user","spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,148 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoiY3JlYXRvcl91c2VyIiwiZXhwIjoxNzQ4NjkxNjQyfQ.c5OTQqVPC_9xH-ewgfudnViF63_Q3ygtrZ4gggCtglw', 'token_type': 'bearer', 'user': {'earned_hours': 5.0, 'id': 1, 'telegram_id': 12345, 'created_at': '2025-05-22T14:30:03', 'avatar': None, 'balance': 10.0, 'username': 'creator_user', 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,148 - test_app - INFO - Successfully authenticated user: creator_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,148 - test_app - INFO - Authenticating user id=54321, username=worker_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,148 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605243%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252054321%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522worker_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605243
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,686 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,686 - test_app - INFO - Authentication response headers: {'Content-Length': '383', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:43 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,686 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidGVsZWdyYW1faWQiOiI1NDMyMSIsInVzZXJuYW1lIjoid29ya2VyX3VzZXIiLCJleHAiOjE3NDg2OTE2NDN9.WeqlvrW-kjdTW1bWOGnwHn0Y00FKzJnIXBvPluhLlqs","token_type":"bearer","user":{"id":4,"telegram_id":54321,"earned_hours":0.0,"created_at":"2025-05-30T11:40:43","username":"worker_user","avatar":null,"balance":5.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,686 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidGVsZWdyYW1faWQiOiI1NDMyMSIsInVzZXJuYW1lIjoid29ya2VyX3VzZXIiLCJleHAiOjE3NDg2OTE2NDN9.WeqlvrW-kjdTW1bWOGnwHn0Y00FKzJnIXBvPluhLlqs', 'token_type': 'bearer', 'user': {'id': 4, 'telegram_id': 54321, 'earned_hours': 0.0, 'created_at': '2025-05-30T11:40:43', 'username': 'worker_user', 'avatar': None, 'balance': 5.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:43,686 - test_app - INFO - Successfully authenticated user: worker_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,942 - test_app - ERROR - Workflow test failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_06_full_listing_workflow
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - НАЧАЛО ТЕСТА: test_07_friend_management
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - Testing friend management
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - Authenticating user id=11111, username=user_one
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:46,947 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605246%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252011111%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522user_one%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605246
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:47,545 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:47,546 - test_app - INFO - Authentication response headers: {'Content-Length': '376', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:46 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:47,546 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1IiwidGVsZWdyYW1faWQiOiIxMTExMSIsInVzZXJuYW1lIjoidXNlcl9vbmUiLCJleHAiOjE3NDg2OTE2NDd9.whB8hENJL0fOG3krjGbctB-sI8zsw5Xn-6foEFxLJhQ","token_type":"bearer","user":{"id":5,"telegram_id":11111,"earned_hours":0.0,"created_at":"2025-05-30T11:40:47","username":"user_one","avatar":null,"balance":5.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:47,546 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1IiwidGVsZWdyYW1faWQiOiIxMTExMSIsInVzZXJuYW1lIjoidXNlcl9vbmUiLCJleHAiOjE3NDg2OTE2NDd9.whB8hENJL0fOG3krjGbctB-sI8zsw5Xn-6foEFxLJhQ', 'token_type': 'bearer', 'user': {'id': 5, 'telegram_id': 11111, 'earned_hours': 0.0, 'created_at': '2025-05-30T11:40:47', 'username': 'user_one', 'avatar': None, 'balance': 5.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:47,547 - test_app - INFO - Successfully authenticated user: user_one
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:47,547 - test_app - INFO - Authenticating user id=22222, username=user_two
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:47,547 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605247%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252022222%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522user_two%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605247
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:48,064 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:48,064 - test_app - INFO - Authentication response headers: {'Content-Length': '376', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:40:47 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:48,064 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2IiwidGVsZWdyYW1faWQiOiIyMjIyMiIsInVzZXJuYW1lIjoidXNlcl90d28iLCJleHAiOjE3NDg2OTE2NDd9.RUcv6n5K5Y7gRAetF9e5q2P8u02gg4iiFAtqD-VW4hc","token_type":"bearer","user":{"id":6,"telegram_id":22222,"earned_hours":0.0,"created_at":"2025-05-30T11:40:47","username":"user_two","avatar":null,"balance":5.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:48,064 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2IiwidGVsZWdyYW1faWQiOiIyMjIyMiIsInVzZXJuYW1lIjoidXNlcl90d28iLCJleHAiOjE3NDg2OTE2NDd9.RUcv6n5K5Y7gRAetF9e5q2P8u02gg4iiFAtqD-VW4hc', 'token_type': 'bearer', 'user': {'id': 6, 'telegram_id': 22222, 'earned_hours': 0.0, 'created_at': '2025-05-30T11:40:47', 'username': 'user_two', 'avatar': None, 'balance': 5.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:48,064 - test_app - INFO - Successfully authenticated user: user_two
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:49,060 - test_app - INFO - User 1 DB ID: 5
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:40:49,060 - test_app - INFO - User 2 DB ID: 6
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,556 - test_app - ERROR - Friend management test failed: 500 != 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_07_friend_management
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - НАЧАЛО ТЕСТА: test_08_transaction_history
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - Testing transaction history
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:20,557 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605280%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605280
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:21,340 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:21,340 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:20 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:21,340 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgxfQ.hd2yK5JN7GFJPaQaNEgBMptKn0rUo7yEWRhn-O8S7bE","token_type":"bearer","user":{"earned_hours":5.0,"id":1,"telegram_id":12345,"created_at":"2025-05-22T14:30:03","avatar":null,"balance":10.0,"username":"test_user","spent_hours":0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:21,341 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgxfQ.hd2yK5JN7GFJPaQaNEgBMptKn0rUo7yEWRhn-O8S7bE', 'token_type': 'bearer', 'user': {'earned_hours': 5.0, 'id': 1, 'telegram_id': 12345, 'created_at': '2025-05-22T14:30:03', 'avatar': None, 'balance': 10.0, 'username': 'test_user', 'spent_hours': 0.0}}
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:21,341 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,495 - test_app - INFO - User has 0 transactions
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,495 - test_app - INFO - Transaction history test completed successfully
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,495 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,495 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_08_transaction_history
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,495 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,495 - test_app - INFO - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,496 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,496 - test_app - INFO - НАЧАЛО ТЕСТА: test_09_search_users
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,496 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,327 - test_runner - DEBUG - 2025-05-30 14:41:22,496 - test_app - INFO - Testing user search
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:22,496 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:22,496 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605282%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605282
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,022 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,022 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:21 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,022 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgyfQ.0hXnA7tlSF6qppXb4RJgnJHgrSD9byZuSS0gfhkwgx0","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,023 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjgyfQ.0hXnA7tlSF6qppXb4RJgnJHgrSD9byZuSS0gfhkwgx0', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,023 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,594 - test_app - INFO - Found 3 users matching 'user'
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,594 - test_app - INFO - User search test completed successfully
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_09_search_users
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - 
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - НАЧАЛО ТЕСТА: test_10_profile_view
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - Testing profile view
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,595 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:23,596 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605283%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605283
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:24,173 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:24,173 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:23 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:24,173 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg0fQ.zjx75OeP7o-6zvRRQtdA-VhAB-2e-nENlxcyidOoRL0","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:24,173 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg0fQ.zjx75OeP7o-6zvRRQtdA-VhAB-2e-nENlxcyidOoRL0', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:24,173 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,183 - test_app - INFO - User has 1 listings
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,184 - test_app - INFO - Profile view test completed successfully
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,184 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,184 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_10_profile_view
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - 
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - НАЧАЛО ТЕСТА: test_11_diagnostics
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - Testing diagnostics endpoint
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - Authenticating user id=None, username=None
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,185 - test_app - INFO - Sending authentication request to: https://66fb-77-91-101-132.ngrok-free.app/api/auth/telegram?init_data=auth_date%3D1748605285%26query_id%3Dtest_query_id%26user%3D%257B%2522id%2522%253A%252012345%252C%2520%2522first_name%2522%253A%2520%2522Test%2522%252C%2520%2522username%2522%253A%2520%2522test_user%2522%252C%2520%2522language_code%2522%253A%2520%2522ru%2522%257D%26test_mode%3Dtrue%26hash%3Dtest_hash_1748605285
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,746 - test_app - INFO - Authentication response status: 200
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,746 - test_app - INFO - Authentication response headers: {'Content-Length': '380', 'Content-Type': 'application/json', 'Date': 'Fri, 30 May 2025 11:41:25 GMT', 'Ngrok-Agent-Ips': '77.91.101.132', 'Server': 'uvicorn', 'Vary': 'Accept-Encoding'}
+2025-05-30 14:41:26,335 - test_runner - DEBUG - 2025-05-30 14:41:25,746 - test_app - INFO - Authentication response body: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg1fQ.pVPHNAXek0Zz1y0pcQV_ircyzoeAjLZStSkkntx-5XQ","token_type":"bearer","user":{"id":1,"telegram_id":12345,"earned_hours":5.0,"created_at":"2025-05-22T14:30:03","username":"test_user","avatar":null,"balance":10.0,"spent_hours":0.0}}
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:25,746 - test_app - INFO - Parsed JSON response: {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwiZXhwIjoxNzQ4NjkxNjg1fQ.pVPHNAXek0Zz1y0pcQV_ircyzoeAjLZStSkkntx-5XQ', 'token_type': 'bearer', 'user': {'id': 1, 'telegram_id': 12345, 'earned_hours': 5.0, 'created_at': '2025-05-22T14:30:03', 'username': 'test_user', 'avatar': None, 'balance': 10.0, 'spent_hours': 0.0}}
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:25,746 - test_app - INFO - Successfully authenticated user: test_user
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,292 - test_app - INFO - Database connection: True
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,292 - test_app - INFO - Database user count: 6
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,292 - test_app - INFO - Uploads directory exists: True
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,292 - test_app - INFO - Logs directory exists: True
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,292 - test_app - INFO - Diagnostics test completed successfully
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,293 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,293 - test_app - INFO - ЗАВЕРШЕНИЕ ТЕСТА: test_11_diagnostics
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,293 - test_app - INFO - ================================================================================
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 2025-05-30 14:41:26,293 - test_app - INFO - 
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 
+2025-05-30 14:41:26,336 - test_runner - DEBUG - 
+2025-05-30 14:41:26,336 - test_runner - ERROR - Ошибки при выполнении тестов бэкенда:
+2025-05-30 14:41:26,336 - test_runner - ERROR - test_01_api_health (__main__.TestTimeBankingApp.test_01_api_health)
+2025-05-30 14:41:26,336 - test_runner - ERROR - Тест доступности API ... ok
+2025-05-30 14:41:26,336 - test_runner - ERROR - test_02_authentication (__main__.TestTimeBankingApp.test_02_authentication)
+2025-05-30 14:41:26,336 - test_runner - ERROR - Тест аутентификации пользователя через Telegram ... ok
+2025-05-30 14:41:26,338 - test_runner - ERROR - test_03_get_current_user (__main__.TestTimeBankingApp.test_03_get_current_user)
+2025-05-30 14:41:26,338 - test_runner - ERROR - Тест получения данных текущего пользователя ... ok
+2025-05-30 14:41:26,338 - test_runner - ERROR - test_04_create_listing (__main__.TestTimeBankingApp.test_04_create_listing)
+2025-05-30 14:41:26,338 - test_runner - ERROR - Тест создания заявки ... FAIL
+2025-05-30 14:41:26,338 - test_runner - ERROR - test_05_get_listings (__main__.TestTimeBankingApp.test_05_get_listings)
+2025-05-30 14:41:26,340 - test_runner - ERROR - Тест получения списка заявок ... FAIL
+2025-05-30 14:41:26,340 - test_runner - ERROR - test_06_full_listing_workflow (__main__.TestTimeBankingApp.test_06_full_listing_workflow)
+2025-05-30 14:41:26,340 - test_runner - ERROR - Тест полного цикла работы с заявкой ... FAIL
+2025-05-30 14:41:26,340 - test_runner - ERROR - test_07_friend_management (__main__.TestTimeBankingApp.test_07_friend_management)
+2025-05-30 14:41:26,341 - test_runner - ERROR - Тест управления друзьями ... FAIL
+2025-05-30 14:41:26,341 - test_runner - ERROR - test_08_transaction_history (__main__.TestTimeBankingApp.test_08_transaction_history)
+2025-05-30 14:41:26,341 - test_runner - ERROR - Тест истории транзакций ... ok
+2025-05-30 14:41:26,341 - test_runner - ERROR - test_09_search_users (__main__.TestTimeBankingApp.test_09_search_users)
+2025-05-30 14:41:26,341 - test_runner - ERROR - Тест поиска пользователей ... ok
+2025-05-30 14:41:26,342 - test_runner - ERROR - test_10_profile_view (__main__.TestTimeBankingApp.test_10_profile_view)
+2025-05-30 14:41:26,343 - test_runner - ERROR - Тест просмотра профиля ... ok
+2025-05-30 14:41:26,343 - test_runner - ERROR - test_11_diagnostics (__main__.TestTimeBankingApp.test_11_diagnostics)
+2025-05-30 14:41:26,343 - test_runner - ERROR - Тест диагностического эндпоинта ... ok
+2025-05-30 14:41:26,343 - test_runner - ERROR - 
+2025-05-30 14:41:26,343 - test_runner - ERROR - ======================================================================
+2025-05-30 14:41:26,343 - test_runner - ERROR - FAIL: test_04_create_listing (__main__.TestTimeBankingApp.test_04_create_listing)
+2025-05-30 14:41:26,343 - test_runner - ERROR - Тест создания заявки
+2025-05-30 14:41:26,343 - test_runner - ERROR - ----------------------------------------------------------------------
+2025-05-30 14:41:26,345 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,345 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+2025-05-30 14:41:26,345 - test_runner - ERROR -     self._validate_conn(conn)
+2025-05-30 14:41:26,345 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+2025-05-30 14:41:26,345 - test_runner - ERROR -     conn.connect()
+2025-05-30 14:41:26,346 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 741, in connect
+2025-05-30 14:41:26,346 - test_runner - ERROR -     sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+2025-05-30 14:41:26,346 - test_runner - ERROR -                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,346 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 920, in _ssl_wrap_socket_and_match_hostname
+2025-05-30 14:41:26,346 - test_runner - ERROR -     ssl_sock = ssl_wrap_socket(
+2025-05-30 14:41:26,346 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,346 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket
+2025-05-30 14:41:26,346 - test_runner - ERROR -     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+2025-05-30 14:41:26,346 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,346 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+2025-05-30 14:41:26,349 - test_runner - ERROR -     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+2025-05-30 14:41:26,349 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,349 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 455, in wrap_socket
+2025-05-30 14:41:26,349 - test_runner - ERROR -     return self.sslsocket_class._create(
+2025-05-30 14:41:26,349 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,349 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1042, in _create
+2025-05-30 14:41:26,349 - test_runner - ERROR -     self.do_handshake()
+2025-05-30 14:41:26,349 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1320, in do_handshake
+2025-05-30 14:41:26,349 - test_runner - ERROR -     self._sslobj.do_handshake()
+2025-05-30 14:41:26,349 - test_runner - ERROR - ssl.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)
+2025-05-30 14:41:26,349 - test_runner - ERROR - 
+2025-05-30 14:41:26,349 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,349 - test_runner - ERROR - 
+2025-05-30 14:41:26,349 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,353 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+2025-05-30 14:41:26,353 - test_runner - ERROR -     response = self._make_request(
+2025-05-30 14:41:26,353 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,353 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+2025-05-30 14:41:26,353 - test_runner - ERROR -     raise new_e
+2025-05-30 14:41:26,353 - test_runner - ERROR - urllib3.exceptions.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)
+2025-05-30 14:41:26,355 - test_runner - ERROR - 
+2025-05-30 14:41:26,355 - test_runner - ERROR - The above exception was the direct cause of the following exception:
+2025-05-30 14:41:26,355 - test_runner - ERROR - 
+2025-05-30 14:41:26,355 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,355 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 667, in send
+2025-05-30 14:41:26,355 - test_runner - ERROR -     resp = conn.urlopen(
+2025-05-30 14:41:26,355 - test_runner - ERROR -            ^^^^^^^^^^^^^
+2025-05-30 14:41:26,355 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+2025-05-30 14:41:26,355 - test_runner - ERROR -     retries = retries.increment(
+2025-05-30 14:41:26,355 - test_runner - ERROR -               ^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,355 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+2025-05-30 14:41:26,355 - test_runner - ERROR -     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+2025-05-30 14:41:26,358 - test_runner - ERROR -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,358 - test_runner - ERROR - urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,358 - test_runner - ERROR - 
+2025-05-30 14:41:26,358 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,358 - test_runner - ERROR - 
+2025-05-30 14:41:26,358 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,358 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 294, in test_04_create_listing
+2025-05-30 14:41:26,358 - test_runner - ERROR -     response = requests.post(
+2025-05-30 14:41:26,358 - test_runner - ERROR -                ^^^^^^^^^^^^^^
+2025-05-30 14:41:26,358 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 115, in post
+2025-05-30 14:41:26,358 - test_runner - ERROR -     return request("post", url, data=data, json=json, **kwargs)
+2025-05-30 14:41:26,358 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,358 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+2025-05-30 14:41:26,358 - test_runner - ERROR -     return session.request(method=method, url=url, **kwargs)
+2025-05-30 14:41:26,358 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,358 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+2025-05-30 14:41:26,358 - test_runner - ERROR -     resp = self.send(prep, **send_kwargs)
+2025-05-30 14:41:26,358 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,358 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 724, in send
+2025-05-30 14:41:26,364 - test_runner - ERROR -     history = [resp for resp in gen]
+2025-05-30 14:41:26,364 - test_runner - ERROR -               ^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,365 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 265, in resolve_redirects
+2025-05-30 14:41:26,365 - test_runner - ERROR -     resp = self.send(
+2025-05-30 14:41:26,365 - test_runner - ERROR -            ^^^^^^^^^^
+2025-05-30 14:41:26,365 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+2025-05-30 14:41:26,365 - test_runner - ERROR -     r = adapter.send(request, **kwargs)
+2025-05-30 14:41:26,366 - test_runner - ERROR -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,366 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 698, in send
+2025-05-30 14:41:26,366 - test_runner - ERROR -     raise SSLError(e, request=request)
+2025-05-30 14:41:26,366 - test_runner - ERROR - requests.exceptions.SSLError: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,367 - test_runner - ERROR - 
+2025-05-30 14:41:26,367 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,367 - test_runner - ERROR - 
+2025-05-30 14:41:26,368 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,368 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 312, in test_04_create_listing
+2025-05-30 14:41:26,368 - test_runner - ERROR -     self.fail(f"Listing creation failed: {str(e)}")
+2025-05-30 14:41:26,368 - test_runner - ERROR - AssertionError: Listing creation failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,368 - test_runner - ERROR - 
+2025-05-30 14:41:26,368 - test_runner - ERROR - ======================================================================
+2025-05-30 14:41:26,368 - test_runner - ERROR - FAIL: test_05_get_listings (__main__.TestTimeBankingApp.test_05_get_listings)
+2025-05-30 14:41:26,368 - test_runner - ERROR - Тест получения списка заявок
+2025-05-30 14:41:26,368 - test_runner - ERROR - ----------------------------------------------------------------------
+2025-05-30 14:41:26,368 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,368 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+2025-05-30 14:41:26,368 - test_runner - ERROR -     self._validate_conn(conn)
+2025-05-30 14:41:26,368 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+2025-05-30 14:41:26,368 - test_runner - ERROR -     conn.connect()
+2025-05-30 14:41:26,372 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 741, in connect
+2025-05-30 14:41:26,372 - test_runner - ERROR -     sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+2025-05-30 14:41:26,372 - test_runner - ERROR -                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,372 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 920, in _ssl_wrap_socket_and_match_hostname
+2025-05-30 14:41:26,374 - test_runner - ERROR -     ssl_sock = ssl_wrap_socket(
+2025-05-30 14:41:26,374 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,374 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket
+2025-05-30 14:41:26,374 - test_runner - ERROR -     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+2025-05-30 14:41:26,375 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,375 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+2025-05-30 14:41:26,375 - test_runner - ERROR -     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+2025-05-30 14:41:26,375 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,376 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 455, in wrap_socket
+2025-05-30 14:41:26,376 - test_runner - ERROR -     return self.sslsocket_class._create(
+2025-05-30 14:41:26,376 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,376 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1042, in _create
+2025-05-30 14:41:26,376 - test_runner - ERROR -     self.do_handshake()
+2025-05-30 14:41:26,376 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1320, in do_handshake
+2025-05-30 14:41:26,376 - test_runner - ERROR -     self._sslobj.do_handshake()
+2025-05-30 14:41:26,376 - test_runner - ERROR - ssl.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)
+2025-05-30 14:41:26,376 - test_runner - ERROR - 
+2025-05-30 14:41:26,376 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,376 - test_runner - ERROR - 
+2025-05-30 14:41:26,376 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,376 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+2025-05-30 14:41:26,376 - test_runner - ERROR -     response = self._make_request(
+2025-05-30 14:41:26,376 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,376 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+2025-05-30 14:41:26,376 - test_runner - ERROR -     raise new_e
+2025-05-30 14:41:26,381 - test_runner - ERROR - urllib3.exceptions.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)
+2025-05-30 14:41:26,381 - test_runner - ERROR - 
+2025-05-30 14:41:26,382 - test_runner - ERROR - The above exception was the direct cause of the following exception:
+2025-05-30 14:41:26,382 - test_runner - ERROR - 
+2025-05-30 14:41:26,382 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,383 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 667, in send
+2025-05-30 14:41:26,383 - test_runner - ERROR -     resp = conn.urlopen(
+2025-05-30 14:41:26,383 - test_runner - ERROR -            ^^^^^^^^^^^^^
+2025-05-30 14:41:26,383 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+2025-05-30 14:41:26,384 - test_runner - ERROR -     retries = retries.increment(
+2025-05-30 14:41:26,384 - test_runner - ERROR -               ^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,384 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+2025-05-30 14:41:26,384 - test_runner - ERROR -     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+2025-05-30 14:41:26,384 - test_runner - ERROR -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,384 - test_runner - ERROR - urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,385 - test_runner - ERROR - 
+2025-05-30 14:41:26,386 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,386 - test_runner - ERROR - 
+2025-05-30 14:41:26,386 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,386 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 326, in test_05_get_listings
+2025-05-30 14:41:26,386 - test_runner - ERROR -     response = requests.get(f"{self.api_url}/listings/", headers=headers)
+2025-05-30 14:41:26,387 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,387 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+2025-05-30 14:41:26,387 - test_runner - ERROR -     return request("get", url, params=params, **kwargs)
+2025-05-30 14:41:26,387 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,389 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+2025-05-30 14:41:26,389 - test_runner - ERROR -     return session.request(method=method, url=url, **kwargs)
+2025-05-30 14:41:26,389 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,390 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+2025-05-30 14:41:26,390 - test_runner - ERROR -     resp = self.send(prep, **send_kwargs)
+2025-05-30 14:41:26,390 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,390 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 724, in send
+2025-05-30 14:41:26,391 - test_runner - ERROR -     history = [resp for resp in gen]
+2025-05-30 14:41:26,391 - test_runner - ERROR -               ^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,391 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 265, in resolve_redirects
+2025-05-30 14:41:26,391 - test_runner - ERROR -     resp = self.send(
+2025-05-30 14:41:26,392 - test_runner - ERROR -            ^^^^^^^^^^
+2025-05-30 14:41:26,392 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+2025-05-30 14:41:26,392 - test_runner - ERROR -     r = adapter.send(request, **kwargs)
+2025-05-30 14:41:26,393 - test_runner - ERROR -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,393 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 698, in send
+2025-05-30 14:41:26,393 - test_runner - ERROR -     raise SSLError(e, request=request)
+2025-05-30 14:41:26,394 - test_runner - ERROR - requests.exceptions.SSLError: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,394 - test_runner - ERROR - 
+2025-05-30 14:41:26,394 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,394 - test_runner - ERROR - 
+2025-05-30 14:41:26,395 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,395 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 340, in test_05_get_listings
+2025-05-30 14:41:26,395 - test_runner - ERROR -     self.fail(f"Listings retrieval failed: {str(e)}")
+2025-05-30 14:41:26,396 - test_runner - ERROR - AssertionError: Listings retrieval failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,396 - test_runner - ERROR - 
+2025-05-30 14:41:26,396 - test_runner - ERROR - ======================================================================
+2025-05-30 14:41:26,397 - test_runner - ERROR - FAIL: test_06_full_listing_workflow (__main__.TestTimeBankingApp.test_06_full_listing_workflow)
+2025-05-30 14:41:26,397 - test_runner - ERROR - Тест полного цикла работы с заявкой
+2025-05-30 14:41:26,398 - test_runner - ERROR - ----------------------------------------------------------------------
+2025-05-30 14:41:26,398 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,398 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+2025-05-30 14:41:26,398 - test_runner - ERROR -     self._validate_conn(conn)
+2025-05-30 14:41:26,399 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+2025-05-30 14:41:26,399 - test_runner - ERROR -     conn.connect()
+2025-05-30 14:41:26,399 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 741, in connect
+2025-05-30 14:41:26,399 - test_runner - ERROR -     sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+2025-05-30 14:41:26,400 - test_runner - ERROR -                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,400 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 920, in _ssl_wrap_socket_and_match_hostname
+2025-05-30 14:41:26,400 - test_runner - ERROR -     ssl_sock = ssl_wrap_socket(
+2025-05-30 14:41:26,400 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,400 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket
+2025-05-30 14:41:26,401 - test_runner - ERROR -     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+2025-05-30 14:41:26,401 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,401 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+2025-05-30 14:41:26,402 - test_runner - ERROR -     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+2025-05-30 14:41:26,402 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,402 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 455, in wrap_socket
+2025-05-30 14:41:26,402 - test_runner - ERROR -     return self.sslsocket_class._create(
+2025-05-30 14:41:26,403 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,403 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1042, in _create
+2025-05-30 14:41:26,403 - test_runner - ERROR -     self.do_handshake()
+2025-05-30 14:41:26,403 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1320, in do_handshake
+2025-05-30 14:41:26,404 - test_runner - ERROR -     self._sslobj.do_handshake()
+2025-05-30 14:41:26,404 - test_runner - ERROR - ssl.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)
+2025-05-30 14:41:26,404 - test_runner - ERROR - 
+2025-05-30 14:41:26,405 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,405 - test_runner - ERROR - 
+2025-05-30 14:41:26,406 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,406 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+2025-05-30 14:41:26,406 - test_runner - ERROR -     response = self._make_request(
+2025-05-30 14:41:26,406 - test_runner - ERROR -                ^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,407 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+2025-05-30 14:41:26,407 - test_runner - ERROR -     raise new_e
+2025-05-30 14:41:26,407 - test_runner - ERROR - urllib3.exceptions.SSLError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)
+2025-05-30 14:41:26,407 - test_runner - ERROR - 
+2025-05-30 14:41:26,408 - test_runner - ERROR - The above exception was the direct cause of the following exception:
+2025-05-30 14:41:26,408 - test_runner - ERROR - 
+2025-05-30 14:41:26,408 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,408 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 667, in send
+2025-05-30 14:41:26,409 - test_runner - ERROR -     resp = conn.urlopen(
+2025-05-30 14:41:26,409 - test_runner - ERROR -            ^^^^^^^^^^^^^
+2025-05-30 14:41:26,409 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+2025-05-30 14:41:26,409 - test_runner - ERROR -     retries = retries.increment(
+2025-05-30 14:41:26,409 - test_runner - ERROR -               ^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,409 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+2025-05-30 14:41:26,409 - test_runner - ERROR -     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+2025-05-30 14:41:26,409 - test_runner - ERROR -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,409 - test_runner - ERROR - urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,409 - test_runner - ERROR - 
+2025-05-30 14:41:26,409 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,409 - test_runner - ERROR - 
+2025-05-30 14:41:26,409 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,409 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 377, in test_06_full_listing_workflow
+2025-05-30 14:41:26,409 - test_runner - ERROR -     create_response = requests.post(
+2025-05-30 14:41:26,409 - test_runner - ERROR -                       ^^^^^^^^^^^^^^
+2025-05-30 14:41:26,409 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 115, in post
+2025-05-30 14:41:26,415 - test_runner - ERROR -     return request("post", url, data=data, json=json, **kwargs)
+2025-05-30 14:41:26,415 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,415 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+2025-05-30 14:41:26,416 - test_runner - ERROR -     return session.request(method=method, url=url, **kwargs)
+2025-05-30 14:41:26,416 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,416 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+2025-05-30 14:41:26,416 - test_runner - ERROR -     resp = self.send(prep, **send_kwargs)
+2025-05-30 14:41:26,416 - test_runner - ERROR -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,416 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 724, in send
+2025-05-30 14:41:26,416 - test_runner - ERROR -     history = [resp for resp in gen]
+2025-05-30 14:41:26,416 - test_runner - ERROR -               ^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,416 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 265, in resolve_redirects
+2025-05-30 14:41:26,416 - test_runner - ERROR -     resp = self.send(
+2025-05-30 14:41:26,416 - test_runner - ERROR -            ^^^^^^^^^^
+2025-05-30 14:41:26,416 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+2025-05-30 14:41:26,416 - test_runner - ERROR -     r = adapter.send(request, **kwargs)
+2025-05-30 14:41:26,416 - test_runner - ERROR -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-05-30 14:41:26,416 - test_runner - ERROR -   File "C:\Users\Арматур\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 698, in send
+2025-05-30 14:41:26,416 - test_runner - ERROR -     raise SSLError(e, request=request)
+2025-05-30 14:41:26,416 - test_runner - ERROR - requests.exceptions.SSLError: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,416 - test_runner - ERROR - 
+2025-05-30 14:41:26,416 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,416 - test_runner - ERROR - 
+2025-05-30 14:41:26,416 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,416 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 432, in test_06_full_listing_workflow
+2025-05-30 14:41:26,416 - test_runner - ERROR -     self.fail(f"Workflow test failed: {str(e)}")
+2025-05-30 14:41:26,416 - test_runner - ERROR - AssertionError: Workflow test failed: HTTPSConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /listings/ (Caused by SSLError(SSLError(1, '[SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)')))
+2025-05-30 14:41:26,416 - test_runner - ERROR - 
+2025-05-30 14:41:26,416 - test_runner - ERROR - ======================================================================
+2025-05-30 14:41:26,416 - test_runner - ERROR - FAIL: test_07_friend_management (__main__.TestTimeBankingApp.test_07_friend_management)
+2025-05-30 14:41:26,424 - test_runner - ERROR - Тест управления друзьями
+2025-05-30 14:41:26,424 - test_runner - ERROR - ----------------------------------------------------------------------
+2025-05-30 14:41:26,424 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,425 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 477, in test_07_friend_management
+2025-05-30 14:41:26,425 - test_runner - ERROR -     self.assertEqual(request_response.status_code, 200)
+2025-05-30 14:41:26,426 - test_runner - ERROR - AssertionError: 500 != 200
+2025-05-30 14:41:26,426 - test_runner - ERROR - 
+2025-05-30 14:41:26,427 - test_runner - ERROR - During handling of the above exception, another exception occurred:
+2025-05-30 14:41:26,427 - test_runner - ERROR - 
+2025-05-30 14:41:26,427 - test_runner - ERROR - Traceback (most recent call last):
+2025-05-30 14:41:26,427 - test_runner - ERROR -   File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\test_app.py", line 527, in test_07_friend_management
+2025-05-30 14:41:26,427 - test_runner - ERROR -     self.fail(f"Friend management test failed: {str(e)}")
+2025-05-30 14:41:26,427 - test_runner - ERROR - AssertionError: Friend management test failed: 500 != 200
+2025-05-30 14:41:26,427 - test_runner - ERROR - 
+2025-05-30 14:41:26,427 - test_runner - ERROR - ----------------------------------------------------------------------
+2025-05-30 14:41:26,427 - test_runner - ERROR - Ran 11 tests in 55.034s
+2025-05-30 14:41:26,427 - test_runner - ERROR - 
+2025-05-30 14:41:26,427 - test_runner - ERROR - FAILED (failures=4)
+2025-05-30 14:41:26,427 - test_runner - INFO - ================================================================================
+2025-05-30 14:41:26,427 - test_runner - INFO - РЕЗУЛЬТАТЫ ТЕСТИРОВАНИЯ
+2025-05-30 14:41:26,427 - test_runner - INFO - ================================================================================
+2025-05-30 14:41:26,427 - test_runner - INFO - Тесты бэкенда: ОШИБКА
+2025-05-30 14:41:26,427 - test_runner - INFO - Общий результат: ОШИБКА
+2025-05-30 14:41:26,427 - test_runner - INFO - Время завершения: 2025-05-30 14:41:26
+2025-05-30 14:41:26,427 - test_runner - INFO - ================================================================================

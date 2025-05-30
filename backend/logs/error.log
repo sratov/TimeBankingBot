@@ -22,3 +22,187 @@ Authentication failed with HTTPException
 C:\time_banking_bot\backend\main.py:181
 HTTP exception: 400 - Missing init_data parameter
 
+2025-05-30 14:45:03,558 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1392
+Authentication failed with HTTPException
+
+2025-05-30 14:45:03,594 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1392
+Authentication failed with HTTPException
+
+2025-05-30 14:45:03,595 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:205
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:45:03,596 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:205
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:48:04,176 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1392
+Authentication failed with HTTPException
+
+2025-05-30 14:48:04,207 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1392
+Authentication failed with HTTPException
+
+2025-05-30 14:48:04,209 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:205
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:48:04,209 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:205
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:52:01,957 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1386
+Authentication failed with HTTPException
+
+2025-05-30 14:52:01,991 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1386
+Authentication failed with HTTPException
+
+2025-05-30 14:52:01,993 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:52:01,994 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:52:14,986 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1386
+Authentication failed with HTTPException
+
+2025-05-30 14:52:15,024 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1386
+Authentication failed with HTTPException
+
+2025-05-30 14:52:15,025 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:52:15,026 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:55:45,014 - main - ERROR - No init_data parameter provided in request
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1216
+No init_data parameter provided in request
+
+2025-05-30 14:55:45,016 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 14:55:45,046 - main - ERROR - No init_data parameter provided in request
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1216
+No init_data parameter provided in request
+
+2025-05-30 14:55:45,047 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 14:55:45,049 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 400 - Missing init_data parameter
+
+2025-05-30 14:55:45,051 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 400 - Missing init_data parameter
+
+2025-05-30 14:55:45,329 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 14:55:45,367 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 14:55:45,369 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 14:55:45,369 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 15:00:00,378 - main - ERROR - No init_data parameter provided in request
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1216
+No init_data parameter provided in request
+
+2025-05-30 15:00:00,379 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:00:00,399 - main - ERROR - No init_data parameter provided in request
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1216
+No init_data parameter provided in request
+
+2025-05-30 15:00:00,400 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:00:00,402 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 400 - Missing init_data parameter
+
+2025-05-30 15:00:00,404 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 400 - Missing init_data parameter
+
+2025-05-30 15:00:00,737 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:00:00,739 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 15:00:00,810 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:00:00,811 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 15:01:08,790 - main - ERROR - No init_data parameter provided in request
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1216
+No init_data parameter provided in request
+
+2025-05-30 15:01:08,796 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:01:08,811 - main - ERROR - No init_data parameter provided in request
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1216
+No init_data parameter provided in request
+
+2025-05-30 15:01:08,811 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:01:08,813 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 400 - Missing init_data parameter
+
+2025-05-30 15:01:08,815 - main - ERROR - HTTP exception: 400 - Missing init_data parameter
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 400 - Missing init_data parameter
+
+2025-05-30 15:01:09,161 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:01:09,193 - main - ERROR - Authentication failed with HTTPException
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1397
+Authentication failed with HTTPException
+
+2025-05-30 15:01:09,195 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+
+2025-05-30 15:01:09,196 - main - ERROR - HTTP exception: 401 - Invalid hash
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:207
+HTTP exception: 401 - Invalid hash
+

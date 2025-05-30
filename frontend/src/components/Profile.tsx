@@ -230,7 +230,7 @@ export default function Profile({
   const renderUserAvatar = (user: { username: string, avatar?: string }) => {
     return user.avatar ? (
       <img 
-        src={`${process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000"}${user.avatar}`} 
+        src={`${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${user.avatar}`} 
         alt={user.username} 
         className="w-10 h-10 rounded-full object-cover"
       />
@@ -257,7 +257,7 @@ export default function Profile({
             >
               <div className="w-24 h-24 bg-black/40 backdrop-blur-xl rounded flex items-center justify-center text-3xl font-bold text-white shadow-xl border border-white/10 overflow-hidden">
                 {avatar ? (
-                  <img src={`${process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000"}${avatar}`} alt={username} className="w-full h-full object-cover" />
+                  <img src={`${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${avatar}`} alt={username} className="w-full h-full object-cover" />
                 ) : (
                   username[0].toUpperCase()
                 )}

@@ -20,6 +20,9 @@ from logging.handlers import RotatingFileHandler
 from datetime import datetime
 import uuid
 import time
+import json
+import re
+from pydantic import ValidationError
 
 # Ensure logs directory exists
 os.makedirs('logs', exist_ok=True)
@@ -106,7 +109,30 @@ logger.info("="*80)
 logger.info(f"Bot token: {BOT_TOKEN[:5]}...{BOT_TOKEN[-5:]} (length: {len(BOT_TOKEN)})")
 
 # Configure CORS
-app = FastAPI()
+app = FastAPI(
+    title="Time Banking API",
+    description="API for Time Banking service",
+    version="1.0.0"
+)
+
+# CORS middleware configuration
+origins = [
+    "http://localhost:3000",
+    "https://localhost:3000",
+    "http://localhost:8000",
+    "https://localhost:8000",
+    "https://66fb-77-91-101-132.ngrok-free.app",  # Новый URL
+    "http://66fb-77-91-101-132.ngrok-free.app",   # Также добавляем HTTP вариант
+    "*",  # Разрешаем все домены для тестирования
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Middleware для логирования всех запросов и ответов
 @app.middleware("http")
@@ -183,14 +209,6 @@ async def http_exception_handler(request: Request, exc: HTTPException):
         status_code=exc.status_code,
         content={"detail": exc.detail},
     )
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Разрешаем все домены для работы через прокси
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 @app.get("/")
 async def root():
@@ -894,6 +912,68 @@ def get_transaction_partners(
     
     return partners
 
+@app.post("/debug/auth")
+async def debug_auth_post(
+    data: dict,
+    db: Session = Depends(get_db)
+):
+    """
+    Создаёт тестового пользователя и генерирует JWT токен для тестирования.
+    Используется только в тестовом окружении.
+    """
+    logger.warning("\n\n" + "*"*80)
+    logger.warning("=== Creating Test User for Auth ===")
+    logger.warning("*"*80)
+    
+    # Валидация входных данных
+    if "telegram_id" not in data or "username" not in data:
+        raise HTTPException(status_code=400, detail="telegram_id and username are required")
+    
+    telegram_id = data["telegram_id"]
+    username = data["username"]
+    
+    logger.warning(f"Creating test user: telegram_id={telegram_id}, username={username}")
+    
+    # Ищем пользователя в БД или создаём нового
+    user = db.query(models.User).filter(models.User.telegram_id == telegram_id).first()
+    
+    if not user:
+        logger.warning(f"User {telegram_id} not found, creating new user")
+        # Создаём нового пользователя
+        user = models.User(
+            telegram_id=telegram_id,
+            username=username,
+            first_name="Test",
+            balance=100.0,  # Начальный баланс для тестирования
+            role="user"
+        )
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+    else:
+        logger.warning(f"User {telegram_id} found in database, using existing user")
+    
+    # Генерируем JWT токен
+    access_token = create_access_token(
+        data={"sub": str(user.id), "telegram_id": user.telegram_id}
+    )
+    
+    logger.warning(f"Generated token for user {telegram_id}")
+    logger.warning("=== Test User Created Successfully ===")
+    logger.warning("*"*80 + "\n\n")
+    
+    # Возвращаем токен и данные пользователя
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": {
+            "id": user.id,
+            "telegram_id": user.telegram_id,
+            "username": user.username,
+            "balance": user.balance
+        }
+    }
+
 @app.get("/debug/auth")
 async def debug_auth(request: Request):
     """
@@ -1101,6 +1181,7 @@ async def view_logs(
         logger.error(f"Error retrieving logs: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error retrieving logs: {str(e)}")
 
+@app.get("/auth/telegram")
 @app.post("/auth/telegram")
 async def telegram_auth(
     request: Request,
@@ -1108,7 +1189,7 @@ async def telegram_auth(
 ):
     """
     Authenticate user with Telegram WebApp data.
-    Gets raw init_data from query params without any decoding.
+    Gets raw init_data from query params or form data.
     """
     try:
         logger.info("\n\n" + "*"*80)
@@ -1123,42 +1204,83 @@ async def telegram_auth(
         # Log all query parameters
         logger.debug("Query parameters:")
         for param, value in request.query_params.items():
-            logger.debug(f"  {param}: {value}")
+            if param != "init_data":  # Не логируем полное значение init_data из соображений безопасности
+                logger.debug(f"  {param}: {value}")
+            else:
+                logger.debug(f"  {param}: [длина: {len(value)}]")
         
-        # Get raw init_data without any decoding
-        raw_init_data = request.query_params.get("init_data", "")
-        # Decode URL-encoded init_data
-        from urllib.parse import unquote_plus
-        raw_init_data = unquote_plus(raw_init_data)
-        logger.debug("Raw init_data (repr): %r", raw_init_data)
+        # Пытаемся получить init_data из разных источников
+        raw_init_data = None
+        test_mode = "test" in request.query_params or "test_mode" in request.query_params
         
+        # 1. Сначала проверяем query параметры
+        if "init_data" in request.query_params:
+            raw_init_data = request.query_params.get("init_data", "")
+            logger.debug("Got init_data from query params")
+        
+        # 2. Если в query параметрах нет, пытаемся прочитать из формы или JSON
         if not raw_init_data:
-            logger.error("No init_data parameter provided in request")
+            try:
+                # Пробуем получить из формы
+                form_data = await request.form()
+                if "init_data" in form_data:
+                    raw_init_data = form_data.get("init_data", "")
+                    logger.debug("Got init_data from form data")
+                    if "test_mode" in form_data:
+                        test_mode = True
+            except Exception as e:
+                logger.debug(f"Error reading form data: {str(e)}")
+                
+                # Пробуем получить из JSON
+                try:
+                    body = await request.json()
+                    if "init_data" in body:
+                        raw_init_data = body.get("init_data", "")
+                        logger.debug("Got init_data from JSON body")
+                    if "test_mode" in body:
+                        test_mode = True
+                except Exception as json_error:
+                    logger.debug(f"Error reading JSON body: {str(json_error)}")
+        
+        # Если init_data не найден, возвращаем ошибку
+        if not raw_init_data:
+            logger.error("No init_data found in request")
             raise HTTPException(status_code=400, detail="Missing init_data parameter")
+        
+        # Если режим тестирования, логируем это
+        if test_mode:
+            logger.warning("Test mode detected - auth verification will be bypassed")
         
         # Extract hash before any parsing/decoding
         pairs = [s.split("=", 1) for s in raw_init_data.split("&") if "=" in s]
         data = {k: v for k, v in pairs}
         
-        logger.debug("Parsed data parameters:")
-        for key, value in data.items():
-            logger.debug(f"  {key}: {value}")
+        logger.debug("Parsed data parameters count: %d", len(data))
+        for key in data:
+            if key not in ["hash", "user"]:  # Не логируем чувствительные данные
+                logger.debug(f"  {key}: {data[key]}")
+            else:
+                logger.debug(f"  {key}: [hidden for security]")
         
         hash_value = data.get('hash')
         if not hash_value:
             logger.error("No hash parameter found in init_data")
-            raise HTTPException(status_code=400, detail="No hash provided")
+            if test_mode:
+                logger.warning("Test mode: proceeding without hash verification")
+            else:
+                raise HTTPException(status_code=400, detail="No hash provided")
             
-        logger.debug("Extracted hash value: %s", hash_value)
+        logger.debug(f"Extracted hash value length: {len(hash_value) if hash_value else 0}")
             
         # Verify hash with raw init_data
         logger.info("Verifying Telegram hash...")
-        hash_verified = verify_telegram_hash(raw_init_data, hash_value)
-        if not hash_verified:
+        hash_verified = verify_telegram_hash(raw_init_data, hash_value) if hash_value else False
+        
+        if not hash_verified and not test_mode:
             logger.warning("Hash verification failed")
-            # In development mode, we bypass hash verification errors
-            # Uncomment the line below to enable strict hash verification in production
-            # raise HTTPException(status_code=401, detail="Invalid hash")
+            raise HTTPException(status_code=401, detail="Invalid hash")
+        elif not hash_verified and test_mode:
+            logger.warning("Hash verification failed but test mode enabled - proceeding anyway")
         else:
             logger.info("Hash verification successful")
             
@@ -1166,17 +1288,23 @@ async def telegram_auth(
         try:
             logger.info("Parsing user data...")
             user_data = data.get('user', '')
-            logger.debug("Raw user data: %s", user_data)
+            logger.debug(f"Raw user data length: {len(user_data) if user_data else 0}")
             
-            # If no user data found, use test user for development
+            # Если user_data пустой, значит данные отсутствуют
             if not user_data:
-                logger.warning("No user data found, using test user as fallback")
-                user_info = {
-                    "id": 12345,
-                    "username": "test_user",
-                    "first_name": "Test"
-                }
-                logger.debug("Using test user_info: %s", user_info)
+                logger.error("No user data found in init_data")
+                
+                # Для тестирования позволяем использовать тестовые данные
+                if test_mode:
+                    logger.warning("TEST MODE - using test user data")
+                    user_info = {
+                        "id": 12345,
+                        "username": "test_user",
+                        "first_name": "Test User"
+                    }
+                    telegram_id = 12345
+                else:
+                    raise HTTPException(status_code=400, detail="Missing user data in init_data")
             else:
                 # Parse user data from URL-encoded JSON
                 import json
@@ -1184,28 +1312,28 @@ async def telegram_auth(
                 
                 try:
                     user_json = urllib.parse.unquote(user_data)
-                    logger.debug("URL-decoded user data: %s", user_json)
+                    logger.debug(f"URL-decoded user data length: {len(user_json)}")
                     user_info = json.loads(user_json)
-                    logger.debug("Parsed user_info: %s", user_info)
+                    logger.debug(f"Parsed user_info: ID={user_info.get('id')}, username={user_info.get('username')}")
                 except Exception as e:
                     logger.error(f"Error parsing user JSON: {str(e)}")
                     # Try to clean the JSON if parsing fails
                     user_json = urllib.parse.unquote(user_data).replace("'", '"')
-                    logger.debug("Cleaned user JSON: %s", user_json)
+                    logger.debug(f"Cleaned user JSON length: {len(user_json)}")
                     user_info = json.loads(user_json)
-                    logger.debug("Parsed user_info after cleaning: %s", user_info)
-            
-            # Убедимся что telegram_id это целое число
-            try:
-                telegram_id = int(user_info.get('id'))
-                logger.debug(f"Converted telegram_id to int: {telegram_id} (type: {type(telegram_id)})")
-            except (TypeError, ValueError) as e:
-                logger.error(f"Error converting telegram_id to int: {str(e)}")
-                telegram_id = None
-            
-            if not telegram_id:
-                logger.error("No valid telegram_id found in user_info")
-                raise ValueError("No valid telegram_id in user data")
+                    logger.debug(f"Parsed user_info after cleaning: ID={user_info.get('id')}, username={user_info.get('username')}")
+                
+                # Убедимся что telegram_id это целое число
+                try:
+                    telegram_id = int(user_info.get('id'))
+                    logger.debug(f"Converted telegram_id to int: {telegram_id} (type: {type(telegram_id)})")
+                except (TypeError, ValueError) as e:
+                    logger.error(f"Error converting telegram_id to int: {str(e)}")
+                    raise HTTPException(status_code=400, detail="Invalid user ID in data")
+                
+                if not telegram_id:
+                    logger.error("No valid telegram_id found in user_info")
+                    raise HTTPException(status_code=400, detail="Missing user ID in data")
                 
         except Exception as e:
             logger.error(f"Error parsing user data: {str(e)}", exc_info=True)

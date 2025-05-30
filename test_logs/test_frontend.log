@@ -1,0 +1,248 @@
+2025-05-30 13:51:00,411 - test_frontend - INFO - 
+
+2025-05-30 13:51:00,411 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:00,411 - test_frontend - INFO - «¿œ”—  “≈—“»–Œ¬¿Õ»ﬂ ‘–ŒÕ“≈Õƒ¿ TIME BANKING APP
+2025-05-30 13:51:00,411 - test_frontend - INFO - Frontend URL: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 13:51:00,411 - test_frontend - INFO - API URL: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 13:51:00,411 - test_frontend - INFO - ¬ÂÏˇ Á‡ÔÛÒÍ‡: 2025-05-30 13:51:00
+2025-05-30 13:51:00,411 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:00,416 - test_frontend - INFO - 
+
+2025-05-30 13:51:00,418 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:00,418 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“»–Œ¬¿Õ»ﬂ ‘–ŒÕ“≈Õƒ¿
+2025-05-30 13:51:00,418 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:14,899 - test_frontend - INFO - WebDriver initialized successfully
+2025-05-30 13:51:14,899 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:14,899 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_01_frontend_loads
+2025-05-30 13:51:14,899 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:14,904 - test_frontend - DEBUG - Telegram WebApp mock injected
+2025-05-30 13:51:14,904 - test_frontend - INFO - Testing frontend loading at URL: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 13:51:17,755 - test_frontend - INFO - Page title: 
+2025-05-30 13:51:17,855 - test_frontend - INFO - Screenshot saved to test_logs\frontend_loaded.png
+2025-05-30 13:51:17,857 - test_frontend - INFO - Frontend loaded successfully
+2025-05-30 13:51:17,857 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:17,857 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_01_frontend_loads
+2025-05-30 13:51:17,857 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:17,857 - test_frontend - INFO - 
+
+
+2025-05-30 13:51:17,860 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:17,860 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_02_authentication_flow
+2025-05-30 13:51:17,860 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:17,864 - test_frontend - DEBUG - Telegram WebApp mock injected
+2025-05-30 13:51:17,864 - test_frontend - INFO - Testing authentication flow
+2025-05-30 13:51:33,070 - test_frontend - INFO - No authentication error found
+2025-05-30 13:51:33,071 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Regular-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-RegularItalic-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Medium-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Semibold-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-MediumItalic-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-Text.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-TextItalic.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-SemiBold.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-SemiBoldItalic.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602277938}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Regular-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-RegularItalic-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Medium-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-Semibold-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/euclid-square/EuclidSquare-MediumItalic-WebS.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-Text.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-TextItalic.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-SemiBold.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'SEVERE', 'message': 'https://66fb-77-91-101-132.ngrok-free.app/ - Refused to load the font \'https://assets.ngrok.com/fonts/ibm-plex-mono/IBMPlexMono-SemiBoldItalic.woff\' because it violates the following Content Security Policy directive: "default-src \'self\' https://cdn.ngrok.com \'unsafe-eval\' \'unsafe-inline\'". Note that \'font-src\' was not explicitly set, so \'default-src\' is used as a fallback.\n', 'source': 'security', 'timestamp': 1748602278036}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBold.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Regular-WebS.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-MediumItalic-WebS.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-RegularItalic-WebS.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Medium-WebS.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/euclid-square/EuclidSquare-Semibold-WebS.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-SemiBoldItalic.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-Text.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,072 - test_frontend - DEBUG - Browser console: {'level': 'WARNING', 'message': "https://66fb-77-91-101-132.ngrok-free.app/ - The resource https://cdn.ngrok.com/static/fonts/ibm-plex-mono/IBMPlexMono-TextItalic.woff was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", 'source': 'javascript', 'timestamp': 1748602283347}
+2025-05-30 13:51:33,145 - test_frontend - INFO - Screenshot saved to test_logs\authentication_flow.png
+2025-05-30 13:51:33,145 - test_frontend - INFO - Authentication flow test completed
+2025-05-30 13:51:33,145 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:33,146 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_02_authentication_flow
+2025-05-30 13:51:33,146 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:33,146 - test_frontend - INFO - 
+
+
+2025-05-30 13:51:33,150 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:33,150 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_03_main_menu
+2025-05-30 13:51:33,150 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:33,155 - test_frontend - DEBUG - Telegram WebApp mock injected
+2025-05-30 13:51:33,155 - test_frontend - INFO - Testing main menu
+2025-05-30 13:51:58,850 - test_frontend - ERROR - Main menu test failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF70A57CF45+75717]
+	GetHandleVerifier [0x00007FF70A57CFA0+75808]
+	(No symbol) [0x00007FF70A348F9A]
+	(No symbol) [0x00007FF70A39F4C6]
+	(No symbol) [0x00007FF70A39F77C]
+	(No symbol) [0x00007FF70A3F2577]
+	(No symbol) [0x00007FF70A3C73BF]
+	(No symbol) [0x00007FF70A3EF39C]
+	(No symbol) [0x00007FF70A3C7153]
+	(No symbol) [0x00007FF70A390421]
+	(No symbol) [0x00007FF70A3911B3]
+	GetHandleVerifier [0x00007FF70A87D71D+3223453]
+	GetHandleVerifier [0x00007FF70A877CC2+3200322]
+	GetHandleVerifier [0x00007FF70A895AF3+3322739]
+	GetHandleVerifier [0x00007FF70A596A1A+180890]
+	GetHandleVerifier [0x00007FF70A59E11F+211359]
+	GetHandleVerifier [0x00007FF70A585294+109332]
+	GetHandleVerifier [0x00007FF70A585442+109762]
+	GetHandleVerifier [0x00007FF70A56BA59+4825]
+	BaseThreadInitThunk [0x00007FFD1218E8D7+23]
+	RtlUserThreadStart [0x00007FFD1315C5DC+44]
+
+2025-05-30 13:51:58,850 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:58,850 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_03_main_menu
+2025-05-30 13:51:58,850 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:58,850 - test_frontend - INFO - 
+
+
+2025-05-30 13:51:58,850 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:58,850 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_04_create_listing_form
+2025-05-30 13:51:58,850 - test_frontend - INFO - ================================================================================
+2025-05-30 13:51:58,850 - test_frontend - DEBUG - Telegram WebApp mock injected
+2025-05-30 13:51:58,850 - test_frontend - INFO - Testing create listing form
+2025-05-30 13:52:09,015 - test_frontend - ERROR - Create listing form test failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF70A57CF45+75717]
+	GetHandleVerifier [0x00007FF70A57CFA0+75808]
+	(No symbol) [0x00007FF70A348F9A]
+	(No symbol) [0x00007FF70A39F4C6]
+	(No symbol) [0x00007FF70A39F77C]
+	(No symbol) [0x00007FF70A3F2577]
+	(No symbol) [0x00007FF70A3C73BF]
+	(No symbol) [0x00007FF70A3EF39C]
+	(No symbol) [0x00007FF70A3C7153]
+	(No symbol) [0x00007FF70A390421]
+	(No symbol) [0x00007FF70A3911B3]
+	GetHandleVerifier [0x00007FF70A87D71D+3223453]
+	GetHandleVerifier [0x00007FF70A877CC2+3200322]
+	GetHandleVerifier [0x00007FF70A895AF3+3322739]
+	GetHandleVerifier [0x00007FF70A596A1A+180890]
+	GetHandleVerifier [0x00007FF70A59E11F+211359]
+	GetHandleVerifier [0x00007FF70A585294+109332]
+	GetHandleVerifier [0x00007FF70A585442+109762]
+	GetHandleVerifier [0x00007FF70A56BA59+4825]
+	BaseThreadInitThunk [0x00007FFD1218E8D7+23]
+	RtlUserThreadStart [0x00007FFD1315C5DC+44]
+
+2025-05-30 13:52:09,016 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:09,016 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_04_create_listing_form
+2025-05-30 13:52:09,016 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:09,016 - test_frontend - INFO - 
+
+
+2025-05-30 13:52:09,019 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:09,019 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_05_view_listings
+2025-05-30 13:52:09,019 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:09,022 - test_frontend - DEBUG - Telegram WebApp mock injected
+2025-05-30 13:52:09,022 - test_frontend - INFO - Testing view listings
+2025-05-30 13:52:19,150 - test_frontend - ERROR - View listings test failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF70A57CF45+75717]
+	GetHandleVerifier [0x00007FF70A57CFA0+75808]
+	(No symbol) [0x00007FF70A348F9A]
+	(No symbol) [0x00007FF70A39F4C6]
+	(No symbol) [0x00007FF70A39F77C]
+	(No symbol) [0x00007FF70A3F2577]
+	(No symbol) [0x00007FF70A3C73BF]
+	(No symbol) [0x00007FF70A3EF39C]
+	(No symbol) [0x00007FF70A3C7153]
+	(No symbol) [0x00007FF70A390421]
+	(No symbol) [0x00007FF70A3911B3]
+	GetHandleVerifier [0x00007FF70A87D71D+3223453]
+	GetHandleVerifier [0x00007FF70A877CC2+3200322]
+	GetHandleVerifier [0x00007FF70A895AF3+3322739]
+	GetHandleVerifier [0x00007FF70A596A1A+180890]
+	GetHandleVerifier [0x00007FF70A59E11F+211359]
+	GetHandleVerifier [0x00007FF70A585294+109332]
+	GetHandleVerifier [0x00007FF70A585442+109762]
+	GetHandleVerifier [0x00007FF70A56BA59+4825]
+	BaseThreadInitThunk [0x00007FFD1218E8D7+23]
+	RtlUserThreadStart [0x00007FFD1315C5DC+44]
+
+2025-05-30 13:52:19,150 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:19,150 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_05_view_listings
+2025-05-30 13:52:19,150 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:19,150 - test_frontend - INFO - 
+
+
+2025-05-30 13:52:19,150 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:19,150 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_06_profile_view
+2025-05-30 13:52:19,150 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:19,150 - test_frontend - DEBUG - Telegram WebApp mock injected
+2025-05-30 13:52:19,150 - test_frontend - INFO - Testing profile view
+2025-05-30 13:52:29,299 - test_frontend - ERROR - Profile view test failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF70A57CF45+75717]
+	GetHandleVerifier [0x00007FF70A57CFA0+75808]
+	(No symbol) [0x00007FF70A348F9A]
+	(No symbol) [0x00007FF70A39F4C6]
+	(No symbol) [0x00007FF70A39F77C]
+	(No symbol) [0x00007FF70A3F2577]
+	(No symbol) [0x00007FF70A3C73BF]
+	(No symbol) [0x00007FF70A3EF39C]
+	(No symbol) [0x00007FF70A3C7153]
+	(No symbol) [0x00007FF70A390421]
+	(No symbol) [0x00007FF70A3911B3]
+	GetHandleVerifier [0x00007FF70A87D71D+3223453]
+	GetHandleVerifier [0x00007FF70A877CC2+3200322]
+	GetHandleVerifier [0x00007FF70A895AF3+3322739]
+	GetHandleVerifier [0x00007FF70A596A1A+180890]
+	GetHandleVerifier [0x00007FF70A59E11F+211359]
+	GetHandleVerifier [0x00007FF70A585294+109332]
+	GetHandleVerifier [0x00007FF70A585442+109762]
+	GetHandleVerifier [0x00007FF70A56BA59+4825]
+	BaseThreadInitThunk [0x00007FFD1218E8D7+23]
+	RtlUserThreadStart [0x00007FFD1315C5DC+44]
+
+2025-05-30 13:52:29,299 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:29,299 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_06_profile_view
+2025-05-30 13:52:29,299 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:29,299 - test_frontend - INFO - 
+
+
+2025-05-30 13:52:29,299 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:29,299 - test_frontend - INFO - Õ¿◊¿ÀŒ “≈—“¿: test_07_navigation_flow
+2025-05-30 13:52:29,299 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:29,299 - test_frontend - DEBUG - Telegram WebApp mock injected
+2025-05-30 13:52:29,299 - test_frontend - INFO - Testing navigation flow
+2025-05-30 13:52:39,448 - test_frontend - ERROR - Navigation flow test failed: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF70A57CF45+75717]
+	GetHandleVerifier [0x00007FF70A57CFA0+75808]
+	(No symbol) [0x00007FF70A348F9A]
+	(No symbol) [0x00007FF70A39F4C6]
+	(No symbol) [0x00007FF70A39F77C]
+	(No symbol) [0x00007FF70A3F2577]
+	(No symbol) [0x00007FF70A3C73BF]
+	(No symbol) [0x00007FF70A3EF39C]
+	(No symbol) [0x00007FF70A3C7153]
+	(No symbol) [0x00007FF70A390421]
+	(No symbol) [0x00007FF70A3911B3]
+	GetHandleVerifier [0x00007FF70A87D71D+3223453]
+	GetHandleVerifier [0x00007FF70A877CC2+3200322]
+	GetHandleVerifier [0x00007FF70A895AF3+3322739]
+	GetHandleVerifier [0x00007FF70A596A1A+180890]
+	GetHandleVerifier [0x00007FF70A59E11F+211359]
+	GetHandleVerifier [0x00007FF70A585294+109332]
+	GetHandleVerifier [0x00007FF70A585442+109762]
+	GetHandleVerifier [0x00007FF70A56BA59+4825]
+	BaseThreadInitThunk [0x00007FFD1218E8D7+23]
+	RtlUserThreadStart [0x00007FFD1315C5DC+44]
+
+2025-05-30 13:52:39,448 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:39,448 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“¿: test_07_navigation_flow
+2025-05-30 13:52:39,448 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:39,448 - test_frontend - INFO - 
+
+
+2025-05-30 13:52:41,547 - test_frontend - INFO - WebDriver closed
+2025-05-30 13:52:41,547 - test_frontend - INFO - ================================================================================
+2025-05-30 13:52:41,547 - test_frontend - INFO - «¿¬≈–ÿ≈Õ»≈ “≈—“»–Œ¬¿Õ»ﬂ ‘–ŒÕ“≈Õƒ¿
+2025-05-30 13:52:41,547 - test_frontend - INFO - ================================================================================
