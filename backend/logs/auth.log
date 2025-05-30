@@ -10123,3 +10123,596 @@ user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%2
 2025-05-30 18:33:43,227 - AUTH - INFO - [c2168720-ce71-4016-9ed8-1a5aad433eb1] Response status: 307 - Completed in 0.0005s
 2025-05-30 18:33:43,228 - AUTH - INFO - [7f7eabb4-a9d9-4613-b765-076da417e943] Request from 77.91.101.132:0 - GET /friends/pending
 2025-05-30 18:33:43,232 - AUTH - INFO - [7f7eabb4-a9d9-4613-b765-076da417e943] Response status: 200 - Completed in 0.0033s
+2025-05-30 18:38:26,134 - auth - INFO - ================================================================================
+2025-05-30 18:38:26,134 - auth - INFO - Authentication module initialized
+2025-05-30 18:38:26,134 - auth - INFO - BOT_TOKEN: 80221..._4-bU (length: 46)
+2025-05-30 18:38:26,135 - auth - INFO - ================================================================================
+2025-05-30 18:38:26,140 - AUTH - INFO - ================================================================================
+2025-05-30 18:38:26,141 - AUTH - INFO - Starting Time Banking API
+2025-05-30 18:38:26,141 - AUTH - INFO - ================================================================================
+2025-05-30 18:38:26,142 - AUTH - INFO - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 18:40:13,736 - AUTH - INFO - [74494463-6bef-444a-824c-fb87b135e3c8] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:40:13,737 - AUTH - ERROR - Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1832, in protected_route
+    payload = jwt.decode(access_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1841, in protected_route
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2025-05-30 18:40:13,740 - AUTH - ERROR - HTTP exception: 500 - Internal server error
+2025-05-30 18:40:13,741 - AUTH - INFO - [74494463-6bef-444a-824c-fb87b135e3c8] Response status: 500 - Completed in 0.0047s
+2025-05-30 18:40:14,135 - AUTH - INFO - [c59f8493-a121-47c9-ab6d-e98bd0b4742e] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:40:14,137 - AUTH - ERROR - Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1832, in protected_route
+    payload = jwt.decode(access_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1841, in protected_route
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2025-05-30 18:40:14,139 - AUTH - ERROR - HTTP exception: 500 - Internal server error
+2025-05-30 18:40:14,140 - AUTH - INFO - [c59f8493-a121-47c9-ab6d-e98bd0b4742e] Response status: 500 - Completed in 0.0042s
+2025-05-30 18:40:14,280 - AUTH - INFO - [15540edc-85bb-4c02-8e15-31722c292c5f] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:40:14,281 - AUTH - INFO - [15540edc-85bb-4c02-8e15-31722c292c5f] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:14,282 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-30 18:40:14,282 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-30 18:40:14,283 - AUTH - INFO - ********************************************************************************
+2025-05-30 18:40:14,283 - AUTH - DEBUG - Request headers:
+2025-05-30 18:40:14,283 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-30 18:40:14,284 - AUTH - DEBUG -   x-forwarded-host: 66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:40:14,284 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-30 18:40:14,284 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-30 18:40:14,285 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-30 18:40:14,285 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-30 18:40:14,285 - AUTH - DEBUG -   sec-ch-ua-platform: "Windows"
+2025-05-30 18:40:14,286 - AUTH - DEBUG -   sec-ch-ua-mobile: ?0
+2025-05-30 18:40:14,286 - AUTH - DEBUG -   sec-ch-ua: "Microsoft Edge";v="136", "Microsoft Edge WebView2";v="136", "Not.A/Brand";v="99", "Chromium";v="136"
+2025-05-30 18:40:14,286 - AUTH - DEBUG -   referer: https://66fb-77-91-101-132.ngrok-free.app/
+2025-05-30 18:40:14,287 - AUTH - DEBUG -   priority: u=1, i
+2025-05-30 18:40:14,287 - AUTH - DEBUG -   origin: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:40:14,288 - AUTH - DEBUG -   cookie: abuse_interstitial=66fb-77-91-101-132.ngrok-free.app; access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwidHlwZSI6ImFjY2VzcyIsImV4cCI6MTc0ODcwNTYxOX0.XPalxK96m14q2L09D9ZHwJplU8PS6g3jWEbfmykOkNc; refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwidHlwZSI6InJlZnJlc2giLCJleHAiOjE3NDg3MDU2MTl9.xu0hc7HAd-y1kLSzJiIQOElCP7ixmGU6yIrgHBlAefk
+2025-05-30 18:40:14,288 - AUTH - DEBUG -   content-type: application/json
+2025-05-30 18:40:14,289 - AUTH - DEBUG -   accept-language: ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+2025-05-30 18:40:14,289 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-30 18:40:14,289 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-30 18:40:14,290 - AUTH - DEBUG -   content-length: 580
+2025-05-30 18:40:14,290 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0
+2025-05-30 18:40:14,291 - AUTH - DEBUG -   host: localhost:8000
+2025-05-30 18:40:14,291 - AUTH - DEBUG -   connection: close
+2025-05-30 18:40:14,291 - AUTH - DEBUG - Request method: POST
+2025-05-30 18:40:14,292 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-30 18:40:14,293 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-30 18:40:14,293 - AUTH - INFO - Successfully read entire body (POST), length: 580
+2025-05-30 18:40:14,294 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329...
+2025-05-30 18:40:14,294 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae', 'test_mode': False}
+2025-05-30 18:40:14,295 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:40:14,295 - AUTH - DEBUG - Raw init_data: query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,296 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-30 18:40:14,296 - AUTH - DEBUG -   query_id: AAFreO00AAAAAGt47TTjh0dn
+2025-05-30 18:40:14,296 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-30 18:40:14,297 - AUTH - DEBUG -   auth_date: 1748619598
+2025-05-30 18:40:14,297 - AUTH - DEBUG -   signature: hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ
+2025-05-30 18:40:14,298 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-30 18:40:14,298 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-30 18:40:14,298 - AUTH - INFO - Verifying Telegram hash...
+2025-05-30 18:40:14,299 - AUTH - DEBUG - 
+==================================================
+2025-05-30 18:40:14,299 - AUTH - DEBUG - Starting Telegram WebApp hash verification
+2025-05-30 18:40:14,300 - AUTH - DEBUG - ==================================================
+2025-05-30 18:40:14,300 - AUTH - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-30 18:40:14,300 - AUTH - DEBUG - BOT_TOKEN length: 46
+2025-05-30 18:40:14,301 - AUTH - DEBUG - init_data (repr): 'query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae'
+2025-05-30 18:40:14,301 - AUTH - DEBUG - received_hash: a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,302 - AUTH - DEBUG - Parsed data dict: {'query_id': 'AAFreO00AAAAAGt47TTjh0dn', 'user': '%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D', 'auth_date': '1748619598', 'signature': 'hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ'}
+2025-05-30 18:40:14,302 - AUTH - DEBUG - Hash from dictionary: a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,303 - AUTH - DEBUG - Data check string (values URL-decoded): auth_date=1748619598
+query_id=AAFreO00AAAAAGt47TTjh0dn
+signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ
+user={"id":887978091,"first_name":".","last_name":".","username":"sar_a_to_v","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg"}
+2025-05-30 18:40:14,304 - AUTH - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-30 18:40:14,304 - AUTH - DEBUG - Calculated hash: a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,305 - AUTH - DEBUG - Hash verification result: True
+2025-05-30 18:40:14,305 - AUTH - DEBUG - ==================================================
+
+2025-05-30 18:40:14,306 - AUTH - INFO - Hash verification successful
+2025-05-30 18:40:14,306 - AUTH - INFO - Parsing user data...
+2025-05-30 18:40:14,307 - AUTH - DEBUG - Raw user data length: 319
+2025-05-30 18:40:14,307 - AUTH - DEBUG - URL-decoded user data length: 215
+2025-05-30 18:40:14,308 - AUTH - DEBUG - Parsed user_info: ID=887978091, username=sar_a_to_v
+2025-05-30 18:40:14,308 - AUTH - DEBUG - Converted telegram_id to int: 887978091 (type: <class 'int'>)
+2025-05-30 18:40:14,308 - AUTH - INFO - Looking up user with telegram_id: 887978091
+2025-05-30 18:40:14,310 - AUTH - INFO - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:40:14,310 - AUTH - INFO - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:40:14,313 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:40:14.310135)
+2025-05-30 18:40:14,313 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:40:14.313640)
+2025-05-30 18:40:14,313 - AUTH - DEBUG - Access token data: {'sub': '2', 'telegram_id': '887978091', 'username': 'sar_a_to_v', 'type': 'access'}
+2025-05-30 18:40:14,314 - AUTH - INFO - JWT tokens created successfully
+2025-05-30 18:40:14,314 - AUTH - INFO - === Authentication Successful ===
+2025-05-30 18:40:14,315 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-30 18:40:14,315 - AUTH - INFO - [15540edc-85bb-4c02-8e15-31722c292c5f] Response status: 200 - Completed in 0.0340s
+2025-05-30 18:40:14,466 - AUTH - INFO - [a49d92eb-2494-4711-aefd-fb2c0e6f93ce] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:40:14,467 - AUTH - INFO - [a49d92eb-2494-4711-aefd-fb2c0e6f93ce] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:14,468 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-30 18:40:14,468 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-30 18:40:14,468 - AUTH - INFO - ********************************************************************************
+2025-05-30 18:40:14,469 - AUTH - DEBUG - Request headers:
+2025-05-30 18:40:14,469 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-30 18:40:14,470 - AUTH - DEBUG -   x-forwarded-host: 66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:40:14,470 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-30 18:40:14,470 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-30 18:40:14,471 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-30 18:40:14,471 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-30 18:40:14,471 - AUTH - DEBUG -   sec-ch-ua-platform: "Windows"
+2025-05-30 18:40:14,472 - AUTH - DEBUG -   sec-ch-ua-mobile: ?0
+2025-05-30 18:40:14,473 - AUTH - DEBUG -   sec-ch-ua: "Microsoft Edge";v="136", "Microsoft Edge WebView2";v="136", "Not.A/Brand";v="99", "Chromium";v="136"
+2025-05-30 18:40:14,473 - AUTH - DEBUG -   referer: https://66fb-77-91-101-132.ngrok-free.app/
+2025-05-30 18:40:14,473 - AUTH - DEBUG -   priority: u=1, i
+2025-05-30 18:40:14,474 - AUTH - DEBUG -   origin: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:40:14,474 - AUTH - DEBUG -   cookie: abuse_interstitial=66fb-77-91-101-132.ngrok-free.app; access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwidHlwZSI6ImFjY2VzcyIsImV4cCI6MTc0ODcwNTYxOX0.XPalxK96m14q2L09D9ZHwJplU8PS6g3jWEbfmykOkNc; refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwidGVsZWdyYW1faWQiOiIxMjM0NSIsInVzZXJuYW1lIjoidGVzdF91c2VyIiwidHlwZSI6InJlZnJlc2giLCJleHAiOjE3NDg3MDU2MTl9.xu0hc7HAd-y1kLSzJiIQOElCP7ixmGU6yIrgHBlAefk
+2025-05-30 18:40:14,474 - AUTH - DEBUG -   content-type: application/json
+2025-05-30 18:40:14,474 - AUTH - DEBUG -   accept-language: ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+2025-05-30 18:40:14,475 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-30 18:40:14,475 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-30 18:40:14,475 - AUTH - DEBUG -   content-length: 580
+2025-05-30 18:40:14,476 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0
+2025-05-30 18:40:14,477 - AUTH - DEBUG -   host: localhost:8000
+2025-05-30 18:40:14,477 - AUTH - DEBUG -   connection: close
+2025-05-30 18:40:14,477 - AUTH - DEBUG - Request method: POST
+2025-05-30 18:40:14,478 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-30 18:40:14,478 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-30 18:40:14,480 - AUTH - INFO - Successfully read entire body (POST), length: 580
+2025-05-30 18:40:14,480 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329...
+2025-05-30 18:40:14,480 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae', 'test_mode': False}
+2025-05-30 18:40:14,481 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:40:14,481 - AUTH - DEBUG - Raw init_data: query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,482 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-30 18:40:14,482 - AUTH - DEBUG -   query_id: AAFreO00AAAAAGt47TTjh0dn
+2025-05-30 18:40:14,482 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-30 18:40:14,483 - AUTH - DEBUG -   auth_date: 1748619598
+2025-05-30 18:40:14,483 - AUTH - DEBUG -   signature: hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ
+2025-05-30 18:40:14,483 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-30 18:40:14,484 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-30 18:40:14,484 - AUTH - INFO - Verifying Telegram hash...
+2025-05-30 18:40:14,485 - AUTH - DEBUG - 
+==================================================
+2025-05-30 18:40:14,485 - AUTH - DEBUG - Starting Telegram WebApp hash verification
+2025-05-30 18:40:14,485 - AUTH - DEBUG - ==================================================
+2025-05-30 18:40:14,486 - AUTH - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-30 18:40:14,486 - AUTH - DEBUG - BOT_TOKEN length: 46
+2025-05-30 18:40:14,486 - AUTH - DEBUG - init_data (repr): 'query_id=AAFreO00AAAAAGt47TTjh0dn&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619598&signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ&hash=a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae'
+2025-05-30 18:40:14,487 - AUTH - DEBUG - received_hash: a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,487 - AUTH - DEBUG - Parsed data dict: {'query_id': 'AAFreO00AAAAAGt47TTjh0dn', 'user': '%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D', 'auth_date': '1748619598', 'signature': 'hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ'}
+2025-05-30 18:40:14,488 - AUTH - DEBUG - Hash from dictionary: a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,488 - AUTH - DEBUG - Data check string (values URL-decoded): auth_date=1748619598
+query_id=AAFreO00AAAAAGt47TTjh0dn
+signature=hjl0a2KbG5O-_rLo7IUbS-GZhhRaxR5MxzwHZthsxQUzLjRrXd4Vj5lQhwWI1fXm_0sGtb_Hugb4dwCACbb2DQ
+user={"id":887978091,"first_name":".","last_name":".","username":"sar_a_to_v","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg"}
+2025-05-30 18:40:14,489 - AUTH - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-30 18:40:14,489 - AUTH - DEBUG - Calculated hash: a329039560d6f9a5b172ba8a33b9e83907ae1962715e6931ef6fe9dc5c9a44ae
+2025-05-30 18:40:14,490 - AUTH - DEBUG - Hash verification result: True
+2025-05-30 18:40:14,490 - AUTH - DEBUG - ==================================================
+
+2025-05-30 18:40:14,491 - AUTH - INFO - Hash verification successful
+2025-05-30 18:40:14,491 - AUTH - INFO - Parsing user data...
+2025-05-30 18:40:14,492 - AUTH - DEBUG - Raw user data length: 319
+2025-05-30 18:40:14,492 - AUTH - DEBUG - URL-decoded user data length: 215
+2025-05-30 18:40:14,493 - AUTH - DEBUG - Parsed user_info: ID=887978091, username=sar_a_to_v
+2025-05-30 18:40:14,493 - AUTH - DEBUG - Converted telegram_id to int: 887978091 (type: <class 'int'>)
+2025-05-30 18:40:14,494 - AUTH - INFO - Looking up user with telegram_id: 887978091
+2025-05-30 18:40:14,495 - AUTH - INFO - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:40:14,495 - AUTH - INFO - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:40:14,496 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:40:14.496006)
+2025-05-30 18:40:14,496 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:40:14.496006)
+2025-05-30 18:40:14,497 - AUTH - DEBUG - Access token data: {'sub': '2', 'telegram_id': '887978091', 'username': 'sar_a_to_v', 'type': 'access'}
+2025-05-30 18:40:14,497 - AUTH - INFO - JWT tokens created successfully
+2025-05-30 18:40:14,498 - AUTH - INFO - === Authentication Successful ===
+2025-05-30 18:40:14,498 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-30 18:40:14,499 - AUTH - INFO - [a49d92eb-2494-4711-aefd-fb2c0e6f93ce] Response status: 200 - Completed in 0.0312s
+2025-05-30 18:40:14,596 - AUTH - INFO - [d9887ef8-9be6-45b1-b1c4-7c9bb7918d28] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:40:14,597 - AUTH - INFO - [d9887ef8-9be6-45b1-b1c4-7c9bb7918d28] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:40:14,598 - AUTH - INFO - [d9887ef8-9be6-45b1-b1c4-7c9bb7918d28] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:40:15,377 - AUTH - INFO - [8fc45f12-753e-4986-80ec-60ac2c36c077] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:40:15,378 - AUTH - INFO - [8fc45f12-753e-4986-80ec-60ac2c36c077] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:40:15,380 - AUTH - INFO - [8fc45f12-753e-4986-80ec-60ac2c36c077] Response status: 307 - Completed in 0.0005s
+2025-05-30 18:40:16,753 - AUTH - INFO - [46fde3cb-9a72-4e98-af7b-dc400148943f] Request from 77.91.101.132:0 - GET /listings/user/2
+2025-05-30 18:40:16,761 - AUTH - INFO - [46fde3cb-9a72-4e98-af7b-dc400148943f] Response status: 200 - Completed in 0.0073s
+2025-05-30 18:40:16,768 - AUTH - INFO - [915da015-465b-448a-9c24-4cd0e7c6aac0] Request from 77.91.101.132:0 - GET /users/transactions
+2025-05-30 18:40:16,772 - AUTH - INFO - [915da015-465b-448a-9c24-4cd0e7c6aac0] Response status: 200 - Completed in 0.0042s
+2025-05-30 18:40:16,836 - AUTH - INFO - [22763e7e-3653-4c13-a1bb-e35d2d2f20c2] Request from 77.91.101.132:0 - GET /friends/pending
+2025-05-30 18:40:16,838 - AUTH - INFO - [d10b2a44-4942-419c-ad6e-40d6cc459d76] Request from 77.91.101.132:0 - GET /friends
+2025-05-30 18:40:16,839 - AUTH - INFO - [d10b2a44-4942-419c-ad6e-40d6cc459d76] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:40:16,844 - AUTH - INFO - [22763e7e-3653-4c13-a1bb-e35d2d2f20c2] Response status: 200 - Completed in 0.0073s
+2025-05-30 18:40:17,201 - AUTH - INFO - [c0a075f9-bb64-47a6-974c-254a80b97844] Request from 77.91.101.132:0 - GET /listings/user/2
+2025-05-30 18:40:17,202 - AUTH - INFO - [ce139eff-ad44-4196-a4d6-110ec6774d3a] Request from 77.91.101.132:0 - GET /users/transactions
+2025-05-30 18:40:17,203 - AUTH - INFO - [c604ad63-3ec7-46e1-ad5b-4053b525fbcd] Request from 77.91.101.132:0 - GET /friends
+2025-05-30 18:40:17,203 - AUTH - INFO - [ed635940-b7d3-4804-990e-20dad859522f] Request from 77.91.101.132:0 - GET /friends/pending
+2025-05-30 18:40:17,207 - AUTH - INFO - [c604ad63-3ec7-46e1-ad5b-4053b525fbcd] Response status: 307 - Completed in 0.0040s
+2025-05-30 18:40:17,215 - AUTH - INFO - [c0a075f9-bb64-47a6-974c-254a80b97844] Response status: 200 - Completed in 0.0141s
+2025-05-30 18:40:17,217 - AUTH - INFO - [ce139eff-ad44-4196-a4d6-110ec6774d3a] Response status: 200 - Completed in 0.0152s
+2025-05-30 18:40:17,218 - AUTH - INFO - [ed635940-b7d3-4804-990e-20dad859522f] Response status: 200 - Completed in 0.0143s
+2025-05-30 18:40:38,185 - AUTH - INFO - [6cec8b60-34c0-4511-8eba-2aa9130f450a] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,186 - AUTH - INFO - [6cec8b60-34c0-4511-8eba-2aa9130f450a] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,187 - AUTH - INFO - [6cec8b60-34c0-4511-8eba-2aa9130f450a] Response status: 307 - Completed in 0.0005s
+2025-05-30 18:40:38,744 - AUTH - INFO - [6b5be449-f2b3-4314-835a-fba3072f0240] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,745 - AUTH - INFO - [6b5be449-f2b3-4314-835a-fba3072f0240] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,746 - AUTH - INFO - [e46538b4-d81c-4489-9f54-072bbaca00e5] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,746 - AUTH - INFO - [e46538b4-d81c-4489-9f54-072bbaca00e5] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,747 - AUTH - INFO - [6b5be449-f2b3-4314-835a-fba3072f0240] Response status: 307 - Completed in 0.0021s
+2025-05-30 18:40:38,748 - AUTH - INFO - [e46538b4-d81c-4489-9f54-072bbaca00e5] Response status: 307 - Completed in 0.0016s
+2025-05-30 18:40:38,780 - AUTH - INFO - [3207939f-f0da-4d51-a375-1ca8cdc788a9] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,781 - AUTH - INFO - [3207939f-f0da-4d51-a375-1ca8cdc788a9] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,782 - AUTH - INFO - [3207939f-f0da-4d51-a375-1ca8cdc788a9] Response status: 307 - Completed in 0.0010s
+2025-05-30 18:40:38,783 - AUTH - INFO - [71b0af96-c59f-4b90-89a2-d34bad6003a3] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,784 - AUTH - INFO - [71b0af96-c59f-4b90-89a2-d34bad6003a3] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,785 - AUTH - INFO - [71b0af96-c59f-4b90-89a2-d34bad6003a3] Response status: 307 - Completed in 0.0011s
+2025-05-30 18:45:30,714 - AUTH - INFO - [bd24e516-3b79-400e-9599-ae2dd7f29485] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:45:30,715 - AUTH - INFO - [d564a63c-b810-4b95-8427-f9d4101b71ef] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:45:30,715 - AUTH - ERROR - No tokens in cookies
+2025-05-30 18:45:30,715 - AUTH - ERROR - No tokens in cookies
+2025-05-30 18:45:30,722 - AUTH - ERROR - HTTP exception: 401 - Authentication required
+2025-05-30 18:45:30,722 - AUTH - ERROR - HTTP exception: 401 - Authentication required
+2025-05-30 18:45:30,722 - AUTH - INFO - [d564a63c-b810-4b95-8427-f9d4101b71ef] Response status: 401 - Completed in 0.0075s
+2025-05-30 18:45:30,722 - AUTH - INFO - [bd24e516-3b79-400e-9599-ae2dd7f29485] Response status: 401 - Completed in 0.0075s
+2025-05-30 18:45:31,071 - AUTH - INFO - [e8876d32-ae35-43e1-aa8f-0b460e257204] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:45:31,071 - AUTH - INFO - [e8876d32-ae35-43e1-aa8f-0b460e257204] Request body for POST will be processed by endpoint.
+2025-05-30 18:45:31,071 - AUTH - INFO - [0c853e4e-b018-4952-8d13-88d7e62732e1] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:45:31,075 - AUTH - INFO - [0c853e4e-b018-4952-8d13-88d7e62732e1] Request body for POST will be processed by endpoint.
+2025-05-30 18:45:31,075 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-30 18:45:31,075 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-30 18:45:31,075 - AUTH - INFO - ********************************************************************************
+2025-05-30 18:45:31,075 - AUTH - DEBUG - Request headers:
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   x-forwarded-host: 66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   te: trailers
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   referer: https://66fb-77-91-101-132.ngrok-free.app/
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   origin: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   cookie: abuse_interstitial=66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   content-type: application/json
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   content-length: 580
+2025-05-30 18:45:31,075 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   host: localhost:8000
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   connection: close
+2025-05-30 18:45:31,090 - AUTH - DEBUG - Request method: POST
+2025-05-30 18:45:31,090 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-30 18:45:31,090 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-30 18:45:31,090 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-30 18:45:31,090 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-30 18:45:31,090 - AUTH - INFO - ********************************************************************************
+2025-05-30 18:45:31,090 - AUTH - DEBUG - Request headers:
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   x-forwarded-host: 66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   te: trailers
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   referer: https://66fb-77-91-101-132.ngrok-free.app/
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   origin: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   cookie: abuse_interstitial=66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   content-type: application/json
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3
+2025-05-30 18:45:31,090 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-30 18:45:31,106 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-30 18:45:31,106 - AUTH - DEBUG -   content-length: 580
+2025-05-30 18:45:31,106 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0
+2025-05-30 18:45:31,106 - AUTH - DEBUG -   host: localhost:8000
+2025-05-30 18:45:31,106 - AUTH - DEBUG -   connection: close
+2025-05-30 18:45:31,106 - AUTH - DEBUG - Request method: POST
+2025-05-30 18:45:31,106 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-30 18:45:31,106 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-30 18:45:31,106 - AUTH - INFO - Successfully read entire body (POST), length: 580
+2025-05-30 18:45:31,106 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938...
+2025-05-30 18:45:31,113 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e', 'test_mode': False}
+2025-05-30 18:45:31,113 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:45:31,113 - AUTH - DEBUG - Raw init_data: query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,113 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-30 18:45:31,113 - AUTH - DEBUG -   query_id: AAFreO00AAAAAGt47TQHIwEW
+2025-05-30 18:45:31,113 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-30 18:45:31,113 - AUTH - DEBUG -   auth_date: 1748619916
+2025-05-30 18:45:31,118 - AUTH - DEBUG -   signature: pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw
+2025-05-30 18:45:31,118 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-30 18:45:31,120 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-30 18:45:31,120 - AUTH - INFO - Verifying Telegram hash...
+2025-05-30 18:45:31,120 - AUTH - DEBUG - 
+==================================================
+2025-05-30 18:45:31,123 - AUTH - DEBUG - Starting Telegram WebApp hash verification
+2025-05-30 18:45:31,123 - AUTH - DEBUG - ==================================================
+2025-05-30 18:45:31,123 - AUTH - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-30 18:45:31,123 - AUTH - DEBUG - BOT_TOKEN length: 46
+2025-05-30 18:45:31,123 - AUTH - DEBUG - init_data (repr): 'query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e'
+2025-05-30 18:45:31,123 - AUTH - DEBUG - received_hash: 5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,123 - AUTH - DEBUG - Parsed data dict: {'query_id': 'AAFreO00AAAAAGt47TQHIwEW', 'user': '%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D', 'auth_date': '1748619916', 'signature': 'pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw'}
+2025-05-30 18:45:31,128 - AUTH - DEBUG - Hash from dictionary: 5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,128 - AUTH - DEBUG - Data check string (values URL-decoded): auth_date=1748619916
+query_id=AAFreO00AAAAAGt47TQHIwEW
+signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw
+user={"id":887978091,"first_name":".","last_name":".","username":"sar_a_to_v","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg"}
+2025-05-30 18:45:31,128 - AUTH - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-30 18:45:31,128 - AUTH - DEBUG - Calculated hash: 5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,132 - AUTH - DEBUG - Hash verification result: True
+2025-05-30 18:45:31,132 - AUTH - DEBUG - ==================================================
+
+2025-05-30 18:45:31,132 - AUTH - INFO - Hash verification successful
+2025-05-30 18:45:31,134 - AUTH - INFO - Parsing user data...
+2025-05-30 18:45:31,134 - AUTH - DEBUG - Raw user data length: 319
+2025-05-30 18:45:31,134 - AUTH - DEBUG - URL-decoded user data length: 215
+2025-05-30 18:45:31,134 - AUTH - DEBUG - Parsed user_info: ID=887978091, username=sar_a_to_v
+2025-05-30 18:45:31,134 - AUTH - DEBUG - Converted telegram_id to int: 887978091 (type: <class 'int'>)
+2025-05-30 18:45:31,134 - AUTH - INFO - Looking up user with telegram_id: 887978091
+2025-05-30 18:45:31,134 - AUTH - INFO - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:45:31,134 - AUTH - INFO - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:45:31,134 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:45:31.134406)
+2025-05-30 18:45:31,134 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:45:31.134406)
+2025-05-30 18:45:31,134 - AUTH - DEBUG - Access token data: {'sub': '2', 'telegram_id': '887978091', 'username': 'sar_a_to_v', 'type': 'access'}
+2025-05-30 18:45:31,146 - AUTH - INFO - JWT tokens created successfully
+2025-05-30 18:45:31,146 - AUTH - INFO - === Authentication Successful ===
+2025-05-30 18:45:31,146 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-30 18:45:31,148 - AUTH - INFO - Successfully read entire body (POST), length: 580
+2025-05-30 18:45:31,148 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938...
+2025-05-30 18:45:31,149 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e', 'test_mode': False}
+2025-05-30 18:45:31,149 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:45:31,151 - AUTH - DEBUG - Raw init_data: query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,152 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-30 18:45:31,153 - AUTH - DEBUG -   query_id: AAFreO00AAAAAGt47TQHIwEW
+2025-05-30 18:45:31,153 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-30 18:45:31,154 - AUTH - DEBUG -   auth_date: 1748619916
+2025-05-30 18:45:31,155 - AUTH - DEBUG -   signature: pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw
+2025-05-30 18:45:31,156 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-30 18:45:31,157 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-30 18:45:31,157 - AUTH - INFO - Verifying Telegram hash...
+2025-05-30 18:45:31,158 - AUTH - DEBUG - 
+==================================================
+2025-05-30 18:45:31,159 - AUTH - DEBUG - Starting Telegram WebApp hash verification
+2025-05-30 18:45:31,160 - AUTH - DEBUG - ==================================================
+2025-05-30 18:45:31,160 - AUTH - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-30 18:45:31,161 - AUTH - DEBUG - BOT_TOKEN length: 46
+2025-05-30 18:45:31,161 - AUTH - DEBUG - init_data (repr): 'query_id=AAFreO00AAAAAGt47TQHIwEW&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748619916&signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw&hash=5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e'
+2025-05-30 18:45:31,162 - AUTH - DEBUG - received_hash: 5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Parsed data dict: {'query_id': 'AAFreO00AAAAAGt47TQHIwEW', 'user': '%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D', 'auth_date': '1748619916', 'signature': 'pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw'}
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Hash from dictionary: 5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Data check string (values URL-decoded): auth_date=1748619916
+query_id=AAFreO00AAAAAGt47TQHIwEW
+signature=pPLqLyfjc0yVSnXMyVcuYIIa8HgNzLEndHATRCbLflFo1EzhjbsQjNiR3nJnkqoalyJ4xTOuRtgnzJy_IrfyBw
+user={"id":887978091,"first_name":".","last_name":".","username":"sar_a_to_v","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg"}
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Calculated hash: 5938dc43afb4ff7b52a1676d7022b53cd68d68584e07171039bef91c7f37151e
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Hash verification result: True
+2025-05-30 18:45:31,163 - AUTH - DEBUG - ==================================================
+
+2025-05-30 18:45:31,163 - AUTH - INFO - Hash verification successful
+2025-05-30 18:45:31,163 - AUTH - INFO - Parsing user data...
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Raw user data length: 319
+2025-05-30 18:45:31,163 - AUTH - DEBUG - URL-decoded user data length: 215
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Parsed user_info: ID=887978091, username=sar_a_to_v
+2025-05-30 18:45:31,163 - AUTH - DEBUG - Converted telegram_id to int: 887978091 (type: <class 'int'>)
+2025-05-30 18:45:31,163 - AUTH - INFO - Looking up user with telegram_id: 887978091
+2025-05-30 18:45:31,163 - AUTH - INFO - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:45:31,163 - AUTH - INFO - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:45:31,178 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:45:31.178991)
+2025-05-30 18:45:31,178 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:45:31.178991)
+2025-05-30 18:45:31,178 - AUTH - DEBUG - Access token data: {'sub': '2', 'telegram_id': '887978091', 'username': 'sar_a_to_v', 'type': 'access'}
+2025-05-30 18:45:31,178 - AUTH - INFO - JWT tokens created successfully
+2025-05-30 18:45:31,178 - AUTH - INFO - === Authentication Successful ===
+2025-05-30 18:45:31,178 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-30 18:45:31,178 - AUTH - INFO - [0c853e4e-b018-4952-8d13-88d7e62732e1] Response status: 200 - Completed in 0.1040s
+2025-05-30 18:45:31,178 - AUTH - INFO - [e8876d32-ae35-43e1-aa8f-0b460e257204] Response status: 200 - Completed in 0.1073s
+2025-05-30 18:45:31,940 - AUTH - INFO - [d9c67fbe-b9d9-4724-bbad-6a80976a28cd] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:45:31,941 - AUTH - INFO - [d9c67fbe-b9d9-4724-bbad-6a80976a28cd] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:45:31,942 - AUTH - INFO - [d9c67fbe-b9d9-4724-bbad-6a80976a28cd] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:45:31,978 - AUTH - INFO - [1a74ac8c-3d77-41e7-a79e-9aabd25ee26a] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:45:31,979 - AUTH - INFO - [1a74ac8c-3d77-41e7-a79e-9aabd25ee26a] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:45:31,980 - AUTH - INFO - [1a74ac8c-3d77-41e7-a79e-9aabd25ee26a] Response status: 307 - Completed in 0.0011s
+2025-05-30 18:45:42,752 - AUTH - INFO - [765ac69f-4f22-435c-b0cc-01bfd89ba814] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:45:42,754 - AUTH - INFO - [765ac69f-4f22-435c-b0cc-01bfd89ba814] Request body for POST will be processed by endpoint.
+2025-05-30 18:45:42,756 - AUTH - INFO - [765ac69f-4f22-435c-b0cc-01bfd89ba814] Response status: 307 - Completed in 0.0005s
+2025-05-30 18:50:39,472 - AUTH - INFO - [e4e3e4e8-aa43-4355-b6c0-000b9902ebf6] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:50:39,475 - AUTH - ERROR - No tokens in cookies
+2025-05-30 18:50:39,477 - AUTH - ERROR - HTTP exception: 401 - Authentication required
+2025-05-30 18:50:39,479 - AUTH - INFO - [e4e3e4e8-aa43-4355-b6c0-000b9902ebf6] Response status: 401 - Completed in 0.0049s
+2025-05-30 18:50:39,487 - AUTH - INFO - [6ac22a34-4f61-4f16-8bfa-1e5e75ced951] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:50:39,489 - AUTH - ERROR - No tokens in cookies
+2025-05-30 18:50:39,490 - AUTH - ERROR - HTTP exception: 401 - Authentication required
+2025-05-30 18:50:39,492 - AUTH - INFO - [6ac22a34-4f61-4f16-8bfa-1e5e75ced951] Response status: 401 - Completed in 0.0039s
+2025-05-30 18:50:39,792 - AUTH - INFO - [ed677fa0-a63e-437e-88bc-e5500ab6c027] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:50:39,793 - AUTH - INFO - [ed677fa0-a63e-437e-88bc-e5500ab6c027] Request body for POST will be processed by endpoint.
+2025-05-30 18:50:39,795 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-30 18:50:39,796 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-30 18:50:39,796 - AUTH - INFO - ********************************************************************************
+2025-05-30 18:50:39,797 - AUTH - DEBUG - Request headers:
+2025-05-30 18:50:39,798 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-30 18:50:39,799 - AUTH - DEBUG -   x-forwarded-host: 66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:50:39,799 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-30 18:50:39,799 - AUTH - DEBUG -   te: trailers
+2025-05-30 18:50:39,799 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-30 18:50:39,799 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-30 18:50:39,802 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-30 18:50:39,802 - AUTH - DEBUG -   referer: https://66fb-77-91-101-132.ngrok-free.app/
+2025-05-30 18:50:39,802 - AUTH - DEBUG -   origin: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:50:39,802 - AUTH - DEBUG -   cookie: abuse_interstitial=66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   content-type: application/json
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   content-length: 580
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   host: localhost:8000
+2025-05-30 18:50:39,804 - AUTH - DEBUG -   connection: close
+2025-05-30 18:50:39,804 - AUTH - DEBUG - Request method: POST
+2025-05-30 18:50:39,809 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-30 18:50:39,809 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-30 18:50:39,809 - AUTH - INFO - Successfully read entire body (POST), length: 580
+2025-05-30 18:50:39,809 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd...
+2025-05-30 18:50:39,813 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90', 'test_mode': False}
+2025-05-30 18:50:39,813 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:50:39,815 - AUTH - DEBUG - Raw init_data: query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,815 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-30 18:50:39,815 - AUTH - DEBUG -   query_id: AAFreO00AAAAAGt47TTa17ks
+2025-05-30 18:50:39,815 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-30 18:50:39,815 - AUTH - DEBUG -   auth_date: 1748620235
+2025-05-30 18:50:39,815 - AUTH - DEBUG -   signature: 6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ
+2025-05-30 18:50:39,815 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-30 18:50:39,820 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-30 18:50:39,820 - AUTH - INFO - Verifying Telegram hash...
+2025-05-30 18:50:39,820 - AUTH - DEBUG - 
+==================================================
+2025-05-30 18:50:39,820 - AUTH - DEBUG - Starting Telegram WebApp hash verification
+2025-05-30 18:50:39,820 - AUTH - DEBUG - ==================================================
+2025-05-30 18:50:39,820 - AUTH - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-30 18:50:39,820 - AUTH - DEBUG - BOT_TOKEN length: 46
+2025-05-30 18:50:39,820 - AUTH - DEBUG - init_data (repr): 'query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90'
+2025-05-30 18:50:39,825 - AUTH - DEBUG - received_hash: 60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Parsed data dict: {'query_id': 'AAFreO00AAAAAGt47TTa17ks', 'user': '%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D', 'auth_date': '1748620235', 'signature': '6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ'}
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Hash from dictionary: 60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Data check string (values URL-decoded): auth_date=1748620235
+query_id=AAFreO00AAAAAGt47TTa17ks
+signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ
+user={"id":887978091,"first_name":".","last_name":".","username":"sar_a_to_v","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg"}
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Calculated hash: 60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Hash verification result: True
+2025-05-30 18:50:39,825 - AUTH - DEBUG - ==================================================
+
+2025-05-30 18:50:39,825 - AUTH - INFO - Hash verification successful
+2025-05-30 18:50:39,825 - AUTH - INFO - Parsing user data...
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Raw user data length: 319
+2025-05-30 18:50:39,825 - AUTH - DEBUG - URL-decoded user data length: 215
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Parsed user_info: ID=887978091, username=sar_a_to_v
+2025-05-30 18:50:39,825 - AUTH - DEBUG - Converted telegram_id to int: 887978091 (type: <class 'int'>)
+2025-05-30 18:50:39,825 - AUTH - INFO - Looking up user with telegram_id: 887978091
+2025-05-30 18:50:39,837 - AUTH - INFO - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:50:39,838 - AUTH - INFO - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:50:39,839 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:50:39.839126)
+2025-05-30 18:50:39,840 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:50:39.840210)
+2025-05-30 18:50:39,840 - AUTH - DEBUG - Access token data: {'sub': '2', 'telegram_id': '887978091', 'username': 'sar_a_to_v', 'type': 'access'}
+2025-05-30 18:50:39,841 - AUTH - INFO - JWT tokens created successfully
+2025-05-30 18:50:39,842 - AUTH - INFO - === Authentication Successful ===
+2025-05-30 18:50:39,843 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-30 18:50:39,845 - AUTH - INFO - [ed677fa0-a63e-437e-88bc-e5500ab6c027] Response status: 200 - Completed in 0.0511s
+2025-05-30 18:50:39,847 - AUTH - INFO - [c7d0a4b3-03ff-423a-9fad-b947e04d6e4f] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:50:39,848 - AUTH - INFO - [c7d0a4b3-03ff-423a-9fad-b947e04d6e4f] Request body for POST will be processed by endpoint.
+2025-05-30 18:50:39,851 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-30 18:50:39,852 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-30 18:50:39,853 - AUTH - INFO - ********************************************************************************
+2025-05-30 18:50:39,853 - AUTH - DEBUG - Request headers:
+2025-05-30 18:50:39,853 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-30 18:50:39,854 - AUTH - DEBUG -   x-forwarded-host: 66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:50:39,855 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-30 18:50:39,855 - AUTH - DEBUG -   te: trailers
+2025-05-30 18:50:39,856 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-30 18:50:39,856 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-30 18:50:39,856 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-30 18:50:39,857 - AUTH - DEBUG -   referer: https://66fb-77-91-101-132.ngrok-free.app/
+2025-05-30 18:50:39,858 - AUTH - DEBUG -   origin: https://66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:50:39,859 - AUTH - DEBUG -   cookie: abuse_interstitial=66fb-77-91-101-132.ngrok-free.app
+2025-05-30 18:50:39,859 - AUTH - DEBUG -   content-type: application/json
+2025-05-30 18:50:39,860 - AUTH - DEBUG -   accept-language: ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3
+2025-05-30 18:50:39,860 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-30 18:50:39,861 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-30 18:50:39,862 - AUTH - DEBUG -   content-length: 580
+2025-05-30 18:50:39,862 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0
+2025-05-30 18:50:39,863 - AUTH - DEBUG -   host: localhost:8000
+2025-05-30 18:50:39,863 - AUTH - DEBUG -   connection: close
+2025-05-30 18:50:39,865 - AUTH - DEBUG - Request method: POST
+2025-05-30 18:50:39,865 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-30 18:50:39,865 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-30 18:50:39,867 - AUTH - INFO - Successfully read entire body (POST), length: 580
+2025-05-30 18:50:39,868 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd...
+2025-05-30 18:50:39,869 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90', 'test_mode': False}
+2025-05-30 18:50:39,869 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:50:39,870 - AUTH - DEBUG - Raw init_data: query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,870 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-30 18:50:39,871 - AUTH - DEBUG -   query_id: AAFreO00AAAAAGt47TTa17ks
+2025-05-30 18:50:39,871 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-30 18:50:39,872 - AUTH - DEBUG -   auth_date: 1748620235
+2025-05-30 18:50:39,872 - AUTH - DEBUG -   signature: 6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ
+2025-05-30 18:50:39,873 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-30 18:50:39,873 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-30 18:50:39,874 - AUTH - INFO - Verifying Telegram hash...
+2025-05-30 18:50:39,874 - AUTH - DEBUG - 
+==================================================
+2025-05-30 18:50:39,876 - AUTH - DEBUG - Starting Telegram WebApp hash verification
+2025-05-30 18:50:39,876 - AUTH - DEBUG - ==================================================
+2025-05-30 18:50:39,877 - AUTH - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-30 18:50:39,877 - AUTH - DEBUG - BOT_TOKEN length: 46
+2025-05-30 18:50:39,878 - AUTH - DEBUG - init_data (repr): 'query_id=AAFreO00AAAAAGt47TTa17ks&user=%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D&auth_date=1748620235&signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ&hash=60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90'
+2025-05-30 18:50:39,879 - AUTH - DEBUG - received_hash: 60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,880 - AUTH - DEBUG - Parsed data dict: {'query_id': 'AAFreO00AAAAAGt47TTa17ks', 'user': '%7B%22id%22%3A887978091%2C%22first_name%22%3A%22.%22%2C%22last_name%22%3A%22.%22%2C%22username%22%3A%22sar_a_to_v%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg%22%7D', 'auth_date': '1748620235', 'signature': '6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ'}
+2025-05-30 18:50:39,880 - AUTH - DEBUG - Hash from dictionary: 60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,882 - AUTH - DEBUG - Data check string (values URL-decoded): auth_date=1748620235
+query_id=AAFreO00AAAAAGt47TTa17ks
+signature=6zSlDva6bnJJZyf03L4_plvEPtov9d--j-YdXFIQdvdZ1GLSw2EtgoGutkxAzpdzcWi9HdVDKfR_CFQ0EqpeDQ
+user={"id":887978091,"first_name":".","last_name":".","username":"sar_a_to_v","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/1RamL_iAFcdZ2kGPxN7DFOtBN-utHaDkfIu1okZ2zsA.svg"}
+2025-05-30 18:50:39,883 - AUTH - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-30 18:50:39,883 - AUTH - DEBUG - Calculated hash: 60dd0aa25ad78c9afbf8e24b87231d87fe68c834cc0821e2cef027bd38a90f90
+2025-05-30 18:50:39,884 - AUTH - DEBUG - Hash verification result: True
+2025-05-30 18:50:39,884 - AUTH - DEBUG - ==================================================
+
+2025-05-30 18:50:39,885 - AUTH - INFO - Hash verification successful
+2025-05-30 18:50:39,885 - AUTH - INFO - Parsing user data...
+2025-05-30 18:50:39,886 - AUTH - DEBUG - Raw user data length: 319
+2025-05-30 18:50:39,887 - AUTH - DEBUG - URL-decoded user data length: 215
+2025-05-30 18:50:39,887 - AUTH - DEBUG - Parsed user_info: ID=887978091, username=sar_a_to_v
+2025-05-30 18:50:39,888 - AUTH - DEBUG - Converted telegram_id to int: 887978091 (type: <class 'int'>)
+2025-05-30 18:50:39,888 - AUTH - INFO - Looking up user with telegram_id: 887978091
+2025-05-30 18:50:39,890 - AUTH - INFO - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:50:39,891 - AUTH - INFO - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:50:39,892 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:50:39.892236)
+2025-05-30 18:50:39,893 - AUTH - DEBUG - JWT created for sar_a_to_v (exp 2025-05-31 15:50:39.893325)
+2025-05-30 18:50:39,893 - AUTH - DEBUG - Access token data: {'sub': '2', 'telegram_id': '887978091', 'username': 'sar_a_to_v', 'type': 'access'}
+2025-05-30 18:50:39,894 - AUTH - INFO - JWT tokens created successfully
+2025-05-30 18:50:39,895 - AUTH - INFO - === Authentication Successful ===
+2025-05-30 18:50:39,896 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-30 18:50:39,897 - AUTH - INFO - [c7d0a4b3-03ff-423a-9fad-b947e04d6e4f] Response status: 200 - Completed in 0.0477s
+2025-05-30 18:50:40,537 - AUTH - INFO - [575527cf-61b8-4077-9bc5-706ca67e9a11] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:50:40,538 - AUTH - INFO - [575527cf-61b8-4077-9bc5-706ca67e9a11] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:50:40,539 - AUTH - INFO - [575527cf-61b8-4077-9bc5-706ca67e9a11] Response status: 307 - Completed in 0.0006s
+2025-05-30 18:50:40,554 - AUTH - INFO - [5c3eadc1-062b-4c71-b5aa-4a518040579f] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:50:40,555 - AUTH - INFO - [5c3eadc1-062b-4c71-b5aa-4a518040579f] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:50:40,555 - AUTH - INFO - [5c3eadc1-062b-4c71-b5aa-4a518040579f] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:50:51,433 - AUTH - INFO - [52de3bd2-2e4b-42a5-b0fc-589597f4ab84] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:50:51,435 - AUTH - INFO - [52de3bd2-2e4b-42a5-b0fc-589597f4ab84] Request body for POST will be processed by endpoint.
+2025-05-30 18:50:51,436 - AUTH - INFO - [52de3bd2-2e4b-42a5-b0fc-589597f4ab84] Response status: 307 - Completed in 0.0006s

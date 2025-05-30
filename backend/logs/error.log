@@ -7452,3 +7452,75 @@ Authentication failed with HTTPException
 C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:216
 HTTP exception: 401 - Invalid hash
 
+2025-05-30 18:40:13,737 - main - ERROR - Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1934
+Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1832, in protected_route
+    payload = jwt.decode(access_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1841, in protected_route
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2025-05-30 18:40:13,740 - main - ERROR - HTTP exception: 500 - Internal server error
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:216
+HTTP exception: 500 - Internal server error
+
+2025-05-30 18:40:14,137 - main - ERROR - Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1934
+Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1832, in protected_route
+    payload = jwt.decode(access_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1841, in protected_route
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2025-05-30 18:40:14,139 - main - ERROR - HTTP exception: 500 - Internal server error
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:216
+HTTP exception: 500 - Internal server error
+
+2025-05-30 18:45:30,715 - main - ERROR - No tokens in cookies
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1825
+No tokens in cookies
+
+2025-05-30 18:45:30,715 - main - ERROR - No tokens in cookies
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1825
+No tokens in cookies
+
+2025-05-30 18:45:30,722 - main - ERROR - HTTP exception: 401 - Authentication required
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:216
+HTTP exception: 401 - Authentication required
+
+2025-05-30 18:45:30,722 - main - ERROR - HTTP exception: 401 - Authentication required
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:216
+HTTP exception: 401 - Authentication required
+
+2025-05-30 18:50:39,475 - main - ERROR - No tokens in cookies
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1825
+No tokens in cookies
+
+2025-05-30 18:50:39,477 - main - ERROR - HTTP exception: 401 - Authentication required
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:216
+HTTP exception: 401 - Authentication required
+
+2025-05-30 18:50:39,489 - main - ERROR - No tokens in cookies
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:1825
+No tokens in cookies
+
+2025-05-30 18:50:39,490 - main - ERROR - HTTP exception: 401 - Authentication required
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:216
+HTTP exception: 401 - Authentication required
+

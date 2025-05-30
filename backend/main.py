@@ -6,14 +6,14 @@ from fastapi.exceptions import RequestValidationError
 from starlette.requests import ClientDisconnect
 from sqlalchemy.orm import Session, joinedload
 from typing import List, Optional
-import models
-import schemas
-from database import SessionLocal, engine
+from . import models
+from . import schemas
+from .database import SessionLocal, engine
 import os
 import shutil
 from pathlib import Path
-from auth import verify_telegram_hash, create_access_token, verify_token, get_current_user
-from config import BOT_TOKEN, JWT_ALGORITHM, JWT_ACCESS_TOKEN_EXPIRE_MINUTES, JWT_SECRET_KEY, ENVIRONMENT, IS_DEVELOPMENT
+from .auth import verify_telegram_hash, create_access_token, verify_token, get_current_user
+from .config import BOT_TOKEN, JWT_ALGORITHM, JWT_ACCESS_TOKEN_EXPIRE_MINUTES, JWT_SECRET_KEY, ENVIRONMENT, IS_DEVELOPMENT
 import logging
 import sys
 import traceback

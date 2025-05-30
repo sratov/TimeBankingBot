@@ -6361,3 +6361,238 @@ AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
 2025-05-30 18:33:43,227 - [c2168720-ce71-4016-9ed8-1a5aad433eb1] Response status: 307 - Completed in 0.0005s
 2025-05-30 18:33:43,228 - [7f7eabb4-a9d9-4613-b765-076da417e943] Request from 77.91.101.132:0 - GET /friends/pending
 2025-05-30 18:33:43,232 - [7f7eabb4-a9d9-4613-b765-076da417e943] Response status: 200 - Completed in 0.0033s
+2025-05-30 18:38:26,140 - ================================================================================
+2025-05-30 18:38:26,141 - Starting Time Banking API
+2025-05-30 18:38:26,141 - ================================================================================
+2025-05-30 18:38:26,142 - Bot token: 80221..._4-bU (length: 46)
+2025-05-30 18:40:13,736 - [74494463-6bef-444a-824c-fb87b135e3c8] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:40:13,737 - Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1832, in protected_route
+    payload = jwt.decode(access_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1841, in protected_route
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2025-05-30 18:40:13,740 - HTTP exception: 500 - Internal server error
+2025-05-30 18:40:13,741 - [74494463-6bef-444a-824c-fb87b135e3c8] Response status: 500 - Completed in 0.0047s
+2025-05-30 18:40:14,135 - [c59f8493-a121-47c9-ab6d-e98bd0b4742e] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:40:14,137 - Error in protected route: module 'jwt' has no attribute 'ExpiredSignatureError'
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1832, in protected_route
+    payload = jwt.decode(access_token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+              ^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'decode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py", line 1841, in protected_route
+    except jwt.ExpiredSignatureError:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'jwt' has no attribute 'ExpiredSignatureError'
+2025-05-30 18:40:14,139 - HTTP exception: 500 - Internal server error
+2025-05-30 18:40:14,140 - [c59f8493-a121-47c9-ab6d-e98bd0b4742e] Response status: 500 - Completed in 0.0042s
+2025-05-30 18:40:14,280 - [15540edc-85bb-4c02-8e15-31722c292c5f] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:40:14,281 - [15540edc-85bb-4c02-8e15-31722c292c5f] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:14,282 - 
+
+********************************************************************************
+2025-05-30 18:40:14,282 - === Starting Telegram Authentication ===
+2025-05-30 18:40:14,283 - ********************************************************************************
+2025-05-30 18:40:14,293 - Successfully read entire body (POST), length: 580
+2025-05-30 18:40:14,295 - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:40:14,298 - Verifying Telegram hash...
+2025-05-30 18:40:14,306 - Hash verification successful
+2025-05-30 18:40:14,306 - Parsing user data...
+2025-05-30 18:40:14,308 - Looking up user with telegram_id: 887978091
+2025-05-30 18:40:14,310 - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:40:14,310 - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:40:14,314 - JWT tokens created successfully
+2025-05-30 18:40:14,314 - === Authentication Successful ===
+2025-05-30 18:40:14,315 - ********************************************************************************
+
+
+2025-05-30 18:40:14,315 - [15540edc-85bb-4c02-8e15-31722c292c5f] Response status: 200 - Completed in 0.0340s
+2025-05-30 18:40:14,466 - [a49d92eb-2494-4711-aefd-fb2c0e6f93ce] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:40:14,467 - [a49d92eb-2494-4711-aefd-fb2c0e6f93ce] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:14,468 - 
+
+********************************************************************************
+2025-05-30 18:40:14,468 - === Starting Telegram Authentication ===
+2025-05-30 18:40:14,468 - ********************************************************************************
+2025-05-30 18:40:14,480 - Successfully read entire body (POST), length: 580
+2025-05-30 18:40:14,481 - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:40:14,484 - Verifying Telegram hash...
+2025-05-30 18:40:14,491 - Hash verification successful
+2025-05-30 18:40:14,491 - Parsing user data...
+2025-05-30 18:40:14,494 - Looking up user with telegram_id: 887978091
+2025-05-30 18:40:14,495 - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:40:14,495 - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:40:14,497 - JWT tokens created successfully
+2025-05-30 18:40:14,498 - === Authentication Successful ===
+2025-05-30 18:40:14,498 - ********************************************************************************
+
+
+2025-05-30 18:40:14,499 - [a49d92eb-2494-4711-aefd-fb2c0e6f93ce] Response status: 200 - Completed in 0.0312s
+2025-05-30 18:40:14,596 - [d9887ef8-9be6-45b1-b1c4-7c9bb7918d28] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:40:14,597 - [d9887ef8-9be6-45b1-b1c4-7c9bb7918d28] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:40:14,598 - [d9887ef8-9be6-45b1-b1c4-7c9bb7918d28] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:40:15,377 - [8fc45f12-753e-4986-80ec-60ac2c36c077] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:40:15,378 - [8fc45f12-753e-4986-80ec-60ac2c36c077] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:40:15,380 - [8fc45f12-753e-4986-80ec-60ac2c36c077] Response status: 307 - Completed in 0.0005s
+2025-05-30 18:40:16,753 - [46fde3cb-9a72-4e98-af7b-dc400148943f] Request from 77.91.101.132:0 - GET /listings/user/2
+2025-05-30 18:40:16,761 - [46fde3cb-9a72-4e98-af7b-dc400148943f] Response status: 200 - Completed in 0.0073s
+2025-05-30 18:40:16,768 - [915da015-465b-448a-9c24-4cd0e7c6aac0] Request from 77.91.101.132:0 - GET /users/transactions
+2025-05-30 18:40:16,772 - [915da015-465b-448a-9c24-4cd0e7c6aac0] Response status: 200 - Completed in 0.0042s
+2025-05-30 18:40:16,836 - [22763e7e-3653-4c13-a1bb-e35d2d2f20c2] Request from 77.91.101.132:0 - GET /friends/pending
+2025-05-30 18:40:16,838 - [d10b2a44-4942-419c-ad6e-40d6cc459d76] Request from 77.91.101.132:0 - GET /friends
+2025-05-30 18:40:16,839 - [d10b2a44-4942-419c-ad6e-40d6cc459d76] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:40:16,844 - [22763e7e-3653-4c13-a1bb-e35d2d2f20c2] Response status: 200 - Completed in 0.0073s
+2025-05-30 18:40:17,201 - [c0a075f9-bb64-47a6-974c-254a80b97844] Request from 77.91.101.132:0 - GET /listings/user/2
+2025-05-30 18:40:17,202 - [ce139eff-ad44-4196-a4d6-110ec6774d3a] Request from 77.91.101.132:0 - GET /users/transactions
+2025-05-30 18:40:17,203 - [c604ad63-3ec7-46e1-ad5b-4053b525fbcd] Request from 77.91.101.132:0 - GET /friends
+2025-05-30 18:40:17,203 - [ed635940-b7d3-4804-990e-20dad859522f] Request from 77.91.101.132:0 - GET /friends/pending
+2025-05-30 18:40:17,207 - [c604ad63-3ec7-46e1-ad5b-4053b525fbcd] Response status: 307 - Completed in 0.0040s
+2025-05-30 18:40:17,215 - [c0a075f9-bb64-47a6-974c-254a80b97844] Response status: 200 - Completed in 0.0141s
+2025-05-30 18:40:17,217 - [ce139eff-ad44-4196-a4d6-110ec6774d3a] Response status: 200 - Completed in 0.0152s
+2025-05-30 18:40:17,218 - [ed635940-b7d3-4804-990e-20dad859522f] Response status: 200 - Completed in 0.0143s
+2025-05-30 18:40:38,185 - [6cec8b60-34c0-4511-8eba-2aa9130f450a] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,186 - [6cec8b60-34c0-4511-8eba-2aa9130f450a] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,187 - [6cec8b60-34c0-4511-8eba-2aa9130f450a] Response status: 307 - Completed in 0.0005s
+2025-05-30 18:40:38,744 - [6b5be449-f2b3-4314-835a-fba3072f0240] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,745 - [6b5be449-f2b3-4314-835a-fba3072f0240] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,746 - [e46538b4-d81c-4489-9f54-072bbaca00e5] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,746 - [e46538b4-d81c-4489-9f54-072bbaca00e5] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,747 - [6b5be449-f2b3-4314-835a-fba3072f0240] Response status: 307 - Completed in 0.0021s
+2025-05-30 18:40:38,748 - [e46538b4-d81c-4489-9f54-072bbaca00e5] Response status: 307 - Completed in 0.0016s
+2025-05-30 18:40:38,780 - [3207939f-f0da-4d51-a375-1ca8cdc788a9] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,781 - [3207939f-f0da-4d51-a375-1ca8cdc788a9] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,782 - [3207939f-f0da-4d51-a375-1ca8cdc788a9] Response status: 307 - Completed in 0.0010s
+2025-05-30 18:40:38,783 - [71b0af96-c59f-4b90-89a2-d34bad6003a3] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:40:38,784 - [71b0af96-c59f-4b90-89a2-d34bad6003a3] Request body for POST will be processed by endpoint.
+2025-05-30 18:40:38,785 - [71b0af96-c59f-4b90-89a2-d34bad6003a3] Response status: 307 - Completed in 0.0011s
+2025-05-30 18:45:30,714 - [bd24e516-3b79-400e-9599-ae2dd7f29485] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:45:30,715 - [d564a63c-b810-4b95-8427-f9d4101b71ef] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:45:30,715 - No tokens in cookies
+2025-05-30 18:45:30,715 - No tokens in cookies
+2025-05-30 18:45:30,722 - HTTP exception: 401 - Authentication required
+2025-05-30 18:45:30,722 - HTTP exception: 401 - Authentication required
+2025-05-30 18:45:30,722 - [d564a63c-b810-4b95-8427-f9d4101b71ef] Response status: 401 - Completed in 0.0075s
+2025-05-30 18:45:30,722 - [bd24e516-3b79-400e-9599-ae2dd7f29485] Response status: 401 - Completed in 0.0075s
+2025-05-30 18:45:31,071 - [e8876d32-ae35-43e1-aa8f-0b460e257204] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:45:31,071 - [e8876d32-ae35-43e1-aa8f-0b460e257204] Request body for POST will be processed by endpoint.
+2025-05-30 18:45:31,071 - [0c853e4e-b018-4952-8d13-88d7e62732e1] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:45:31,075 - [0c853e4e-b018-4952-8d13-88d7e62732e1] Request body for POST will be processed by endpoint.
+2025-05-30 18:45:31,075 - 
+
+********************************************************************************
+2025-05-30 18:45:31,075 - === Starting Telegram Authentication ===
+2025-05-30 18:45:31,075 - ********************************************************************************
+2025-05-30 18:45:31,090 - 
+
+********************************************************************************
+2025-05-30 18:45:31,090 - === Starting Telegram Authentication ===
+2025-05-30 18:45:31,090 - ********************************************************************************
+2025-05-30 18:45:31,106 - Successfully read entire body (POST), length: 580
+2025-05-30 18:45:31,113 - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:45:31,120 - Verifying Telegram hash...
+2025-05-30 18:45:31,132 - Hash verification successful
+2025-05-30 18:45:31,134 - Parsing user data...
+2025-05-30 18:45:31,134 - Looking up user with telegram_id: 887978091
+2025-05-30 18:45:31,134 - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:45:31,134 - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:45:31,146 - JWT tokens created successfully
+2025-05-30 18:45:31,146 - === Authentication Successful ===
+2025-05-30 18:45:31,146 - ********************************************************************************
+
+
+2025-05-30 18:45:31,148 - Successfully read entire body (POST), length: 580
+2025-05-30 18:45:31,149 - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:45:31,157 - Verifying Telegram hash...
+2025-05-30 18:45:31,163 - Hash verification successful
+2025-05-30 18:45:31,163 - Parsing user data...
+2025-05-30 18:45:31,163 - Looking up user with telegram_id: 887978091
+2025-05-30 18:45:31,163 - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:45:31,163 - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:45:31,178 - JWT tokens created successfully
+2025-05-30 18:45:31,178 - === Authentication Successful ===
+2025-05-30 18:45:31,178 - ********************************************************************************
+
+
+2025-05-30 18:45:31,178 - [0c853e4e-b018-4952-8d13-88d7e62732e1] Response status: 200 - Completed in 0.1040s
+2025-05-30 18:45:31,178 - [e8876d32-ae35-43e1-aa8f-0b460e257204] Response status: 200 - Completed in 0.1073s
+2025-05-30 18:45:31,940 - [d9c67fbe-b9d9-4724-bbad-6a80976a28cd] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:45:31,941 - [d9c67fbe-b9d9-4724-bbad-6a80976a28cd] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:45:31,942 - [d9c67fbe-b9d9-4724-bbad-6a80976a28cd] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:45:31,978 - [1a74ac8c-3d77-41e7-a79e-9aabd25ee26a] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:45:31,979 - [1a74ac8c-3d77-41e7-a79e-9aabd25ee26a] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:45:31,980 - [1a74ac8c-3d77-41e7-a79e-9aabd25ee26a] Response status: 307 - Completed in 0.0011s
+2025-05-30 18:45:42,752 - [765ac69f-4f22-435c-b0cc-01bfd89ba814] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:45:42,754 - [765ac69f-4f22-435c-b0cc-01bfd89ba814] Request body for POST will be processed by endpoint.
+2025-05-30 18:45:42,756 - [765ac69f-4f22-435c-b0cc-01bfd89ba814] Response status: 307 - Completed in 0.0005s
+2025-05-30 18:50:39,472 - [e4e3e4e8-aa43-4355-b6c0-000b9902ebf6] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:50:39,475 - No tokens in cookies
+2025-05-30 18:50:39,477 - HTTP exception: 401 - Authentication required
+2025-05-30 18:50:39,479 - [e4e3e4e8-aa43-4355-b6c0-000b9902ebf6] Response status: 401 - Completed in 0.0049s
+2025-05-30 18:50:39,487 - [6ac22a34-4f61-4f16-8bfa-1e5e75ced951] Request from 77.91.101.132:0 - GET /auth/protected
+2025-05-30 18:50:39,489 - No tokens in cookies
+2025-05-30 18:50:39,490 - HTTP exception: 401 - Authentication required
+2025-05-30 18:50:39,492 - [6ac22a34-4f61-4f16-8bfa-1e5e75ced951] Response status: 401 - Completed in 0.0039s
+2025-05-30 18:50:39,792 - [ed677fa0-a63e-437e-88bc-e5500ab6c027] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:50:39,793 - [ed677fa0-a63e-437e-88bc-e5500ab6c027] Request body for POST will be processed by endpoint.
+2025-05-30 18:50:39,795 - 
+
+********************************************************************************
+2025-05-30 18:50:39,796 - === Starting Telegram Authentication ===
+2025-05-30 18:50:39,796 - ********************************************************************************
+2025-05-30 18:50:39,809 - Successfully read entire body (POST), length: 580
+2025-05-30 18:50:39,813 - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:50:39,820 - Verifying Telegram hash...
+2025-05-30 18:50:39,825 - Hash verification successful
+2025-05-30 18:50:39,825 - Parsing user data...
+2025-05-30 18:50:39,825 - Looking up user with telegram_id: 887978091
+2025-05-30 18:50:39,837 - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:50:39,838 - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:50:39,841 - JWT tokens created successfully
+2025-05-30 18:50:39,842 - === Authentication Successful ===
+2025-05-30 18:50:39,843 - ********************************************************************************
+
+
+2025-05-30 18:50:39,845 - [ed677fa0-a63e-437e-88bc-e5500ab6c027] Response status: 200 - Completed in 0.0511s
+2025-05-30 18:50:39,847 - [c7d0a4b3-03ff-423a-9fad-b947e04d6e4f] Request from 77.91.101.132:0 - POST /auth/telegram
+2025-05-30 18:50:39,848 - [c7d0a4b3-03ff-423a-9fad-b947e04d6e4f] Request body for POST will be processed by endpoint.
+2025-05-30 18:50:39,851 - 
+
+********************************************************************************
+2025-05-30 18:50:39,852 - === Starting Telegram Authentication ===
+2025-05-30 18:50:39,853 - ********************************************************************************
+2025-05-30 18:50:39,867 - Successfully read entire body (POST), length: 580
+2025-05-30 18:50:39,869 - Got init_data from JSON body (POST), test_mode=False
+2025-05-30 18:50:39,874 - Verifying Telegram hash...
+2025-05-30 18:50:39,885 - Hash verification successful
+2025-05-30 18:50:39,885 - Parsing user data...
+2025-05-30 18:50:39,888 - Looking up user with telegram_id: 887978091
+2025-05-30 18:50:39,890 - Found existing user: sar_a_to_v (ID: 2, Telegram ID: 887978091)
+2025-05-30 18:50:39,891 - Creating JWT tokens for user: sar_a_to_v
+2025-05-30 18:50:39,894 - JWT tokens created successfully
+2025-05-30 18:50:39,895 - === Authentication Successful ===
+2025-05-30 18:50:39,896 - ********************************************************************************
+
+
+2025-05-30 18:50:39,897 - [c7d0a4b3-03ff-423a-9fad-b947e04d6e4f] Response status: 200 - Completed in 0.0477s
+2025-05-30 18:50:40,537 - [575527cf-61b8-4077-9bc5-706ca67e9a11] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:50:40,538 - [575527cf-61b8-4077-9bc5-706ca67e9a11] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:50:40,539 - [575527cf-61b8-4077-9bc5-706ca67e9a11] Response status: 307 - Completed in 0.0006s
+2025-05-30 18:50:40,554 - [5c3eadc1-062b-4c71-b5aa-4a518040579f] Request from 77.91.101.132:0 - GET /listings
+2025-05-30 18:50:40,555 - [5c3eadc1-062b-4c71-b5aa-4a518040579f] Query params: {'skip': '0', 'limit': '5'}
+2025-05-30 18:50:40,555 - [5c3eadc1-062b-4c71-b5aa-4a518040579f] Response status: 307 - Completed in 0.0000s
+2025-05-30 18:50:51,433 - [52de3bd2-2e4b-42a5-b0fc-589597f4ab84] Request from 77.91.101.132:0 - POST /listings
+2025-05-30 18:50:51,435 - [52de3bd2-2e4b-42a5-b0fc-589597f4ab84] Request body for POST will be processed by endpoint.
+2025-05-30 18:50:51,436 - [52de3bd2-2e4b-42a5-b0fc-589597f4ab84] Response status: 307 - Completed in 0.0006s
