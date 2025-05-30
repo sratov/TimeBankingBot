@@ -401,32 +401,26 @@ export default function Home() {
   };
 
   const renderMenu = () => (
-    <div className="space-y-12">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-wider">TIME BANKING</h1>
-        <div className="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        <p className="text-white/40 text-sm tracking-widest uppercase">Система обмена временем</p>
-      </div>
-      <div className="space-y-4 max-w-sm mx-auto">
-        <button
-          onClick={() => setView("create")}
-          className="btn-primary w-full flex items-center justify-center gap-2 glass-card"
-        >
-          Создать заявку
-        </button>
-        <button
-          onClick={() => setView("listings")}
-          className="btn-success w-full flex items-center justify-center gap-2 glass-card"
-        >
-          Просмотр заявок
-        </button>
-        <button
-          onClick={() => setView("profile")}
-          className="btn-ghost w-full flex items-center justify-center gap-2"
-        >
-          Мой профиль
-        </button>
-      </div>
+    <div className="space-y-4 p-4">
+      <h2 className="text-xl font-bold text-center">Меню</h2>
+      <button
+        onClick={() => setView("listings")}
+        className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Посмотреть заявки
+      </button>
+      <button
+        onClick={() => setView("create")}
+        className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Создать заявку
+      </button>
+      <button
+        onClick={() => setView("profile")}
+        className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Профиль
+      </button>
     </div>
   );
 
@@ -613,19 +607,22 @@ export default function Home() {
             </>
           );
         case "profile":
-          return (
-            <>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-bold tracking-tight">Мой профиль</h2>
-                  <button onClick={() => setView("menu")} className="btn-ghost">
-                    Назад
-                  </button>
-                </div>
-                <Profile user={userProfile} onAvatarUpdate={handleAvatarUpdate} />
-              </div>
-            </>
-          );
+          if (userProfile) {
+            return (
+              <Profile
+                id={userProfile.id}
+                telegram_id={userProfile.telegram_id}
+                username={userProfile.username}
+                avatar={userProfile.avatar}
+                balance={userProfile.balance}
+                earned_hours={userProfile.earned_hours}
+                spent_hours={userProfile.spent_hours}
+                created_at={userProfile.created_at}
+                onAvatarUpdate={handleAvatarUpdate}
+              />
+            );
+          }
+          return <div className="pt-[210px]">Loading or no user profile...</div>;
         default: // "menu" or any other case
           return renderMenu();
       }
@@ -633,6 +630,11 @@ export default function Home() {
     // Fallback if no specific content to render (should ideally be covered by loading or !userProfile)
     return <div className="pt-[210px]">Loading or no user profile...</div>;
   };
+
+  const setActiveView = (newView: View) => {
+    addDebugMessage(`[Navigation] Changing view from ${view} to ${newView}`);
+    setView(newView);
+  }
 
   return (
     <div className="container mx-auto p-4">

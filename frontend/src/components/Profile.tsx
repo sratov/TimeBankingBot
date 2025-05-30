@@ -72,6 +72,7 @@ export default function Profile({
   avatar,
   onAvatarUpdate,
 }: ProfileProps) {
+  console.log("[Profile.tsx] Received props:", { id, telegram_id, username, balance, earned_hours, spent_hours, avatar });
   const [isEditingAvatar, setIsEditingAvatar] = useState(false);
   const [friends, setFriends] = useState<Friend[]>([]);
   const [friendUsername, setFriendUsername] = useState("");
@@ -231,9 +232,13 @@ export default function Profile({
 
   // Функция для отображения аватара пользователя
   const renderUserAvatar = (user: { username: string, avatar?: string }) => {
+    const avatarSrc = user.avatar && (user.avatar.startsWith('http://') || user.avatar.startsWith('https://'))
+      ? user.avatar
+      : `${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${user.avatar}`;
+
     return user.avatar ? (
       <img 
-        src={`${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${user.avatar}`} 
+        src={avatarSrc} 
         alt={user.username} 
         className="w-10 h-10 rounded-full object-cover"
       />
@@ -260,7 +265,7 @@ export default function Profile({
             >
               <div className="w-24 h-24 bg-black/40 backdrop-blur-xl rounded flex items-center justify-center text-3xl font-bold text-white shadow-xl border border-white/10 overflow-hidden">
                 {avatar ? (
-                  <img src={`${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${avatar}`} alt={username} className="w-full h-full object-cover" />
+                  <img src={avatar && (avatar.startsWith('http://') || avatar.startsWith('https://')) ? avatar : `${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${avatar}`} alt={username} className="w-full h-full object-cover" />
                 ) : (
                   username && username.length > 0 ? username[0].toUpperCase() : '?'
                 )}
@@ -277,18 +282,18 @@ export default function Profile({
               />
             </div>
             <div className="flex-1 space-y-2">
-              <h3 className="text-2xl font-bold tracking-wider">@{username}</h3>
+              <h3 className="text-2xl font-bold tracking-wider">@{username || 'N/A'}</h3>
               <div className="h-px w-12 bg-gradient-to-r from-white/20 to-transparent"></div>
-              <p className="text-white/40 text-sm tracking-widest">ID: {telegram_id}</p>
+              <p className="text-white/40 text-sm tracking-widest">ID: {telegram_id !== undefined ? telegram_id : 'N/A'}</p>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="card bg-black/40 p-6 text-center border border-white/10 backdrop-blur-md">
-              <p className="text-3xl font-bold">{balance}</p>
+              <p className="text-3xl font-bold">{balance !== undefined ? balance.toFixed(1) : 'N/A'}</p>
               <p className="text-white/40 text-sm tracking-widest uppercase mt-2">Баланс часов</p>
             </div>
             <div className="card bg-black/40 p-6 text-center border border-white/10 backdrop-blur-md">
-              <p className="text-3xl font-bold">{earned_hours + spent_hours}</p>
+              <p className="text-3xl font-bold">{(Number(earned_hours) || 0) + (Number(spent_hours) || 0)}</p>
               <p className="text-white/40 text-sm tracking-widest uppercase mt-2">Всего сделок</p>
             </div>
           </div>
