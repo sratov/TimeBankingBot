@@ -317,7 +317,7 @@ async def diagnostics(db: Session = Depends(get_db)):
             "timestamp": datetime.utcnow().isoformat(),
         }
 
-@app.get("/user/me", response_model=schemas.UserProfile)
+@app.get("/user/me/", response_model=schemas.UserProfile)
 def get_user_me(
     request: Request,
     db: Session = Depends(get_db)
@@ -383,7 +383,7 @@ def create_listing(
     db.refresh(db_listing)
     return db_listing
 
-@app.post("/listings/{listing_id}/apply")
+@app.post("/listings/{listing_id}/apply/")
 def apply_for_listing(
     listing_id: int,
     db: Session = Depends(get_db),
@@ -408,7 +408,7 @@ def apply_for_listing(
     db.refresh(listing)
     return listing
 
-@app.post("/listings/{listing_id}/accept")
+@app.post("/listings/{listing_id}/accept/")
 def accept_worker(
     listing_id: int,
     db: Session = Depends(get_db),
@@ -472,7 +472,7 @@ def accept_worker(
     db.refresh(listing)
     return listing
 
-@app.post("/listings/{listing_id}/reject")
+@app.post("/listings/{listing_id}/reject/")
 def reject_worker(
     listing_id: int,
     db: Session = Depends(get_db),
@@ -494,7 +494,7 @@ def reject_worker(
     db.refresh(listing)
     return listing
 
-@app.post("/listings/{listing_id}/pay")
+@app.post("/listings/{listing_id}/pay/")
 def make_payment(
     listing_id: int,
     db: Session = Depends(get_db),
@@ -551,7 +551,7 @@ def make_payment(
     db.refresh(listing)
     return listing
 
-@app.post("/listings/{listing_id}/complete")
+@app.post("/listings/{listing_id}/complete/")
 def complete_listing(
     listing_id: int,
     db: Session = Depends(get_db),
@@ -577,7 +577,7 @@ def complete_listing(
     db.refresh(listing)
     return listing
 
-@app.post("/listings/{listing_id}/confirm")
+@app.post("/listings/{listing_id}/confirm/")
 def confirm_completion(
     listing_id: int,
     db: Session = Depends(get_db),
@@ -658,7 +658,7 @@ def confirm_completion(
     db.refresh(listing)
     return listing
 
-@app.post("/listings/{listing_id}/cancel")
+@app.post("/listings/{listing_id}/cancel/")
 def cancel_listing(
     listing_id: int,
     db: Session = Depends(get_db),
@@ -707,7 +707,7 @@ def get_friends(
         ) for friend in friends
     ]
 
-@app.post("/friends/request", response_model=schemas.Friend)
+@app.post("/friends/request/", response_model=schemas.Friend)
 def send_friend_request(
     friend_request: schemas.FriendCreate,
     db: Session = Depends(get_db),
@@ -741,7 +741,7 @@ def send_friend_request(
     
     return friend
 
-@app.post("/friends/{friend_id}/accept")
+@app.post("/friends/{friend_id}/accept/")
 def accept_friend_request(
     friend_id: int,
     db: Session = Depends(get_db),
@@ -763,7 +763,7 @@ def accept_friend_request(
     db.refresh(friend_request)
     return friend_request
 
-@app.post("/friends/{friend_id}/reject")
+@app.post("/friends/{friend_id}/reject/")
 def reject_friend_request(
     friend_id: int,
     db: Session = Depends(get_db),
@@ -784,7 +784,7 @@ def reject_friend_request(
     db.commit()
     return {"status": "rejected"}
 
-@app.get("/transactions/{user_id}", response_model=List[schemas.Transaction])
+@app.get("/transactions/{user_id}/", response_model=List[schemas.Transaction])
 def get_transactions(
     user_id: int,
     db: Session = Depends(get_db),
@@ -803,7 +803,7 @@ def get_transactions(
     ).order_by(models.Transaction.created_at.desc()).all()
     return transactions
 
-@app.post("/profile/{user_id}/avatar")
+@app.post("/profile/{user_id}/avatar/")
 async def upload_avatar(
     user_id: int,
     file: UploadFile = File(...),
@@ -834,7 +834,7 @@ async def upload_avatar(
 
     return {"avatar_url": avatar_url}
 
-@app.get("/listings/user/{user_id}", response_model=List[schemas.Listing])
+@app.get("/listings/user/{user_id}/", response_model=List[schemas.Listing])
 def get_user_listings(
     user_id: int,
     db: Session = Depends(get_db),
@@ -862,7 +862,7 @@ def get_user_listings(
     
     return listings
 
-@app.get("/users/search", response_model=List[schemas.UserProfile])
+@app.get("/users/search/", response_model=List[schemas.UserProfile])
 def search_users(
     username: str,
     db: Session = Depends(get_db),
@@ -881,7 +881,7 @@ def search_users(
     
     return users
 
-@app.get("/friends/pending", response_model=List[schemas.Friend])
+@app.get("/friends/pending/", response_model=List[schemas.Friend])
 def get_pending_friend_requests(
     db: Session = Depends(get_db),
     token_data: dict = Depends(get_current_user)
@@ -902,7 +902,7 @@ def get_pending_friend_requests(
     
     return pending_requests
 
-@app.get("/users/transactions", response_model=List[schemas.UserProfile])
+@app.get("/users/transactions/", response_model=List[schemas.UserProfile])
 def get_transaction_partners(
     db: Session = Depends(get_db),
     token_data: dict = Depends(get_current_user)
@@ -931,7 +931,7 @@ def get_transaction_partners(
     
     return partners
 
-@app.post("/debug/auth")
+@app.post("/debug/auth/")
 async def debug_auth_post(
     request: Request,
     response: Response,
@@ -1042,8 +1042,8 @@ async def debug_auth_post(
     # Устанавливаем токены в cookie
     cookie_options = {
         "httponly": True,
-        "secure": request.url.scheme == "https",
-        "samesite": "strict",
+        "secure": True,
+        "samesite": "none",
         "path": "/"
     }
     
@@ -1063,7 +1063,7 @@ async def debug_auth_post(
     
     return response
 
-@app.get("/debug/auth")
+@app.get("/debug/auth/")
 async def debug_auth(request: Request):
     """
     Диагностический эндпоинт для отладки авторизации Telegram
@@ -1194,7 +1194,7 @@ async def debug_auth(request: Request):
     
     return debug_info
 
-@app.get("/admin/logs/{log_name}")
+@app.get("/admin/logs/{log_name}/")
 async def view_logs(
     log_name: str,
     lines: int = Query(100, ge=1, le=1000),
@@ -1275,8 +1275,8 @@ async def view_logs(
         logger.error(f"Error retrieving logs: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error retrieving logs: {str(e)}")
 
-@app.get("/auth/telegram")
-@app.post("/auth/telegram")
+@app.get("/auth/telegram/")
+@app.post("/auth/telegram/")
 async def telegram_auth(
     request: Request,
     response: Response,
@@ -1360,7 +1360,7 @@ async def telegram_auth(
                                 from datetime import datetime, timedelta
                                 refresh_token_val = create_access_token({"sub": str(test_user.id), "telegram_id": str(test_user.telegram_id), "username": test_user.username, "type": "refresh", "exp": datetime.utcnow() + timedelta(days=7)})
                                 
-                                cookie_options = {"httponly": True, "secure": request.url.scheme == "https", "samesite": "strict", "path": "/"}
+                                cookie_options = {"httponly": True, "secure": True, "samesite": "none", "path": "/"}
                                 response.set_cookie(key="access_token", value=access_token, max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60, **cookie_options)
                                 response.set_cookie(key="refresh_token", value=refresh_token_val, max_age=60 * 60 * 24 * 7, **cookie_options)
                                 
@@ -1457,8 +1457,8 @@ async def telegram_auth(
                 # Устанавливаем токены в cookie
                 cookie_options = {
                     "httponly": True,
-                    "secure": request.url.scheme == "https",
-                    "samesite": "strict",
+                    "secure": True,
+                    "samesite": "none",
                     "path": "/"
                 }
                 
@@ -1666,8 +1666,8 @@ async def telegram_auth(
             # Устанавливаем токены в cookie
             cookie_options = {
                 "httponly": True,
-                "secure": request.url.scheme == "https",
-                "samesite": "strict",
+                "secure": True,
+                "samesite": "none",
                 "path": "/"
             }
             
@@ -1704,7 +1704,7 @@ async def telegram_auth(
         logger.error(f"Unexpected error in auth: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
-@app.get("/auth/refresh")
+@app.get("/auth/refresh/")
 async def refresh_token(
     request: Request,
     response: Response,
@@ -1767,8 +1767,8 @@ async def refresh_token(
             # Устанавливаем токены в cookie
             cookie_options = {
                 "httponly": True,
-                "secure": request.url.scheme == "https",
-                "samesite": "strict",
+                "secure": True,
+                "samesite": "none",
                 "path": "/"
             }
             
@@ -1806,7 +1806,7 @@ async def refresh_token(
         logger.error(f"Error refreshing token: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
 
-@app.get("/auth/protected")
+@app.get("/auth/protected/")
 async def protected_route(
     request: Request,
     response: Response,
@@ -1891,8 +1891,8 @@ async def protected_route(
                 # Устанавливаем токены в cookie
                 cookie_options = {
                     "httponly": True,
-                    "secure": request.url.scheme == "https",
-                    "samesite": "strict",
+                    "secure": True,
+                    "samesite": "none",
                     "path": "/"
                 }
                 
@@ -1934,7 +1934,7 @@ async def protected_route(
         logger.error(f"Error in protected route: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
 
-@app.post("/auth/logout")
+@app.post("/auth/logout/")
 async def logout(response: Response):
     """
     Logout user by clearing auth cookies.

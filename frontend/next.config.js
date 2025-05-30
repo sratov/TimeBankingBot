@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  trailingSlash: true,
+  trailingSlash: false,
   webpack: (config) => {
     config.externals.push({
       'utf-8-validate': 'commonjs utf-8-validate',
@@ -15,26 +15,13 @@ const nextConfig = {
   // Add API proxy configuration
   async rewrites() {
     return [
+      // Single, robust generic proxy rule.
+      // Next.js `trailingSlash: true` should handle normalizing incoming paths.
+      // The :path* should capture everything including query params.
+      // The destination should also use :path*/ to ensure the trailing slash is passed to FastAPI.
       {
-        source: '/api/auth/telegram',
-        destination: 'http://localhost:8000/auth/telegram',
-      },
-      {
-        source: '/api/debug/auth',
-        destination: 'http://localhost:8000/debug/auth',
-      },
-      {
-        source: '/api/listings/', // For the working case
-        destination: 'http://localhost:8000/listings/',
-      },
-      // Fallback generic rules (can be kept or commented out for testing)
-      {
-        source: '/api/:path*/', 
-        destination: 'http://localhost:8000/:path*/',
-      },
-      {
-        source: '/api/:path*', 
-        destination: 'http://localhost:8000/:path*',
+        source: '/api/:path*', // CHANGED: Removed trailing slash from source pattern
+        destination: 'http://localhost:8000/:path*/', // Destination still ensures trailing slash for FastAPI
       }
     ];
   },

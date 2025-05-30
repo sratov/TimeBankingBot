@@ -88,13 +88,15 @@ export default function Profile({
   const [transactionPartners, setTransactionPartners] = useState<User[]>([]);
   const [activeTab, setActiveTab] = useState<'friends' | 'search' | 'pending' | 'partners'>('friends');
 
-  // Загружаем список друзей при монтировании компонента
+  // Загружаем данные, когда id пользователя доступен
   useEffect(() => {
-    loadFriends();
-    loadUserListings();
-    loadPendingRequests();
-    loadTransactionPartners();
-  }, []);
+    if (id) { // Only run if id is available
+      loadFriends();
+      loadUserListings(); // This uses the 'id' prop
+      loadPendingRequests();
+      loadTransactionPartners();
+    }
+  }, [id]); // Add id to the dependency array
 
   const loadFriends = async () => {
     try {
@@ -127,6 +129,7 @@ export default function Profile({
   };
 
   const loadUserListings = async () => {
+    if (!id) return; // Extra guard just in case
     try {
       setIsLoadingListings(true);
       const listingsData = await getUserListings(id);
@@ -236,7 +239,7 @@ export default function Profile({
       />
     ) : (
       <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-        {user.username.charAt(0).toUpperCase()}
+        {user.username && user.username.length > 0 ? user.username[0].toUpperCase() : '?'}
       </div>
     );
   };
@@ -259,7 +262,7 @@ export default function Profile({
                 {avatar ? (
                   <img src={`${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${avatar}`} alt={username} className="w-full h-full object-cover" />
                 ) : (
-                  username[0].toUpperCase()
+                  username && username.length > 0 ? username[0].toUpperCase() : '?'
                 )}
               </div>
               <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded">

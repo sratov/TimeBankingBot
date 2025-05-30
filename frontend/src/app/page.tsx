@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CreateListingForm from "@/components/CreateListingForm";
 import Profile from "@/components/Profile";
 import { 
@@ -79,133 +79,169 @@ export default function Home() {
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [debugMessages, setDebugMessages] = useState<string[]>([]);
+  const initialized = useRef(false);
+
+  const addDebugMessage = (message: string) => {
+    console.log("DEBUG:", message); // Keep console logs for browser debugging
+    setDebugMessages(prev => [...prev, message]);
+  };
 
   useEffect(() => {
+    if (initialized.current) {
+      addDebugMessage("Initialization already run, skipping duplicate.");
+      return;
+    }
+    initialized.current = true;
+    addDebugMessage("Marking initialization as run.");
+
     const initializeUser = async () => {
       try {
-        console.log("Starting user initialization...");
-        console.log("Current origin:", window.location.origin);
-        console.log("Environment API BASE:", process.env.NEXT_PUBLIC_API_BASE);
+        addDebugMessage("Starting user initialization...");
+        addDebugMessage(`Current origin: \${window.location.origin}`);
+        addDebugMessage(`Environment API BASE: \${process.env.NEXT_PUBLIC_API_BASE}`);
         
         // Проверяем авторизацию через cookie
         try {
-          console.log("Checking authentication status...");
+          addDebugMessage("Checking authentication status (checkAuth)...");
           const authData = await checkAuth();
+          addDebugMessage(`checkAuth response: \${JSON.stringify(authData)}`);
           
           if (authData.authenticated) {
-            console.log("User is authenticated:", authData);
+            addDebugMessage("User is authenticated via checkAuth.");
             
-            // Если есть данные пользователя в ответе, используем их
             if (authData.user) {
               setUserProfile(authData.user);
-              console.log("User profile set from auth check");
+              addDebugMessage("User profile set from checkAuth.user.");
             } else {
-              // Иначе запрашиваем данные пользователя отдельно
+              addDebugMessage("checkAuth.user is missing, attempting getCurrentUser()...");
               const userData = await getCurrentUser();
               setUserProfile(userData);
-              console.log("User profile loaded separately");
+              addDebugMessage(`User profile loaded via getCurrentUser(): \${JSON.stringify(userData)}`);
             }
             
-            // Загружаем список заявок
+            addDebugMessage("Loading listings after checkAuth success...");
             const listingsData = await getListings();
             setListings(listingsData);
-            console.log("Listings loaded successfully");
+            addDebugMessage(`Listings loaded: \${listingsData.length} items.`);
             
-            return; // Выходим, если пользователь уже авторизован
+            setLoading(false);
+            return; 
+          } else {
+            addDebugMessage("checkAuth reported user is not authenticated.");
           }
-        } catch (authError) {
-          console.log("Not authenticated or auth check failed:", authError);
+        } catch (authError: any) {
+          addDebugMessage(`checkAuth failed or user not authenticated: \${authError.message}`);
+          if (authError.response) {
+            addDebugMessage(`checkAuth error response: \${JSON.stringify(authError.response.data)}`);
+          }
           // Продолжаем выполнение для аутентификации через Telegram
         }
         
-        // If no token or failed to load user, authenticate through Telegram
         if (window.Telegram?.WebApp) {
-          console.log("Starting Telegram authentication...");
+          addDebugMessage("Telegram WebApp detected. Attempting Telegram authentication...");
           const webAppData = window.Telegram.WebApp;
           
-          // Log Telegram data
-          console.log("Telegram WebApp data available:", !!webAppData);
+          addDebugMessage(`Telegram WebApp data available: \${!!webAppData}`);
           
-          // Выводим информацию о данных Telegram, но не весь initData
           if (webAppData.initData) {
-            console.log("Raw initData length:", webAppData.initData.length);
-            console.log("initData format check:", 
-              webAppData.initData.includes("hash=") ? "Contains hash" : "Missing hash", 
-              webAppData.initData.includes("user=") ? "Contains user" : "Missing user",
-              webAppData.initData.includes("auth_date=") ? "Contains auth_date" : "Missing auth_date"
-            );
+            addDebugMessage(`Raw initData length: \${webAppData.initData.length}`);
+            const initDataPreview = webAppData.initData.substring(0, 100);
+            addDebugMessage(`initData preview (first 100 chars): \${initDataPreview}...`);
+            addDebugMessage(`initData format check: hash: \${webAppData.initData.includes("hash=")}, user: \${webAppData.initData.includes("user=")}, auth_date: \${webAppData.initData.includes("auth_date=")}`);
+          } else {
+            addDebugMessage("Telegram WebApp initData is MISSING.");
           }
           
           if (webAppData.initDataUnsafe) {
-            console.log("initDataUnsafe (auth_date):", webAppData.initDataUnsafe.auth_date);
-            console.log("initDataUnsafe (user.id):", webAppData.initDataUnsafe.user?.id);
-            console.log("initDataUnsafe (user.username):", webAppData.initDataUnsafe.user?.username);
+            addDebugMessage(`initDataUnsafe (auth_date): \${webAppData.initDataUnsafe.auth_date}`);
+            addDebugMessage(`initDataUnsafe (user.id): \${webAppData.initDataUnsafe.user?.id}`);
+            addDebugMessage(`initDataUnsafe (user.username): \${webAppData.initDataUnsafe.user?.username}`);
+          } else {
+            addDebugMessage("Telegram WebApp initDataUnsafe is MISSING.");
           }
           
           try {
-            // If Telegram data is available, send auth request
             if (webAppData.initData) {
-              console.log("Sending authentication request to backend...");
-              // Ensure we're not modifying the initData and passing it directly
+              addDebugMessage("Sending authentication request to backend with initData...");
               const authResponse = await authenticateWithTelegram(webAppData.initData);
-              console.log("Authentication successful:", authResponse);
-              
-              if (authResponse.user) {
+              addDebugMessage(`Backend auth RAW response: ${JSON.stringify(authResponse)}`); 
+
+              let userJustSet: UserProfile | null = null;
+
+              if (authResponse && authResponse.user) {
                 setUserProfile(authResponse.user);
-                console.log("User profile set from auth response");
+                userJustSet = authResponse.user;
+                addDebugMessage(`User profile set from Telegram auth response. User: ${JSON.stringify(authResponse.user)}`);
+              } else if (authResponse && authResponse.data && authResponse.data.user) {
+                setUserProfile(authResponse.data.user);
+                userJustSet = authResponse.data.user;
+                addDebugMessage(`User profile set from Telegram auth response (authResponse.data.user). User: ${JSON.stringify(authResponse.data.user)}`);
               } else {
-                // Если данные пользователя не вернулись в ответе, запрашиваем отдельно
-                const userData = await getCurrentUser();
-                setUserProfile(userData);
-                console.log("User profile loaded separately after auth");
+                addDebugMessage("Telegram authResponse.user is missing or authResponse structure is unexpected. Attempting getCurrentUser()...");
+                try {
+                  const userData = await getCurrentUser();
+                  setUserProfile(userData);
+                  userJustSet = userData;
+                  addDebugMessage(`User profile loaded via getCurrentUser() after Telegram auth: ${JSON.stringify(userData)}`);
+                } catch (getCurrentUserError: any) {
+                  addDebugMessage(`Failed to get user profile via getCurrentUser() after auth: ${getCurrentUserError.message}`);
+                }
               }
+
+              if (userJustSet) {
+                addDebugMessage("Loading listings (after Telegram auth)...");
+                try {
+                  const listingsData = await getListings();
+                  setListings(listingsData);
+                  addDebugMessage(`Listings loaded: \${listingsData.length} items.`);
+                } catch (listingsError: any) {
+                  let errorMsg = listingsError.message;
+                  if (listingsError.response && listingsError.response.data && listingsError.response.data.detail) {
+                    errorMsg += ` - Details: ${JSON.stringify(listingsError.response.data.detail)}`;
+                  } else if (listingsError.response && listingsError.response.data) {
+                    errorMsg += ` - Data: ${JSON.stringify(listingsError.response.data)}`;
+                  }
+                  addDebugMessage(`Error loading listings: ${errorMsg}`);
+                  
+                  if (listingsError.response) {
+                    addDebugMessage(`Listings error status: \${listingsError.response.status}`);
+                    addDebugMessage(`Listings error data: \${JSON.stringify(listingsError.response.data)}`);
+                  }
+                }
+              }
+
             } else {
-              console.error("No Telegram initData available");
-              alert('Error: No initialization data from Telegram');
+              addDebugMessage("No Telegram initData available for backend authentication.");
+              alert('Error: No initialization data from Telegram for backend auth.');
             }
           } catch (error: any) {
-            console.error("Authentication error:", error);
+            addDebugMessage(`Telegram authentication error: \${error.message}`);
             if (error.response) {
-              console.error("Error status:", error.response.status);
-              console.error("Error data:", error.response.data);
+              addDebugMessage(`Telegram auth error status: \${error.response.status}`);
+              addDebugMessage(`Telegram auth error data: \${JSON.stringify(error.response.data)}`);
             } else if (error.request) {
-              console.error("No response received:", error.request);
-            } else {
-              console.error("Error message:", error.message);
+              addDebugMessage("Telegram auth: No response received.");
             }
-            alert('Authentication error. Please try refreshing the page.');
+            alert('Authentication error with Telegram. Please try refreshing the page.');
           }
         } else {
-          console.error("No Telegram WebApp data available");
+          addDebugMessage("No Telegram WebApp data available. App must be opened via Telegram.");
           alert('App must be opened through Telegram');
+          setLoading(false);
           return;
         }
-        
-        // Load listings after authentication
-        console.log("Loading listings...");
-        try {
-          const listingsData = await getListings();
-          setListings(listingsData);
-          console.log("Listings loaded successfully");
-        } catch (listingsError: any) {
-          console.error("Error loading listings:", listingsError);
-          if (listingsError.response) {
-            console.error("Listings error status:", listingsError.response.status);
-            console.error("Listings error data:", listingsError.response.data);
-          }
-        }
       } catch (error: any) {
-        console.error('Error during initialization:', error);
+        addDebugMessage(`FATAL Error during initialization: \${error.message}`);
         if (error.response) {
-          console.error('Error status:', error.response.status);
-          console.error('Error data:', error.response.data);
+          addDebugMessage(`Fatal error status: \${error.response.status}`);
+          addDebugMessage(`Fatal error data: \${JSON.stringify(error.response.data)}`);
         } else if (error.request) {
-          console.error('No response received:', error.request);
-        } else {
-          console.error('Error message:', error.message);
+          addDebugMessage("Fatal error: No response received.");
         }
-        alert('Initialization error. Please try refreshing the page.');
+        alert('Major initialization error. Please try refreshing the page.');
       } finally {
+        addDebugMessage("Initialization complete. Loading set to false.");
         setLoading(false);
       }
     };
@@ -503,72 +539,108 @@ export default function Home() {
     </div>
   );
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-8 w-8 border border-white/20 border-t-white"></div>
-      </div>
-    );
-  }
+  // Always render the debug panel at the top
+  const renderDebugPanel = () => (
+    <div 
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        maxHeight: '200px', 
+        overflowY: 'auto', 
+        backgroundColor: 'rgba(0,0,0,0.8)', // Darker for better visibility
+        color: 'lightgreen', 
+        padding: '10px', 
+        zIndex: 99999, // Ensure it's on top of everything
+        fontSize: '12px', // Slightly larger font
+        borderBottom: '1px solid green'
+      }}
+    >
+      <h3 style={{ fontWeight: 'bold', marginBottom: '5px' }}>Debug Info:</h3>
+      {debugMessages.map((msg, index) => (
+        <div key={index}>{`[${index + 1}] ${msg}`}</div>
+      ))}
+      {debugMessages.length === 0 && <div>No debug messages yet...</div>}
+    </div>
+  );
 
-  if (!userProfile) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[50vh]">
-        <div className="text-center space-y-4 mb-8">
-          <h1 className="text-2xl font-bold">Ошибка авторизации</h1>
-          <p className="text-white/60">Пожалуйста, откройте приложение через Telegram</p>
-          <div className="mt-4 p-4 bg-red-500/20 rounded-md text-white/80 max-w-md text-sm">
-            <p>Это приложение работает только при открытии через Telegram Mini Apps.</p>
-            <p className="mt-2">Проверьте, что вы открыли приложение через бота @TimeBankingBot, а не напрямую через браузер.</p>
+  // Main render logic for the page content
+  const renderPageContent = () => {
+    if (loading) {
+      return (
+        <div className="flex items-center justify-center min-h-[50vh] pt-[210px]"> {/* Added padding top */}
+          <div className="animate-spin rounded-full h-8 w-8 border border-white/20 border-t-white"></div>
+        </div>
+      );
+    }
+  
+    if (!userProfile && !loading) { // Check !loading here to avoid showing this during initial auth attempt
+      return (
+        <div className="flex flex-col items-center justify-center min-h-[50vh] pt-[210px]"> {/* Added padding top */}
+          <div className="text-center space-y-4 mb-8">
+            <h1 className="text-2xl font-bold">Ошибка авторизации</h1>
+            <p className="text-white/60">Пожалуйста, откройте приложение через Telegram</p>
+            <div className="mt-4 p-4 bg-red-500/20 rounded-md text-white/80 max-w-md text-sm">
+              <p>Это приложение работает только при открытии через Telegram Mini Apps.</p>
+              <p className="mt-2">Проверьте, что вы открыли приложение через бота @TimeBankingBot, а не напрямую через браузер.</p>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
 
-  switch (view) {
-    case "listings":
-      return (
-        <>
-          {renderListings()}
-        </>
-      );
-    case "create":
-      return (
-        <>
-          <div className="space-y-4">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold tracking-tight">Создать заявку</h2>
-              <button onClick={() => setView("menu")} className="btn-ghost">
-                Назад
-              </button>
-            </div>
-            <CreateListingForm
-              onSubmit={handleCreateListing}
-              onCancel={() => setView("menu")}
-            />
-          </div>
-        </>
-      );
-    case "profile":
-      return (
-        <>
-          <div className="space-y-4">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold tracking-tight">Мой профиль</h2>
-              <button onClick={() => setView("menu")} className="btn-ghost">
-                Назад
-              </button>
-            </div>
-            <Profile {...userProfile} onAvatarUpdate={handleAvatarUpdate} />
-          </div>
-        </>
-      );
-    default:
-      return (
-        <>
-          {renderMenu()}
-        </>
-      );
-  }
+    // If userProfile is available, render based on view
+    if (userProfile) {
+      switch (view) {
+        case "listings":
+          return renderListings();
+        case "create":
+          return (
+            <>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-bold tracking-tight">Создать заявку</h2>
+                  <button onClick={() => setView("menu")} className="btn-ghost">
+                    Назад
+                  </button>
+                </div>
+                <CreateListingForm
+                  onSubmit={handleCreateListing}
+                  onCancel={() => setView("menu")}
+                />
+              </div>
+            </>
+          );
+        case "profile":
+          return (
+            <>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-bold tracking-tight">Мой профиль</h2>
+                  <button onClick={() => setView("menu")} className="btn-ghost">
+                    Назад
+                  </button>
+                </div>
+                <Profile user={userProfile} onAvatarUpdate={handleAvatarUpdate} />
+              </div>
+            </>
+          );
+        default: // "menu" or any other case
+          return renderMenu();
+      }
+    }
+    // Fallback if no specific content to render (should ideally be covered by loading or !userProfile)
+    return <div className="pt-[210px]">Loading or no user profile...</div>;
+  };
+
+  return (
+    <div className="container mx-auto p-4">
+      {renderDebugPanel()} 
+      {/* Add some margin to the main content to avoid overlap with debug panel */}
+      <div style={{ paddingTop: '210px' }}> 
+        {renderPageContent()}
+      </div>
+    </div>
+  );
 }
