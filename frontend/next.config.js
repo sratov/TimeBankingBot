@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: true,
   webpack: (config) => {
     config.externals.push({
       'utf-8-validate': 'commonjs utf-8-validate',
@@ -15,8 +16,24 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        // Proxy all backend API requests through /api path
-        source: '/api/:path*',
+        source: '/api/auth/telegram',
+        destination: 'http://localhost:8000/auth/telegram',
+      },
+      {
+        source: '/api/debug/auth',
+        destination: 'http://localhost:8000/debug/auth',
+      },
+      {
+        source: '/api/listings/', // For the working case
+        destination: 'http://localhost:8000/listings/',
+      },
+      // Fallback generic rules (can be kept or commented out for testing)
+      {
+        source: '/api/:path*/', 
+        destination: 'http://localhost:8000/:path*/',
+      },
+      {
+        source: '/api/:path*', 
         destination: 'http://localhost:8000/:path*',
       }
     ];
