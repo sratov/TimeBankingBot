@@ -82,6 +82,8 @@ export default function Home() {
   const [debugMessages, setDebugMessages] = useState<string[]>([]);
   const initialized = useRef(false);
 
+  console.log("[Page.tsx] Home component rendering. Initial userProfile state:", userProfile); // Log initial state
+
   const addDebugMessage = (message: string) => {
     console.log("DEBUG:", message); // Keep console logs for browser debugging
     setDebugMessages(prev => [...prev, message]);
@@ -111,12 +113,14 @@ export default function Home() {
             addDebugMessage("User is authenticated via checkAuth.");
             
             if (authData.user) {
+              console.log("[Page.tsx] Setting userProfile from checkAuth.user:", authData.user); // Log before set
               setUserProfile(authData.user);
               addDebugMessage("User profile set from checkAuth.user.");
             } else {
               addDebugMessage("checkAuth.user is missing, attempting getCurrentUser()...");
-              const userData = await getCurrentUser();
-              setUserProfile(userData);
+            const userData = await getCurrentUser();
+              console.log("[Page.tsx] Setting userProfile from getCurrentUser (after checkAuth):", userData); // Log before set
+            setUserProfile(userData);
               addDebugMessage(`User profile loaded via getCurrentUser(): \${JSON.stringify(userData)}`);
             }
             
@@ -170,10 +174,12 @@ export default function Home() {
               let userJustSet: UserProfile | null = null;
 
               if (authResponse && authResponse.user) {
+                console.log("[Page.tsx] Setting userProfile from Telegram authResponse.user:", authResponse.user); // Log before set
                 setUserProfile(authResponse.user);
                 userJustSet = authResponse.user;
                 addDebugMessage(`User profile set from Telegram auth response. User: ${JSON.stringify(authResponse.user)}`);
               } else if (authResponse && authResponse.data && authResponse.data.user) {
+                console.log("[Page.tsx] Setting userProfile from Telegram authResponse.data.user:", authResponse.data.user); // Log before set
                 setUserProfile(authResponse.data.user);
                 userJustSet = authResponse.data.user;
                 addDebugMessage(`User profile set from Telegram auth response (authResponse.data.user). User: ${JSON.stringify(authResponse.data.user)}`);
@@ -181,6 +187,7 @@ export default function Home() {
                 addDebugMessage("Telegram authResponse.user is missing or authResponse structure is unexpected. Attempting getCurrentUser()...");
                 try {
                   const userData = await getCurrentUser();
+                  console.log("[Page.tsx] Setting userProfile from getCurrentUser (after Telegram auth):", userData); // Log before set
                   setUserProfile(userData);
                   userJustSet = userData;
                   addDebugMessage(`User profile loaded via getCurrentUser() after Telegram auth: ${JSON.stringify(userData)}`);
@@ -409,18 +416,18 @@ export default function Home() {
       >
         Посмотреть заявки
       </button>
-      <button
-        onClick={() => setView("create")}
+        <button
+          onClick={() => setView("create")}
         className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Создать заявку
-      </button>
-      <button
-        onClick={() => setView("profile")}
+        >
+          Создать заявку
+        </button>
+        <button
+          onClick={() => setView("profile")}
         className="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
-      >
+        >
         Профиль
-      </button>
+        </button>
     </div>
   );
 
@@ -536,8 +543,8 @@ export default function Home() {
   // Always render the debug panel at the top
   const renderDebugPanel = () => (
     <div 
-      style={{ 
-        position: 'fixed', 
+          style={{
+            position: 'fixed',
         top: 0, 
         left: 0, 
         right: 0, 
@@ -545,7 +552,7 @@ export default function Home() {
         overflowY: 'auto', 
         backgroundColor: 'rgba(0,0,0,0.8)', // Darker for better visibility
         color: 'lightgreen', 
-        padding: '10px', 
+            padding: '10px',
         zIndex: 99999, // Ensure it's on top of everything
         fontSize: '12px', // Slightly larger font
         borderBottom: '1px solid green'
@@ -561,54 +568,56 @@ export default function Home() {
 
   // Main render logic for the page content
   const renderPageContent = () => {
+    console.log("[Page.tsx] renderPageContent called. Current view:", view, "Current userProfile:", userProfile);
+
     if (loading) {
       return (
         <div className="flex items-center justify-center min-h-[50vh] pt-[210px]"> {/* Added padding top */}
           <div className="animate-spin rounded-full h-8 w-8 border border-white/20 border-t-white"></div>
-        </div>
-      );
-    }
-  
+      </div>
+    );
+  }
+
     if (!userProfile && !loading) { // Check !loading here to avoid showing this during initial auth attempt
-      return (
+    return (
         <div className="flex flex-col items-center justify-center min-h-[50vh] pt-[210px]"> {/* Added padding top */}
-          <div className="text-center space-y-4 mb-8">
-            <h1 className="text-2xl font-bold">Ошибка авторизации</h1>
-            <p className="text-white/60">Пожалуйста, откройте приложение через Telegram</p>
+        <div className="text-center space-y-4 mb-8">
+          <h1 className="text-2xl font-bold">Ошибка авторизации</h1>
+          <p className="text-white/60">Пожалуйста, откройте приложение через Telegram</p>
             <div className="mt-4 p-4 bg-red-500/20 rounded-md text-white/80 max-w-md text-sm">
               <p>Это приложение работает только при открытии через Telegram Mini Apps.</p>
               <p className="mt-2">Проверьте, что вы открыли приложение через бота @TimeBankingBot, а не напрямую через браузер.</p>
             </div>
           </div>
-        </div>
-      );
-    }
+      </div>
+    );
+  }
 
     // If userProfile is available, render based on view
     if (userProfile) {
-      switch (view) {
-        case "listings":
+  switch (view) {
+    case "listings":
           return renderListings();
-        case "create":
-          return (
-            <>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-bold tracking-tight">Создать заявку</h2>
-                  <button onClick={() => setView("menu")} className="btn-ghost">
-                    Назад
-                  </button>
-                </div>
-                <CreateListingForm
-                  onSubmit={handleCreateListing}
-                  onCancel={() => setView("menu")}
-                />
-              </div>
-            </>
-          );
-        case "profile":
+    case "create":
+      return (
+        <>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold tracking-tight">Создать заявку</h2>
+              <button onClick={() => setView("menu")} className="btn-ghost">
+                Назад
+              </button>
+            </div>
+            <CreateListingForm
+              onSubmit={handleCreateListing}
+              onCancel={() => setView("menu")}
+            />
+          </div>
+        </>
+      );
+    case "profile":
           if (userProfile) {
-            return (
+      return (
               <Profile
                 id={userProfile.id}
                 telegram_id={userProfile.telegram_id}
@@ -645,5 +654,5 @@ export default function Home() {
         {renderPageContent()}
       </div>
     </div>
-  );
+      );
 }

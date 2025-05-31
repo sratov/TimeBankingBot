@@ -92,10 +92,10 @@ export default function Profile({
 
   useEffect(() => {
     if (id) {
-      loadFriends();
-      loadUserListings(); 
-      loadPendingRequests();
-      loadTransactionPartners();
+    loadFriends();
+    loadUserListings();
+    loadPendingRequests();
+    loadTransactionPartners();
     }
   }, [id]);
 
@@ -121,11 +121,17 @@ export default function Profile({
   };
 
   const loadTransactionPartners = async () => {
+    console.log("[Profile.tsx] Attempting to load transaction partners...");
     try {
-      const partners = await getTransactionPartners();
-      setTransactionPartners(partners);
+      const partnersData = await getTransactionPartners();
+      console.log("[Profile.tsx] Received transaction partners data from API:", partnersData);
+      setTransactionPartners(partnersData);
+      console.log(`[Profile.tsx] Set ${partnersData.length} transaction partners in state.`);
     } catch (error) {
-      console.error("Error loading transaction partners:", error);
+      console.error("[Profile.tsx] Error loading transaction partners:", error);
+      if (error.response) {
+        console.error("[Profile.tsx] Transaction partners error response:", error.response.data);
+      }
     }
   };
 
@@ -224,9 +230,16 @@ export default function Profile({
   };
 
   const renderUserAvatar = (user: { username: string, avatar?: string }) => {
-    const avatarSrc = user.avatar && (user.avatar.startsWith('http://') || user.avatar.startsWith('https://'))
-      ? user.avatar
-      : `${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${user.avatar}`;
+    let avatarSrc = '';
+    if (user.avatar) {
+      if (user.avatar.startsWith('http://') || user.avatar.startsWith('https://')) {
+        avatarSrc = user.avatar;
+      } else if (user.avatar.startsWith('/static/')) {
+        avatarSrc = `${typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${user.avatar}`;
+      } else {
+        avatarSrc = `${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${user.avatar}`;
+      }
+    }
 
     return user.avatar ? (
       <img 
@@ -255,11 +268,23 @@ export default function Profile({
               className="group relative cursor-pointer"
             >
               <div className="w-24 h-24 bg-black/40 backdrop-blur-xl rounded flex items-center justify-center text-3xl font-bold text-white shadow-xl border border-white/10 overflow-hidden">
-                {avatar ? (
-                  <img src={avatar && (avatar.startsWith('http://') || avatar.startsWith('https://')) ? avatar : `${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${avatar}`} alt={username} className="w-full h-full object-cover" />
+                {(() => {
+                  let mainAvatarSrc = '';
+                  if (avatar) {
+                    if (avatar.startsWith('http://') || avatar.startsWith('https://')) {
+                      mainAvatarSrc = avatar;
+                    } else if (avatar.startsWith('/static/')) {
+                      mainAvatarSrc = `${typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${avatar}`;
+                    } else {
+                      mainAvatarSrc = `${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${avatar}`;
+                    }
+                  }
+                  return mainAvatarSrc ? (
+                    <img src={mainAvatarSrc} alt={username} className="w-full h-full object-cover" />
                 ) : (
-                  username && username.length > 0 ? username[0].toUpperCase() : '?'
-                )}
+                    username && username.length > 0 ? username[0].toUpperCase() : '?'
+                  );
+                })()}
               </div>
               <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded">
                 <span className="text-white/90 text-xs tracking-widest uppercase">Изменить</span>
@@ -515,6 +540,7 @@ export default function Profile({
                       (friend.user_id === user.id && friend.friend_id === id) || 
                       (friend.user_id === id && friend.friend_id === user.id)
                     );
+                    console.log("[Profile.tsx] Rendering transaction partner:", user);
                     
                     return (
                       <div key={user.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between">
