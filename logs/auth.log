@@ -3397,3 +3397,379 @@ user={"id":7127128314,"first_name":"alan","last_name":"","username":"hendrix611"
 2025-05-31 12:49:28,721 - AUTH - INFO - [8890b8ce-b45a-457b-b09f-099522a8f1c3] Request from 77.91.101.132:0 - GET /users/search/
 2025-05-31 12:49:28,722 - AUTH - INFO - [8890b8ce-b45a-457b-b09f-099522a8f1c3] Query params: {'username': '@sar_a_to_v'}
 2025-05-31 12:49:28,725 - AUTH - INFO - [8890b8ce-b45a-457b-b09f-099522a8f1c3] Response status: 200 - Completed in 0.0027s
+2025-05-31 12:49:53,035 - AUTH - INFO - [6cbf55c7-3f11-4251-81f4-f37071693cfb] Request from 77.91.101.132:0 - GET /users/search/
+2025-05-31 12:49:53,036 - AUTH - INFO - [6cbf55c7-3f11-4251-81f4-f37071693cfb] Query params: {'username': 'sar_a_to_v'}
+2025-05-31 12:49:53,040 - AUTH - INFO - [6cbf55c7-3f11-4251-81f4-f37071693cfb] Response status: 200 - Completed in 0.0027s
+2025-05-31 12:49:53,310 - AUTH - INFO - [d2743199-7f7b-4a28-a3e5-f1fa0ae9cb72] Request from 77.91.101.132:0 - GET /static/avatars/user_2_avatar_1748684660.jpg
+2025-05-31 12:49:53,351 - AUTH - INFO - [d2743199-7f7b-4a28-a3e5-f1fa0ae9cb72] Response status: 200 - Completed in 0.0401s
+2025-05-31 12:50:20,810 - AUTH - INFO - [9706ef1b-9cb7-47d5-b0f0-f835aec66430] Request from 77.91.101.132:0 - GET /auth/protected/
+2025-05-31 12:50:20,812 - AUTH - ERROR - HTTP exception: 401 - Not authenticated
+2025-05-31 12:50:20,813 - AUTH - INFO - [9706ef1b-9cb7-47d5-b0f0-f835aec66430] Response status: 401 - Completed in 0.0016s
+2025-05-31 12:50:21,264 - AUTH - INFO - [6de621da-4cb4-438e-92e9-c5cb4352398e] Request from 77.91.101.132:0 - POST /auth/telegram/
+2025-05-31 12:50:21,265 - AUTH - INFO - [6de621da-4cb4-438e-92e9-c5cb4352398e] Request body for POST will be processed by endpoint.
+2025-05-31 12:50:21,266 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-31 12:50:21,266 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-31 12:50:21,266 - AUTH - INFO - ********************************************************************************
+2025-05-31 12:50:21,267 - AUTH - DEBUG - Request headers:
+2025-05-31 12:50:21,267 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-31 12:50:21,267 - AUTH - DEBUG -   x-forwarded-host: 0e4c-77-91-101-132.ngrok-free.app
+2025-05-31 12:50:21,268 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-31 12:50:21,269 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-31 12:50:21,269 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-31 12:50:21,269 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-31 12:50:21,270 - AUTH - DEBUG -   sec-ch-ua-platform: "Windows"
+2025-05-31 12:50:21,270 - AUTH - DEBUG -   sec-ch-ua-mobile: ?0
+2025-05-31 12:50:21,271 - AUTH - DEBUG -   sec-ch-ua: "Microsoft Edge";v="136", "Microsoft Edge WebView2";v="136", "Not.A/Brand";v="99", "Chromium";v="136"
+2025-05-31 12:50:21,271 - AUTH - DEBUG -   referer: https://0e4c-77-91-101-132.ngrok-free.app/
+2025-05-31 12:50:21,272 - AUTH - DEBUG -   priority: u=1, i
+2025-05-31 12:50:21,272 - AUTH - DEBUG -   origin: https://0e4c-77-91-101-132.ngrok-free.app
+2025-05-31 12:50:21,272 - AUTH - DEBUG -   cookie: abuse_interstitial=0e4c-77-91-101-132.ngrok-free.app
+2025-05-31 12:50:21,273 - AUTH - DEBUG -   content-type: application/json
+2025-05-31 12:50:21,274 - AUTH - DEBUG -   accept-language: ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+2025-05-31 12:50:21,274 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-31 12:50:21,274 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-31 12:50:21,274 - AUTH - DEBUG -   content-length: 604
+2025-05-31 12:50:21,274 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0
+2025-05-31 12:50:21,276 - AUTH - DEBUG -   host: localhost:8000
+2025-05-31 12:50:21,276 - AUTH - DEBUG -   connection: close
+2025-05-31 12:50:21,277 - AUTH - DEBUG - Request method: POST
+2025-05-31 12:50:21,277 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-31 12:50:21,277 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-31 12:50:21,278 - AUTH - INFO - Successfully read entire body (POST), length: 604
+2025-05-31 12:50:21,278 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAH6WM8oAwAAAPpYzyjJDsXG&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748685015&signature=fPz92uNkDrE7jWfzGEreoyYbuRwNpuC7Ci9arSvuvGgerQo3hcYVyQX8o0xHVEIifrsQxoqZ...
+2025-05-31 12:50:21,279 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAH6WM8oAwAAAPpYzyjJDsXG&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748685015&signature=fPz92uNkDrE7jWfzGEreoyYbuRwNpuC7Ci9arSvuvGgerQo3hcYVyQX8o0xHVEIifrsQxoqZoOUYkL3rUl0hAQ&hash=0bd9baabfa20eb802eccea25e9644a2520d5d593d8b8cef1e2ebbf4fcc5392d6', 'test_mode': False}
+2025-05-31 12:50:21,279 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-31 12:50:21,279 - AUTH - DEBUG - Raw init_data: query_id=AAH6WM8oAwAAAPpYzyjJDsXG&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748685015&signature=fPz92uNkDrE7jWfzGEreoyYbuRwNpuC7Ci9arSvuvGgerQo3hcYVyQX8o0xHVEIifrsQxoqZoOUYkL3rUl0hAQ&hash=0bd9baabfa20eb802eccea25e9644a2520d5d593d8b8cef1e2ebbf4fcc5392d6
+2025-05-31 12:50:21,280 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-31 12:50:21,280 - AUTH - DEBUG -   query_id: AAH6WM8oAwAAAPpYzyjJDsXG
+2025-05-31 12:50:21,280 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-31 12:50:21,281 - AUTH - DEBUG -   auth_date: 1748685015
+2025-05-31 12:50:21,281 - AUTH - DEBUG -   signature: fPz92uNkDrE7jWfzGEreoyYbuRwNpuC7Ci9arSvuvGgerQo3hcYVyQX8o0xHVEIifrsQxoqZoOUYkL3rUl0hAQ
+2025-05-31 12:50:21,282 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-31 12:50:21,282 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-31 12:50:21,283 - AUTH - INFO - Verifying Telegram hash...
+2025-05-31 12:50:21,283 - backend.auth - DEBUG - 
+==================================================
+2025-05-31 12:50:21,284 - backend.auth - DEBUG - Starting Telegram WebApp hash verification
+2025-05-31 12:50:21,285 - backend.auth - DEBUG - ==================================================
+2025-05-31 12:50:21,285 - backend.auth - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-31 12:50:21,286 - backend.auth - DEBUG - BOT_TOKEN length: 46
+2025-05-31 12:50:21,286 - backend.auth - DEBUG - init_data (repr): 'query_id=AAH6WM8oAwAAAPpYzyjJDsXG&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748685015&signature=fPz92uNkDrE7jWfzGEreoyYbuRwNpuC7Ci9arSvuvGgerQo3hcYVyQX8o0xHVEIifrsQxoqZoOUYkL3rUl0hAQ&hash=0bd9baabfa20eb802eccea25e9644a2520d5d593d8b8cef1e2ebbf4fcc5392d6'
+2025-05-31 12:50:21,287 - backend.auth - DEBUG - received_hash: 0bd9baabfa20eb802eccea25e9644a2520d5d593d8b8cef1e2ebbf4fcc5392d6
+2025-05-31 12:50:21,287 - backend.auth - DEBUG - Parsed data dict: {'query_id': 'AAH6WM8oAwAAAPpYzyjJDsXG', 'user': '%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D', 'auth_date': '1748685015', 'signature': 'fPz92uNkDrE7jWfzGEreoyYbuRwNpuC7Ci9arSvuvGgerQo3hcYVyQX8o0xHVEIifrsQxoqZoOUYkL3rUl0hAQ'}
+2025-05-31 12:50:21,288 - backend.auth - DEBUG - Hash from dictionary: 0bd9baabfa20eb802eccea25e9644a2520d5d593d8b8cef1e2ebbf4fcc5392d6
+2025-05-31 12:50:21,289 - backend.auth - DEBUG - Data check string (values URL-decoded): auth_date=1748685015
+query_id=AAH6WM8oAwAAAPpYzyjJDsXG
+signature=fPz92uNkDrE7jWfzGEreoyYbuRwNpuC7Ci9arSvuvGgerQo3hcYVyQX8o0xHVEIifrsQxoqZoOUYkL3rUl0hAQ
+user={"id":7127128314,"first_name":"alan","last_name":"","username":"hendrix611","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/r_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg"}
+2025-05-31 12:50:21,290 - backend.auth - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-31 12:50:21,290 - backend.auth - DEBUG - Calculated hash: 0bd9baabfa20eb802eccea25e9644a2520d5d593d8b8cef1e2ebbf4fcc5392d6
+2025-05-31 12:50:21,291 - backend.auth - DEBUG - Hash verification result: True
+2025-05-31 12:50:21,291 - backend.auth - DEBUG - ==================================================
+
+2025-05-31 12:50:21,292 - AUTH - INFO - Hash verification successful
+2025-05-31 12:50:21,292 - AUTH - INFO - Parsing user data...
+2025-05-31 12:50:21,293 - AUTH - DEBUG - Raw user data length: 343
+2025-05-31 12:50:21,293 - AUTH - DEBUG - URL-decoded user data length: 239
+2025-05-31 12:50:21,294 - AUTH - DEBUG - Parsed user_info: ID=7127128314, username=hendrix611
+2025-05-31 12:50:21,294 - AUTH - DEBUG - Converted telegram_id to int: 7127128314 (type: <class 'int'>)
+2025-05-31 12:50:21,295 - AUTH - INFO - Looking up user with telegram_id: 7127128314
+2025-05-31 12:50:21,297 - AUTH - INFO - Found existing user: hendrix611 (ID: 4, Telegram ID: 7127128314)
+2025-05-31 12:50:21,297 - AUTH - INFO - Creating JWT tokens for user: hendrix611
+2025-05-31 12:50:21,298 - backend.auth - DEBUG - JWT created for hendrix611 (exp 2025-06-01 09:50:21.297653)
+2025-05-31 12:50:21,298 - backend.auth - DEBUG - JWT created for hendrix611 (exp 2025-06-01 09:50:21.298746)
+2025-05-31 12:50:21,299 - AUTH - INFO - === Authentication Successful ===
+2025-05-31 12:50:21,300 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-31 12:50:21,301 - AUTH - INFO - [6de621da-4cb4-438e-92e9-c5cb4352398e] Response status: 200 - Completed in 0.0356s
+2025-05-31 12:50:21,465 - AUTH - INFO - [d0b6f27d-cc27-4d02-b28f-8d6f15308bab] Request from 77.91.101.132:0 - GET /listings/
+2025-05-31 12:50:21,469 - AUTH - INFO - [d0b6f27d-cc27-4d02-b28f-8d6f15308bab] Response status: 200 - Completed in 0.0034s
+2025-05-31 12:50:23,676 - AUTH - INFO - [2f8cc889-ee97-4003-b87f-21d2035fa4c0] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 12:50:23,678 - AUTH - INFO - [a0f801d5-9f47-4a8a-9587-b3199449a957] Request from 77.91.101.132:0 - GET /friends/pending/
+2025-05-31 12:50:23,680 - AUTH - INFO - [1ca04930-a5b0-49f8-ad64-81e2707d9a9c] Request from 77.91.101.132:0 - GET /users/transactions/
+2025-05-31 12:50:23,686 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 4
+2025-05-31 12:50:23,690 - AUTH - INFO - [2f8cc889-ee97-4003-b87f-21d2035fa4c0] Response status: 200 - Completed in 0.0129s
+2025-05-31 12:50:23,692 - AUTH - INFO - [a0f801d5-9f47-4a8a-9587-b3199449a957] Response status: 200 - Completed in 0.0137s
+2025-05-31 12:50:23,692 - AUTH - INFO - [GetTransactionPartners] Found 0 completed listings involving user 4
+2025-05-31 12:50:23,694 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: set()
+2025-05-31 12:50:23,695 - AUTH - INFO - [GetTransactionPartners] No partner IDs found, returning empty list.
+2025-05-31 12:50:23,701 - AUTH - INFO - [1ca04930-a5b0-49f8-ad64-81e2707d9a9c] Response status: 200 - Completed in 0.0214s
+2025-05-31 12:50:23,705 - AUTH - INFO - [8b12390f-19b5-418b-bd2d-1ee358fdd1c1] Request from 77.91.101.132:0 - GET /listings/user/4/
+2025-05-31 12:50:23,710 - AUTH - INFO - [8b12390f-19b5-418b-bd2d-1ee358fdd1c1] Response status: 200 - Completed in 0.0044s
+2025-05-31 12:50:23,874 - AUTH - INFO - [51c31c60-84a8-42b6-bd69-91dce17ac901] Request from 77.91.101.132:0 - GET /friends/pending/
+2025-05-31 12:50:23,876 - AUTH - INFO - [91a4e36c-a14a-4a91-8e4c-7212c259fc2d] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 12:50:23,879 - AUTH - INFO - [f582c60a-6bf6-475b-b44c-172698791b63] Request from 77.91.101.132:0 - GET /users/transactions/
+2025-05-31 12:50:23,885 - AUTH - INFO - [51c31c60-84a8-42b6-bd69-91dce17ac901] Response status: 200 - Completed in 0.0100s
+2025-05-31 12:50:23,888 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 4
+2025-05-31 12:50:23,888 - AUTH - INFO - [91a4e36c-a14a-4a91-8e4c-7212c259fc2d] Response status: 200 - Completed in 0.0109s
+2025-05-31 12:50:23,890 - AUTH - INFO - [GetTransactionPartners] Found 0 completed listings involving user 4
+2025-05-31 12:50:23,891 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: set()
+2025-05-31 12:50:23,893 - AUTH - INFO - [GetTransactionPartners] No partner IDs found, returning empty list.
+2025-05-31 12:50:23,895 - AUTH - INFO - [f582c60a-6bf6-475b-b44c-172698791b63] Response status: 200 - Completed in 0.0137s
+2025-05-31 12:50:23,952 - AUTH - INFO - [1ea26932-e144-4125-b2be-3097d6247a3a] Request from 77.91.101.132:0 - GET /listings/user/4/
+2025-05-31 12:50:23,956 - AUTH - INFO - [1ea26932-e144-4125-b2be-3097d6247a3a] Response status: 200 - Completed in 0.0033s
+2025-05-31 12:50:32,423 - AUTH - INFO - [494542e6-6da0-4da0-b851-87144370d0f7] Request from 77.91.101.132:0 - GET /users/search/
+2025-05-31 12:50:32,424 - AUTH - INFO - [494542e6-6da0-4da0-b851-87144370d0f7] Query params: {'username': 'sar_a_to_v'}
+2025-05-31 12:50:32,427 - AUTH - INFO - [494542e6-6da0-4da0-b851-87144370d0f7] Response status: 200 - Completed in 0.0027s
+2025-05-31 12:50:32,692 - AUTH - INFO - [28617bd2-ab7e-4b43-8e9a-8d48592326ce] Request from 77.91.101.132:0 - GET /static/avatars/user_2_avatar_1748684660.jpg
+2025-05-31 12:50:32,694 - AUTH - INFO - [28617bd2-ab7e-4b43-8e9a-8d48592326ce] Response status: 304 - Completed in 0.0011s
+2025-05-31 12:54:09,110 - AUTH - INFO - [6a35684a-f0fd-451c-8bdb-fb2e08a26857] Request from 77.91.101.132:0 - POST /listings/
+2025-05-31 12:54:09,111 - AUTH - INFO - [6a35684a-f0fd-451c-8bdb-fb2e08a26857] Request body for POST will be processed by endpoint.
+2025-05-31 12:54:09,128 - AUTH - INFO - [6a35684a-f0fd-451c-8bdb-fb2e08a26857] Response status: 200 - Completed in 0.0164s
+2025-05-31 12:54:25,739 - AUTH - INFO - [edb2c763-2c83-4d51-a338-cd067969aad4] Request from 77.91.101.132:0 - GET /auth/protected/
+2025-05-31 12:54:25,741 - AUTH - INFO - [edb2c763-2c83-4d51-a338-cd067969aad4] Response status: 200 - Completed in 0.0016s
+2025-05-31 12:54:25,910 - AUTH - INFO - [a573d94b-f667-47d6-a786-569e017c5ed9] Request from 77.91.101.132:0 - GET /user/me/
+2025-05-31 12:54:25,913 - AUTH - DEBUG - [GetUserMe] Attempting to get current user.
+2025-05-31 12:54:25,913 - AUTH - DEBUG - [GetUserMe] Token SUB: 2. Fetching user from DB.
+2025-05-31 12:54:25,915 - AUTH - INFO - [GetUserMe] User sar_a_to_v (ID: 2) found. Avatar path from DB to be returned: '/static/avatars/user_2_avatar_1748684660.jpg'
+2025-05-31 12:54:25,916 - AUTH - INFO - [a573d94b-f667-47d6-a786-569e017c5ed9] Response status: 200 - Completed in 0.0049s
+2025-05-31 12:54:26,108 - AUTH - INFO - [d326e31f-8f04-4175-9b82-c5c62474dd9b] Request from 77.91.101.132:0 - GET /listings/
+2025-05-31 12:54:26,114 - AUTH - INFO - [d326e31f-8f04-4175-9b82-c5c62474dd9b] Response status: 200 - Completed in 0.0049s
+2025-05-31 12:54:31,583 - AUTH - INFO - [ab266f30-025d-4fd7-9810-db4c16d0a984] Request from 77.91.101.132:0 - POST /listings/12/apply/
+2025-05-31 12:54:31,584 - AUTH - INFO - [ab266f30-025d-4fd7-9810-db4c16d0a984] Request body for POST will be processed by endpoint.
+2025-05-31 12:54:31,598 - AUTH - INFO - [ab266f30-025d-4fd7-9810-db4c16d0a984] Response status: 200 - Completed in 0.0136s
+2025-05-31 12:58:48,386 - backend.auth - INFO - ================================================================================
+2025-05-31 12:58:48,387 - backend.auth - INFO - Authentication module initialized
+2025-05-31 12:58:48,387 - backend.auth - INFO - BOT_TOKEN: 80221..._4-bU (length: 46)
+2025-05-31 12:58:48,388 - backend.auth - INFO - ================================================================================
+2025-05-31 12:58:48,389 - AUTH - INFO - ================================================================================
+2025-05-31 12:58:48,390 - AUTH - INFO - Starting Time Banking API
+2025-05-31 12:58:48,390 - AUTH - INFO - ================================================================================
+2025-05-31 12:58:48,391 - AUTH - INFO - Bot token: 80221..._4-bU (length: 46)
+2025-05-31 13:18:09,027 - AUTH - INFO - [580b4c75-6273-4938-99d1-12770030d41d] Request from 77.91.101.132:0 - GET /auth/protected/
+2025-05-31 13:18:09,033 - AUTH - INFO - [580b4c75-6273-4938-99d1-12770030d41d] Response status: 200 - Completed in 0.0055s
+2025-05-31 13:18:09,244 - AUTH - INFO - [f5942540-ac50-4192-b68f-66fad4442d74] Request from 77.91.101.132:0 - GET /user/me/
+2025-05-31 13:18:09,245 - AUTH - DEBUG - [GetUserMe] Attempting to get current user.
+2025-05-31 13:18:09,246 - AUTH - DEBUG - [GetUserMe] Token SUB: 2. Fetching user from DB.
+2025-05-31 13:18:09,248 - AUTH - INFO - [GetUserMe] User sar_a_to_v (ID: 2) found. Avatar path from DB to be returned: '/static/avatars/user_2_avatar_1748684660.jpg'
+2025-05-31 13:18:09,250 - AUTH - INFO - [f5942540-ac50-4192-b68f-66fad4442d74] Response status: 200 - Completed in 0.0059s
+2025-05-31 13:18:09,460 - AUTH - INFO - [094c2be3-dd96-4f72-af29-c0e57c7003f3] Request from 77.91.101.132:0 - GET /listings/
+2025-05-31 13:18:09,470 - AUTH - INFO - [094c2be3-dd96-4f72-af29-c0e57c7003f3] Response status: 200 - Completed in 0.0086s
+2025-05-31 13:18:11,486 - AUTH - INFO - [8dd22e6d-036b-4b11-9119-81842ab47c66] Request from 77.91.101.132:0 - GET /friends/pending/
+2025-05-31 13:18:11,497 - AUTH - INFO - [8dd22e6d-036b-4b11-9119-81842ab47c66] Response status: 200 - Completed in 0.0098s
+2025-05-31 13:18:11,547 - AUTH - INFO - [3f043974-3ef6-4acf-9bf5-97de016f206b] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 13:18:11,549 - AUTH - INFO - [1e659dbd-09c0-4e4c-9eac-3ef80c7337c6] Request from 77.91.101.132:0 - GET /users/transactions/
+2025-05-31 13:18:11,551 - AUTH - INFO - [be8241e8-3faa-4494-a985-727aa9d88dc0] Request from 77.91.101.132:0 - GET /static/avatars/user_2_avatar_1748684660.jpg
+2025-05-31 13:18:11,551 - AUTH - INFO - [72790309-4e75-4c63-baa1-160777a04de1] Request from 77.91.101.132:0 - GET /listings/user/2/
+2025-05-31 13:18:11,562 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 2
+2025-05-31 13:18:11,571 - AUTH - INFO - [GetTransactionPartners] Found 1 completed listings involving user 2
+2025-05-31 13:18:11,573 - AUTH - DEBUG - [GetTransactionPartners] Added partner_id 3 (from listing 11, user was creator)
+2025-05-31 13:18:11,573 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: {3}
+2025-05-31 13:18:11,575 - AUTH - INFO - [GetTransactionPartners] Fetched 1 partner user objects from DB.
+2025-05-31 13:18:11,575 - AUTH - DEBUG - [GetTransactionPartners] Returning partner 1: ID=3, Username=en7ka
+2025-05-31 13:18:11,615 - AUTH - INFO - [3f043974-3ef6-4acf-9bf5-97de016f206b] Response status: 200 - Completed in 0.0668s
+2025-05-31 13:18:11,615 - AUTH - INFO - [be8241e8-3faa-4494-a985-727aa9d88dc0] Response status: 304 - Completed in 0.0637s
+2025-05-31 13:18:11,618 - AUTH - INFO - [72790309-4e75-4c63-baa1-160777a04de1] Response status: 200 - Completed in 0.0657s
+2025-05-31 13:18:11,620 - AUTH - INFO - [1e659dbd-09c0-4e4c-9eac-3ef80c7337c6] Response status: 200 - Completed in 0.0701s
+2025-05-31 13:18:11,659 - AUTH - INFO - [015d05fe-3354-4b2d-a6df-627f380c22e7] Request from 77.91.101.132:0 - GET /friends/pending/
+2025-05-31 13:18:11,663 - AUTH - INFO - [015d05fe-3354-4b2d-a6df-627f380c22e7] Response status: 200 - Completed in 0.0027s
+2025-05-31 13:18:11,795 - AUTH - INFO - [d0222c6b-d7fe-4011-8dab-0c961fd22697] Request from 77.91.101.132:0 - GET /users/transactions/
+2025-05-31 13:18:11,796 - AUTH - INFO - [c1e0ffcc-1822-4c61-a36d-7530350c3791] Request from 77.91.101.132:0 - GET /listings/user/2/
+2025-05-31 13:18:11,798 - AUTH - INFO - [11e77dfe-9608-4321-b961-1184e8e87d60] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 13:18:11,801 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 2
+2025-05-31 13:18:11,806 - AUTH - INFO - [11e77dfe-9608-4321-b961-1184e8e87d60] Response status: 200 - Completed in 0.0077s
+2025-05-31 13:18:11,807 - AUTH - INFO - [GetTransactionPartners] Found 1 completed listings involving user 2
+2025-05-31 13:18:11,808 - AUTH - DEBUG - [GetTransactionPartners] Added partner_id 3 (from listing 11, user was creator)
+2025-05-31 13:18:11,809 - AUTH - INFO - [c1e0ffcc-1822-4c61-a36d-7530350c3791] Response status: 200 - Completed in 0.0118s
+2025-05-31 13:18:11,810 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: {3}
+2025-05-31 13:18:11,812 - AUTH - INFO - [GetTransactionPartners] Fetched 1 partner user objects from DB.
+2025-05-31 13:18:11,815 - AUTH - DEBUG - [GetTransactionPartners] Returning partner 1: ID=3, Username=en7ka
+2025-05-31 13:18:11,816 - AUTH - INFO - [d0222c6b-d7fe-4011-8dab-0c961fd22697] Response status: 200 - Completed in 0.0202s
+2025-05-31 13:18:17,035 - AUTH - INFO - [a251413a-cad6-40f1-9fe5-ab2f32b4f7b8] Request from 77.91.101.132:0 - GET /users/search/
+2025-05-31 13:18:17,035 - AUTH - INFO - [a251413a-cad6-40f1-9fe5-ab2f32b4f7b8] Query params: {'username': 'en7ka'}
+2025-05-31 13:18:17,040 - AUTH - INFO - [a251413a-cad6-40f1-9fe5-ab2f32b4f7b8] Response status: 200 - Completed in 0.0038s
+2025-05-31 13:18:18,940 - AUTH - INFO - [dd0cafd1-64e9-4fc0-af57-208cdb9adf67] Request from 77.91.101.132:0 - POST /friends/request/
+2025-05-31 13:18:18,941 - AUTH - INFO - [dd0cafd1-64e9-4fc0-af57-208cdb9adf67] Request body for POST will be processed by endpoint.
+2025-05-31 13:18:18,945 - AUTH - ERROR - HTTP exception: 400 - Friend request already exists
+2025-05-31 13:18:18,946 - AUTH - INFO - [dd0cafd1-64e9-4fc0-af57-208cdb9adf67] Response status: 400 - Completed in 0.0049s
+2025-05-31 13:18:21,051 - AUTH - INFO - [e14cff85-77be-4eff-9ba2-30b7eb3c0460] Request from 77.91.101.132:0 - POST /friends/request/
+2025-05-31 13:18:21,051 - AUTH - INFO - [e14cff85-77be-4eff-9ba2-30b7eb3c0460] Request body for POST will be processed by endpoint.
+2025-05-31 13:18:21,055 - AUTH - ERROR - HTTP exception: 400 - Friend request already exists
+2025-05-31 13:18:21,056 - AUTH - INFO - [e14cff85-77be-4eff-9ba2-30b7eb3c0460] Response status: 400 - Completed in 0.0037s
+2025-05-31 13:18:22,895 - AUTH - INFO - [ce10fde1-2666-4dd5-a432-9af4b452faf8] Request from 77.91.101.132:0 - POST /friends/request/
+2025-05-31 13:18:22,896 - AUTH - INFO - [ce10fde1-2666-4dd5-a432-9af4b452faf8] Request body for POST will be processed by endpoint.
+2025-05-31 13:18:22,900 - AUTH - ERROR - HTTP exception: 400 - Friend request already exists
+2025-05-31 13:18:22,901 - AUTH - INFO - [ce10fde1-2666-4dd5-a432-9af4b452faf8] Response status: 400 - Completed in 0.0037s
+2025-05-31 13:18:33,342 - AUTH - INFO - [ccc81bcf-c2a4-49a6-9396-4837c86aa4b5] Request from 77.91.101.132:0 - GET /users/search/
+2025-05-31 13:18:33,343 - AUTH - INFO - [ccc81bcf-c2a4-49a6-9396-4837c86aa4b5] Query params: {'username': 'hendrix'}
+2025-05-31 13:18:33,346 - AUTH - INFO - [ccc81bcf-c2a4-49a6-9396-4837c86aa4b5] Response status: 200 - Completed in 0.0033s
+2025-05-31 13:18:34,735 - AUTH - INFO - [532c0847-5f98-4809-9a9f-336a8c8b99b1] Request from 77.91.101.132:0 - POST /friends/request/
+2025-05-31 13:18:34,736 - AUTH - INFO - [532c0847-5f98-4809-9a9f-336a8c8b99b1] Request body for POST will be processed by endpoint.
+2025-05-31 13:18:34,753 - AUTH - INFO - [532c0847-5f98-4809-9a9f-336a8c8b99b1] Response status: 200 - Completed in 0.0170s
+2025-05-31 13:18:34,995 - AUTH - INFO - [e5f2b29e-d483-412b-95ea-4a39b2ca9015] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 13:18:34,999 - AUTH - INFO - [e5f2b29e-d483-412b-95ea-4a39b2ca9015] Response status: 200 - Completed in 0.0033s
+2025-05-31 13:18:49,042 - AUTH - INFO - [d7432c08-7bde-47db-8879-f484ef51982f] Request from 77.91.101.132:0 - GET /auth/protected/
+2025-05-31 13:18:49,044 - AUTH - ERROR - HTTP exception: 401 - Not authenticated
+2025-05-31 13:18:49,045 - AUTH - INFO - [d7432c08-7bde-47db-8879-f484ef51982f] Response status: 401 - Completed in 0.0016s
+2025-05-31 13:18:49,594 - AUTH - INFO - [2e54a2d0-aa12-41a6-9d6a-bdee268ec740] Request from 77.91.101.132:0 - POST /auth/telegram/
+2025-05-31 13:18:49,595 - AUTH - INFO - [2e54a2d0-aa12-41a6-9d6a-bdee268ec740] Request body for POST will be processed by endpoint.
+2025-05-31 13:18:49,596 - AUTH - INFO - 
+
+********************************************************************************
+2025-05-31 13:18:49,596 - AUTH - INFO - === Starting Telegram Authentication ===
+2025-05-31 13:18:49,597 - AUTH - INFO - ********************************************************************************
+2025-05-31 13:18:49,597 - AUTH - DEBUG - Request headers:
+2025-05-31 13:18:49,598 - AUTH - DEBUG -   x-forwarded-proto: https
+2025-05-31 13:18:49,598 - AUTH - DEBUG -   x-forwarded-host: 0e4c-77-91-101-132.ngrok-free.app
+2025-05-31 13:18:49,598 - AUTH - DEBUG -   x-forwarded-for: 77.91.101.132
+2025-05-31 13:18:49,598 - AUTH - DEBUG -   sec-fetch-site: same-origin
+2025-05-31 13:18:49,599 - AUTH - DEBUG -   sec-fetch-mode: cors
+2025-05-31 13:18:49,599 - AUTH - DEBUG -   sec-fetch-dest: empty
+2025-05-31 13:18:49,599 - AUTH - DEBUG -   sec-ch-ua-platform: "Windows"
+2025-05-31 13:18:49,600 - AUTH - DEBUG -   sec-ch-ua-mobile: ?0
+2025-05-31 13:18:49,600 - AUTH - DEBUG -   sec-ch-ua: "Microsoft Edge";v="136", "Microsoft Edge WebView2";v="136", "Not.A/Brand";v="99", "Chromium";v="136"
+2025-05-31 13:18:49,601 - AUTH - DEBUG -   referer: https://0e4c-77-91-101-132.ngrok-free.app/
+2025-05-31 13:18:49,601 - AUTH - DEBUG -   priority: u=1, i
+2025-05-31 13:18:49,601 - AUTH - DEBUG -   origin: https://0e4c-77-91-101-132.ngrok-free.app
+2025-05-31 13:18:49,602 - AUTH - DEBUG -   cookie: abuse_interstitial=0e4c-77-91-101-132.ngrok-free.app
+2025-05-31 13:18:49,602 - AUTH - DEBUG -   content-type: application/json
+2025-05-31 13:18:49,602 - AUTH - DEBUG -   accept-language: ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7
+2025-05-31 13:18:49,604 - AUTH - DEBUG -   accept-encoding: gzip, deflate, br, zstd
+2025-05-31 13:18:49,604 - AUTH - DEBUG -   accept: application/json, text/plain, */*
+2025-05-31 13:18:49,604 - AUTH - DEBUG -   content-length: 604
+2025-05-31 13:18:49,604 - AUTH - DEBUG -   user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0
+2025-05-31 13:18:49,604 - AUTH - DEBUG -   host: localhost:8000
+2025-05-31 13:18:49,606 - AUTH - DEBUG -   connection: close
+2025-05-31 13:18:49,606 - AUTH - DEBUG - Request method: POST
+2025-05-31 13:18:49,607 - AUTH - DEBUG - POST request to /auth/telegram. Processing body...
+2025-05-31 13:18:49,607 - AUTH - DEBUG - Attempt 1: Reading entire request body for POST with timeout...
+2025-05-31 13:18:49,608 - AUTH - INFO - Successfully read entire body (POST), length: 604
+2025-05-31 13:18:49,608 - AUTH - DEBUG - Raw request body (POST): {"init_data":"query_id=AAH6WM8oAwAAAPpYzyg2F6_k&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748686719&signature=3TzIqMw0oLnzdwWA-hitiiB_RYPqupegIWk3MzMRhnKRYG6Rc8LniDW4_IVy5gzD9cM2zOoM...
+2025-05-31 13:18:49,609 - AUTH - DEBUG - Parsed JSON data: {'init_data': 'query_id=AAH6WM8oAwAAAPpYzyg2F6_k&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748686719&signature=3TzIqMw0oLnzdwWA-hitiiB_RYPqupegIWk3MzMRhnKRYG6Rc8LniDW4_IVy5gzD9cM2zOoM7nYsJqdzgRPNBA&hash=b2203b61ded320ec11bdf71d38c54eded30b9579ca859de2390b289c24163d15', 'test_mode': False}
+2025-05-31 13:18:49,609 - AUTH - INFO - Got init_data from JSON body (POST), test_mode=False
+2025-05-31 13:18:49,610 - AUTH - DEBUG - Raw init_data: query_id=AAH6WM8oAwAAAPpYzyg2F6_k&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748686719&signature=3TzIqMw0oLnzdwWA-hitiiB_RYPqupegIWk3MzMRhnKRYG6Rc8LniDW4_IVy5gzD9cM2zOoM7nYsJqdzgRPNBA&hash=b2203b61ded320ec11bdf71d38c54eded30b9579ca859de2390b289c24163d15
+2025-05-31 13:18:49,610 - AUTH - DEBUG - Parsed data parameters count: 5
+2025-05-31 13:18:49,610 - AUTH - DEBUG -   query_id: AAH6WM8oAwAAAPpYzyg2F6_k
+2025-05-31 13:18:49,611 - AUTH - DEBUG -   user: [hidden for security]
+2025-05-31 13:18:49,611 - AUTH - DEBUG -   auth_date: 1748686719
+2025-05-31 13:18:49,611 - AUTH - DEBUG -   signature: 3TzIqMw0oLnzdwWA-hitiiB_RYPqupegIWk3MzMRhnKRYG6Rc8LniDW4_IVy5gzD9cM2zOoM7nYsJqdzgRPNBA
+2025-05-31 13:18:49,612 - AUTH - DEBUG -   hash: [hidden for security]
+2025-05-31 13:18:49,612 - AUTH - DEBUG - Extracted hash value length: 64
+2025-05-31 13:18:49,612 - AUTH - INFO - Verifying Telegram hash...
+2025-05-31 13:18:49,613 - backend.auth - DEBUG - 
+==================================================
+2025-05-31 13:18:49,613 - backend.auth - DEBUG - Starting Telegram WebApp hash verification
+2025-05-31 13:18:49,613 - backend.auth - DEBUG - ==================================================
+2025-05-31 13:18:49,615 - backend.auth - DEBUG - BOT_TOKEN (repr): '8022193791:AAEAt9a6kBmP28XN60P8d0HmPKG4n9_4-bU'
+2025-05-31 13:18:49,615 - backend.auth - DEBUG - BOT_TOKEN length: 46
+2025-05-31 13:18:49,616 - backend.auth - DEBUG - init_data (repr): 'query_id=AAH6WM8oAwAAAPpYzyg2F6_k&user=%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D&auth_date=1748686719&signature=3TzIqMw0oLnzdwWA-hitiiB_RYPqupegIWk3MzMRhnKRYG6Rc8LniDW4_IVy5gzD9cM2zOoM7nYsJqdzgRPNBA&hash=b2203b61ded320ec11bdf71d38c54eded30b9579ca859de2390b289c24163d15'
+2025-05-31 13:18:49,616 - backend.auth - DEBUG - received_hash: b2203b61ded320ec11bdf71d38c54eded30b9579ca859de2390b289c24163d15
+2025-05-31 13:18:49,617 - backend.auth - DEBUG - Parsed data dict: {'query_id': 'AAH6WM8oAwAAAPpYzyg2F6_k', 'user': '%7B%22id%22%3A7127128314%2C%22first_name%22%3A%22alan%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22hendrix611%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fr_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg%22%7D', 'auth_date': '1748686719', 'signature': '3TzIqMw0oLnzdwWA-hitiiB_RYPqupegIWk3MzMRhnKRYG6Rc8LniDW4_IVy5gzD9cM2zOoM7nYsJqdzgRPNBA'}
+2025-05-31 13:18:49,618 - backend.auth - DEBUG - Hash from dictionary: b2203b61ded320ec11bdf71d38c54eded30b9579ca859de2390b289c24163d15
+2025-05-31 13:18:49,618 - backend.auth - DEBUG - Data check string (values URL-decoded): auth_date=1748686719
+query_id=AAH6WM8oAwAAAPpYzyg2F6_k
+signature=3TzIqMw0oLnzdwWA-hitiiB_RYPqupegIWk3MzMRhnKRYG6Rc8LniDW4_IVy5gzD9cM2zOoM7nYsJqdzgRPNBA
+user={"id":7127128314,"first_name":"alan","last_name":"","username":"hendrix611","language_code":"ru","allows_write_to_pm":true,"photo_url":"https:\/\/t.me\/i\/userpic\/320\/r_XQW7YBVizKM8MjLDsK8dnxVkEfAqTG4IPkkViiyAU0Uay7uCZ9VM14-8vu0UC5.svg"}
+2025-05-31 13:18:49,619 - backend.auth - DEBUG - Secret key created using HMAC_SHA256(<bot_token>, "WebAppData") (first 5 bytes): b'7\x9a\xa6{\x19'
+2025-05-31 13:18:49,620 - backend.auth - DEBUG - Calculated hash: b2203b61ded320ec11bdf71d38c54eded30b9579ca859de2390b289c24163d15
+2025-05-31 13:18:49,620 - backend.auth - DEBUG - Hash verification result: True
+2025-05-31 13:18:49,621 - backend.auth - DEBUG - ==================================================
+
+2025-05-31 13:18:49,621 - AUTH - INFO - Hash verification successful
+2025-05-31 13:18:49,622 - AUTH - INFO - Parsing user data...
+2025-05-31 13:18:49,622 - AUTH - DEBUG - Raw user data length: 343
+2025-05-31 13:18:49,624 - AUTH - DEBUG - URL-decoded user data length: 239
+2025-05-31 13:18:49,624 - AUTH - DEBUG - Parsed user_info: ID=7127128314, username=hendrix611
+2025-05-31 13:18:49,625 - AUTH - DEBUG - Converted telegram_id to int: 7127128314 (type: <class 'int'>)
+2025-05-31 13:18:49,625 - AUTH - INFO - Looking up user with telegram_id: 7127128314
+2025-05-31 13:18:49,626 - AUTH - INFO - Found existing user: hendrix611 (ID: 4, Telegram ID: 7127128314)
+2025-05-31 13:18:49,627 - AUTH - INFO - Creating JWT tokens for user: hendrix611
+2025-05-31 13:18:49,628 - backend.auth - DEBUG - JWT created for hendrix611 (exp 2025-06-01 10:18:49.628420)
+2025-05-31 13:18:49,628 - backend.auth - DEBUG - JWT created for hendrix611 (exp 2025-06-01 10:18:49.628972)
+2025-05-31 13:18:49,630 - AUTH - INFO - === Authentication Successful ===
+2025-05-31 13:18:49,630 - AUTH - INFO - ********************************************************************************
+
+
+2025-05-31 13:18:49,631 - AUTH - INFO - [2e54a2d0-aa12-41a6-9d6a-bdee268ec740] Response status: 200 - Completed in 0.0352s
+2025-05-31 13:18:50,041 - AUTH - INFO - [b88647f7-5e8d-4781-bce2-bcdab469bbd2] Request from 77.91.101.132:0 - GET /listings/
+2025-05-31 13:18:50,046 - AUTH - INFO - [b88647f7-5e8d-4781-bce2-bcdab469bbd2] Response status: 200 - Completed in 0.0032s
+2025-05-31 13:18:52,532 - AUTH - INFO - [b07f84ca-6547-48b2-97a4-90be66e1b574] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 13:18:52,534 - AUTH - INFO - [a22dfb05-17ad-4344-9a56-ac339a439cf0] Request from 77.91.101.132:0 - GET /friends/pending/
+2025-05-31 13:18:52,535 - AUTH - INFO - [a50f3f2c-ddf8-434f-9518-2981340434d3] Request from 77.91.101.132:0 - GET /users/transactions/
+2025-05-31 13:18:52,536 - AUTH - INFO - [4cf0aa30-847d-46a6-b0c8-e72f3e1d2502] Request from 77.91.101.132:0 - GET /listings/user/4/
+2025-05-31 13:18:52,541 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 4
+2025-05-31 13:18:52,545 - AUTH - INFO - [4cf0aa30-847d-46a6-b0c8-e72f3e1d2502] Response status: 200 - Completed in 0.0093s
+2025-05-31 13:18:52,546 - AUTH - INFO - [a22dfb05-17ad-4344-9a56-ac339a439cf0] Response status: 200 - Completed in 0.0124s
+2025-05-31 13:18:52,547 - AUTH - INFO - [b07f84ca-6547-48b2-97a4-90be66e1b574] Response status: 200 - Completed in 0.0150s
+2025-05-31 13:18:52,547 - AUTH - INFO - [GetTransactionPartners] Found 0 completed listings involving user 4
+2025-05-31 13:18:52,548 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: set()
+2025-05-31 13:18:52,550 - AUTH - INFO - [GetTransactionPartners] No partner IDs found, returning empty list.
+2025-05-31 13:18:52,554 - AUTH - INFO - [a50f3f2c-ddf8-434f-9518-2981340434d3] Response status: 200 - Completed in 0.0178s
+2025-05-31 13:18:52,716 - AUTH - INFO - [56cf24d1-2587-4fb1-a164-54c0636c4160] Request from 77.91.101.132:0 - GET /listings/user/4/
+2025-05-31 13:18:52,717 - AUTH - INFO - [68e165bc-5ae3-4a72-bca8-ceae4097e812] Request from 77.91.101.132:0 - GET /friends/pending/
+2025-05-31 13:18:52,718 - AUTH - INFO - [04497abc-9b43-4883-9380-e59723590391] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 13:18:52,726 - AUTH - INFO - [04497abc-9b43-4883-9380-e59723590391] Response status: 200 - Completed in 0.0081s
+2025-05-31 13:18:52,727 - AUTH - INFO - [56cf24d1-2587-4fb1-a164-54c0636c4160] Response status: 200 - Completed in 0.0113s
+2025-05-31 13:18:52,728 - AUTH - INFO - [68e165bc-5ae3-4a72-bca8-ceae4097e812] Response status: 200 - Completed in 0.0112s
+2025-05-31 13:18:52,809 - AUTH - INFO - [11b6a134-6218-41bf-a6f9-a92e4f1081f0] Request from 77.91.101.132:0 - GET /users/transactions/
+2025-05-31 13:18:52,811 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 4
+2025-05-31 13:18:52,812 - AUTH - INFO - [GetTransactionPartners] Found 0 completed listings involving user 4
+2025-05-31 13:18:52,813 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: set()
+2025-05-31 13:18:52,814 - AUTH - INFO - [GetTransactionPartners] No partner IDs found, returning empty list.
+2025-05-31 13:18:52,814 - AUTH - INFO - [11b6a134-6218-41bf-a6f9-a92e4f1081f0] Response status: 200 - Completed in 0.0050s
+2025-05-31 13:18:53,442 - AUTH - INFO - [6a22b240-405b-4b1a-9ac8-dfa9552465b6] Request from 77.91.101.132:0 - GET /static/avatars/user_2_avatar_1748684660.jpg
+2025-05-31 13:18:53,445 - AUTH - INFO - [6a22b240-405b-4b1a-9ac8-dfa9552465b6] Response status: 304 - Completed in 0.0010s
+2025-05-31 13:18:54,346 - AUTH - INFO - [1ac55711-e1a3-4708-82dd-275abe353555] Request from 77.91.101.132:0 - POST /friends/2/accept/
+2025-05-31 13:18:54,347 - AUTH - INFO - [1ac55711-e1a3-4708-82dd-275abe353555] Request body for POST will be processed by endpoint.
+2025-05-31 13:18:54,358 - AUTH - INFO - [1ac55711-e1a3-4708-82dd-275abe353555] Response status: 200 - Completed in 0.0113s
+2025-05-31 13:18:54,563 - AUTH - INFO - [2fa5513d-dd26-45f1-adb5-c0d2afe10554] Request from 77.91.101.132:0 - GET /friends/
+2025-05-31 13:18:54,566 - AUTH - INFO - [78a7f7d2-73fb-4b88-851d-08ba8c500237] Request from 77.91.101.132:0 - GET /friends/pending/
+2025-05-31 13:18:54,573 - AUTH - INFO - [2fa5513d-dd26-45f1-adb5-c0d2afe10554] Response status: 200 - Completed in 0.0085s
+2025-05-31 13:18:54,574 - AUTH - INFO - [78a7f7d2-73fb-4b88-851d-08ba8c500237] Response status: 200 - Completed in 0.0079s
+2025-05-31 13:19:58,778 - AUTH - INFO - [3dc26fb2-36c4-4b76-971b-a9358ce05c9f] Request from 5.35.38.40:0 - GET /auth/protected/
+2025-05-31 13:19:58,783 - AUTH - INFO - [3dc26fb2-36c4-4b76-971b-a9358ce05c9f] Response status: 200 - Completed in 0.0029s
+2025-05-31 13:19:59,191 - AUTH - INFO - [b097a0e9-fda9-424a-84bd-874073bad98a] Request from 5.35.38.40:0 - GET /user/me/
+2025-05-31 13:19:59,194 - AUTH - DEBUG - [GetUserMe] Attempting to get current user.
+2025-05-31 13:19:59,195 - AUTH - DEBUG - [GetUserMe] Token SUB: 1. Fetching user from DB.
+2025-05-31 13:19:59,197 - AUTH - INFO - [GetUserMe] User test_user (ID: 1) found. Avatar path from DB to be returned: 'None'
+2025-05-31 13:19:59,199 - AUTH - INFO - [b097a0e9-fda9-424a-84bd-874073bad98a] Response status: 200 - Completed in 0.0065s
+2025-05-31 13:19:59,605 - AUTH - INFO - [826b25ee-72a0-4c19-9432-61f6b2ef6b2a] Request from 5.35.38.40:0 - GET /listings/
+2025-05-31 13:19:59,608 - AUTH - INFO - [826b25ee-72a0-4c19-9432-61f6b2ef6b2a] Response status: 200 - Completed in 0.0032s
+2025-05-31 13:20:03,094 - AUTH - INFO - [65b49358-b200-4525-bd62-9f50fc38b1b4] Request from 5.35.38.40:0 - GET /listings/user/1/
+2025-05-31 13:20:03,095 - AUTH - INFO - [cdfe2cf1-87c8-4688-9c5c-6ed56daea336] Request from 5.35.38.40:0 - GET /friends/
+2025-05-31 13:20:03,097 - AUTH - INFO - [a3a4ffec-11fd-40c2-a777-c346735c03f4] Request from 5.35.38.40:0 - GET /users/transactions/
+2025-05-31 13:20:03,103 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 1
+2025-05-31 13:20:03,104 - AUTH - INFO - [65b49358-b200-4525-bd62-9f50fc38b1b4] Response status: 200 - Completed in 0.0091s
+2025-05-31 13:20:03,106 - AUTH - INFO - [GetTransactionPartners] Found 0 completed listings involving user 1
+2025-05-31 13:20:03,107 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: set()
+2025-05-31 13:20:03,108 - AUTH - INFO - [cdfe2cf1-87c8-4688-9c5c-6ed56daea336] Response status: 200 - Completed in 0.0117s
+2025-05-31 13:20:03,108 - AUTH - INFO - [GetTransactionPartners] No partner IDs found, returning empty list.
+2025-05-31 13:20:03,111 - AUTH - INFO - [d5ea3483-d4a6-48e0-a7e3-a370a860d522] Request from 5.35.38.40:0 - GET /friends/pending/
+2025-05-31 13:20:03,114 - AUTH - INFO - [a3a4ffec-11fd-40c2-a777-c346735c03f4] Response status: 200 - Completed in 0.0155s
+2025-05-31 13:20:03,118 - AUTH - INFO - [d5ea3483-d4a6-48e0-a7e3-a370a860d522] Response status: 200 - Completed in 0.0061s
+2025-05-31 13:20:10,033 - AUTH - INFO - [e29e4265-724b-4914-bc2e-976a9f06c60c] Request from 5.35.38.40:0 - POST /profile/1/avatar/
+2025-05-31 13:20:10,033 - AUTH - INFO - [e29e4265-724b-4914-bc2e-976a9f06c60c] Request body for POST will be processed by endpoint.
+2025-05-31 13:20:10,300 - AUTH - INFO - [e29e4265-724b-4914-bc2e-976a9f06c60c] Response status: 200 - Completed in 0.2658s
+2025-05-31 13:20:10,485 - AUTH - INFO - [fdcc4174-0c5a-4b04-8f2e-04ea54ae3eb3] Request from 5.35.38.40:0 - GET /static/avatars/user_1_avatar_1748686810.jpeg
+2025-05-31 13:20:10,486 - AUTH - INFO - [fdcc4174-0c5a-4b04-8f2e-04ea54ae3eb3] Response status: 200 - Completed in 0.0011s
+2025-05-31 13:20:42,353 - AUTH - INFO - [28fb8ea5-9f3b-4a2b-a225-168f1ac0c64c] Request from 5.35.38.40:0 - GET /listings/user/1/
+2025-05-31 13:20:42,355 - AUTH - INFO - [785b2a7b-e7d0-49e7-843b-7d78c9ed2e43] Request from 5.35.38.40:0 - GET /friends/pending/
+2025-05-31 13:20:42,357 - AUTH - INFO - [45b8f3c7-37d4-471f-a716-ebfc3d4a2c82] Request from 5.35.38.40:0 - GET /users/transactions/
+2025-05-31 13:20:42,357 - AUTH - INFO - [b5de0262-2b64-4d49-b490-f89dc0502ef2] Request from 5.35.38.40:0 - GET /friends/
+2025-05-31 13:20:42,363 - AUTH - INFO - [GetTransactionPartners] Fetching transaction partners for user_id: 1
+2025-05-31 13:20:42,366 - AUTH - INFO - [28fb8ea5-9f3b-4a2b-a225-168f1ac0c64c] Response status: 200 - Completed in 0.0107s
+2025-05-31 13:20:42,367 - AUTH - INFO - [GetTransactionPartners] Found 0 completed listings involving user 1
+2025-05-31 13:20:42,367 - AUTH - INFO - [785b2a7b-e7d0-49e7-843b-7d78c9ed2e43] Response status: 200 - Completed in 0.0111s
+2025-05-31 13:20:42,368 - AUTH - INFO - [GetTransactionPartners] Collected partner_ids: set()
+2025-05-31 13:20:42,369 - AUTH - INFO - [GetTransactionPartners] No partner IDs found, returning empty list.
+2025-05-31 13:20:42,371 - AUTH - INFO - [b5de0262-2b64-4d49-b490-f89dc0502ef2] Response status: 200 - Completed in 0.0115s
+2025-05-31 13:20:42,374 - AUTH - INFO - [45b8f3c7-37d4-471f-a716-ebfc3d4a2c82] Response status: 200 - Completed in 0.0167s
+2025-05-31 13:28:04,206 - backend.auth - INFO - ================================================================================
+2025-05-31 13:28:04,207 - backend.auth - INFO - Authentication module initialized
+2025-05-31 13:28:04,207 - backend.auth - INFO - BOT_TOKEN: 80221..._4-bU (length: 46)
+2025-05-31 13:28:04,207 - backend.auth - INFO - ================================================================================
+2025-05-31 13:28:04,208 - AUTH - INFO - ================================================================================
+2025-05-31 13:28:04,209 - AUTH - INFO - Starting Time Banking API
+2025-05-31 13:28:04,209 - AUTH - INFO - ================================================================================
+2025-05-31 13:28:04,209 - AUTH - INFO - Bot token: 80221..._4-bU (length: 46)
+2025-05-31 13:33:04,299 - backend.auth - INFO - ================================================================================
+2025-05-31 13:33:04,300 - backend.auth - INFO - Authentication module initialized
+2025-05-31 13:33:04,300 - backend.auth - INFO - BOT_TOKEN: 80221..._4-bU (length: 46)
+2025-05-31 13:33:04,300 - backend.auth - INFO - ================================================================================
+2025-05-31 13:33:04,302 - AUTH - INFO - ================================================================================
+2025-05-31 13:33:04,302 - AUTH - INFO - Starting Time Banking API
+2025-05-31 13:33:04,302 - AUTH - INFO - ================================================================================
+2025-05-31 13:33:04,303 - AUTH - INFO - Bot token: 80221..._4-bU (length: 46)

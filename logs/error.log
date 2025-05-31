@@ -3952,3 +3952,23 @@ HTTP exception: 401 - Not authenticated
 C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:258
 HTTP exception: 401 - Not authenticated
 
+2025-05-31 12:50:20,812 - backend.main - ERROR - HTTP exception: 401 - Not authenticated
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:258
+HTTP exception: 401 - Not authenticated
+
+2025-05-31 13:18:18,945 - backend.main - ERROR - HTTP exception: 400 - Friend request already exists
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:258
+HTTP exception: 400 - Friend request already exists
+
+2025-05-31 13:18:21,055 - backend.main - ERROR - HTTP exception: 400 - Friend request already exists
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:258
+HTTP exception: 400 - Friend request already exists
+
+2025-05-31 13:18:22,900 - backend.main - ERROR - HTTP exception: 400 - Friend request already exists
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:258
+HTTP exception: 400 - Friend request already exists
+
+2025-05-31 13:18:49,044 - backend.main - ERROR - HTTP exception: 401 - Not authenticated
+C:\Users\Арматур\Downloads\time_banking_bot_fixed\time_banking_bot\backend\main.py:258
+HTTP exception: 401 - Not authenticated
+

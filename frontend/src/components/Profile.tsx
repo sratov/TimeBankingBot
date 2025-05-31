@@ -1,8 +1,8 @@
 "use client";
-
+ 
 import { useState, useRef, useEffect } from "react";
 import { uploadAvatar, getFriends, sendFriendRequest, getUserListings, acceptListing, searchUsers, getPendingFriendRequests, getTransactionPartners, acceptFriendRequest, rejectFriendRequest } from "@/lib/api";
-
+ 
 interface Friend {
   id: number;
   user_id: number;
@@ -21,7 +21,7 @@ interface Friend {
     balance: number;
   };
 }
-
+ 
 interface Listing {
   id: number;
   title: string;
@@ -40,7 +40,7 @@ interface Listing {
     username: string;
   };
 }
-
+ 
 interface User {
   id: number;
   username: string;
@@ -49,7 +49,7 @@ interface User {
   earned_hours: number;
   spent_hours: number;
 }
-
+ 
 interface ProfileProps {
   id: number;
   telegram_id: number;
@@ -62,7 +62,7 @@ interface ProfileProps {
   onAvatarUpdate?: (avatarUrl: string) => void;
   onGoToMenu?: () => void;
 }
-
+ 
 export default function Profile({
   id,
   telegram_id,
@@ -83,22 +83,22 @@ export default function Profile({
   const [listings, setListings] = useState<Listing[]>([]);
   const [isLoadingListings, setIsLoadingListings] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+ 
   const [searchResults, setSearchResults] = useState<User[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [pendingRequests, setPendingRequests] = useState<Friend[]>([]);
   const [transactionPartners, setTransactionPartners] = useState<User[]>([]);
   const [activeTab, setActiveTab] = useState<'friends' | 'search' | 'pending' | 'partners'>('friends');
-
+ 
   useEffect(() => {
     if (id) {
-    loadFriends();
-    loadUserListings();
-    loadPendingRequests();
-    loadTransactionPartners();
+      loadFriends();
+      loadUserListings();
+      loadPendingRequests();
+      loadTransactionPartners();
     }
   }, [id]);
-
+ 
   const loadFriends = async () => {
     try {
       setIsLoading(true);
@@ -110,7 +110,7 @@ export default function Profile({
       setIsLoading(false);
     }
   };
-
+ 
   const loadPendingRequests = async () => {
     try {
       const requests = await getPendingFriendRequests();
@@ -119,7 +119,7 @@ export default function Profile({
       console.error("Error loading pending friend requests:", error);
     }
   };
-
+ 
   const loadTransactionPartners = async () => {
     console.log("[Profile.tsx] Attempting to load transaction partners...");
     try {
@@ -127,14 +127,14 @@ export default function Profile({
       console.log("[Profile.tsx] Received transaction partners data from API:", partnersData);
       setTransactionPartners(partnersData);
       console.log(`[Profile.tsx] Set ${partnersData.length} transaction partners in state.`);
-    } catch (error) {
+    } catch (error:any) {
       console.error("[Profile.tsx] Error loading transaction partners:", error);
       if (error.response) {
         console.error("[Profile.tsx] Transaction partners error response:", error.response.data);
       }
     }
   };
-
+ 
   const loadUserListings = async () => {
     if (!id) return;
     try {
@@ -147,11 +147,11 @@ export default function Profile({
       setIsLoadingListings(false);
     }
   };
-
+ 
   const handleAcceptListing = async (listingId: number) => {
     try {
       const updatedListing = await acceptListing(listingId);
-      setListings(listings.map(listing => 
+      setListings(listings.map(listing =>
         listing.id === listingId ? updatedListing : listing
       ));
       alert("Заявка успешно принята!");
@@ -160,12 +160,12 @@ export default function Profile({
       alert("Ошибка при принятии заявки");
     }
   };
-
+ 
   const handleAvatarClick = () => {
     setIsEditingAvatar(true);
     fileInputRef.current?.click();
   };
-
+ 
   const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -181,7 +181,7 @@ export default function Profile({
     }
     setIsEditingAvatar(false);
   };
-
+ 
   const handleSearchUsers = async () => {
     if (!friendUsername || friendUsername.length < 2) return;
     try {
@@ -195,7 +195,7 @@ export default function Profile({
       setIsSearching(false);
     }
   };
-
+ 
   const handleSendFriendRequest = async (friendId: number) => {
     try {
       setFriendRequestStatus("sending");
@@ -209,7 +209,7 @@ export default function Profile({
       setTimeout(() => setFriendRequestStatus(null), 3000);
     }
   };
-
+ 
   const handleAcceptFriendRequest = async (friendId: number) => {
     try {
       await acceptFriendRequest(friendId);
@@ -219,7 +219,7 @@ export default function Profile({
       console.error("Error accepting friend request:", error);
     }
   };
-
+ 
   const handleRejectFriendRequest = async (friendId: number) => {
     try {
       await rejectFriendRequest(friendId);
@@ -228,7 +228,7 @@ export default function Profile({
       console.error("Error rejecting friend request:", error);
     }
   };
-
+ 
   const renderUserAvatar = (user: { username: string, avatar?: string }) => {
     let avatarSrc = '';
     if (user.avatar) {
@@ -240,11 +240,11 @@ export default function Profile({
         avatarSrc = `${typeof window !== 'undefined' ? `${window.location.origin}/api` : process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}${user.avatar}`;
       }
     }
-
+ 
     return user.avatar ? (
-      <img 
-        src={avatarSrc} 
-        alt={user.username} 
+      <img
+        src={avatarSrc}
+        alt={user.username}
         className="w-10 h-10 rounded-full object-cover"
       />
     ) : (
@@ -253,17 +253,17 @@ export default function Profile({
       </div>
     );
   };
-
+ 
   const openTelegramChat = (username: string) => {
     window.open(`https://t.me/${username}`, '_blank');
   };
-
+ 
   return (
     <>
       <div className="space-y-8">
         <div className="card p-8 glass-card border border-white/10 backdrop-blur-md">
           <div className="flex items-start gap-8 mb-4">
-            <div 
+            <div
               onClick={handleAvatarClick}
               className="group relative cursor-pointer"
             >
@@ -281,7 +281,7 @@ export default function Profile({
                   }
                   return mainAvatarSrc ? (
                     <img src={mainAvatarSrc} alt={username} className="w-full h-full object-cover" />
-                ) : (
+                  ) : (
                     username && username.length > 0 ? username[0].toUpperCase() : '?'
                   );
                 })()}
@@ -304,7 +304,7 @@ export default function Profile({
             </div>
           </div>
           {onGoToMenu && (
-            <button 
+            <button
               onClick={onGoToMenu}
               className="btn-ghost w-full mb-6 text-sm flex items-center justify-center gap-2"
             >
@@ -322,7 +322,7 @@ export default function Profile({
             </div>
           </div>
         </div>
-
+ 
         <div className="space-y-6">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
@@ -340,7 +340,7 @@ export default function Profile({
               </span>
             </div>
           </div>
-
+ 
           <div className="card p-6 glass-card border border-white/10 backdrop-blur-md mb-6">
             <h3 className="text-lg font-medium mb-4">Найти друзей</h3>
             <div className="flex gap-2">
@@ -360,21 +360,21 @@ export default function Profile({
               </button>
             </div>
           </div>
-
+ 
           <div className="flex border-b border-white/10 mb-4">
-            <button 
+            <button
               onClick={() => setActiveTab('friends')}
               className={`px-4 py-2 ${activeTab === 'friends' ? 'border-b-2 border-white font-medium' : 'text-white/60 hover:text-white/80'} transition-all`}
             >
               Мои друзья
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('search')}
               className={`px-4 py-2 ${activeTab === 'search' ? 'border-b-2 border-white font-medium' : 'text-white/60 hover:text-white/80'} transition-all`}
             >
               Результаты поиска
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('pending')}
               className={`px-4 py-2 flex items-center ${activeTab === 'pending' ? 'border-b-2 border-white font-medium' : 'text-white/60 hover:text-white/80'} transition-all`}
             >
@@ -385,15 +385,15 @@ export default function Profile({
                 </span>
               )}
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('partners')}
               className={`px-4 py-2 ${activeTab === 'partners' ? 'border-b-2 border-white font-medium' : 'text-white/60 hover:text-white/80'} transition-all`}
             >
               Партнеры по сделкам
             </button>
           </div>
-
-          <div className="grid grid-cols-2 gap-4">
+ 
+          <div className="grid grid-cols-1 gap-4">
             {activeTab === 'friends' && (
               <>
                 {isLoading ? (
@@ -408,7 +408,7 @@ export default function Profile({
                   friends.map((friend) => {
                     const friendUser = friend.user_id === id ? friend.friend : friend.user;
                     return (
-                      <div key={friend.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between">
+                      <div key={friend.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between min-h-[80px]">
                         <div className="flex items-center gap-3">
                           {renderUserAvatar(friendUser)}
                           <div>
@@ -416,18 +416,18 @@ export default function Profile({
                             <p className="text-white/40 text-sm">Баланс: {friendUser.balance}ч</p>
                           </div>
                         </div>
-                        <div className="flex gap-2">
-                          <button 
+                        <div className="flex gap-2 flex-shrink-0">
+                          <button
                             onClick={() => openTelegramChat(friendUser.username)}
                             className="p-2 bg-black border border-white/20 hover:border-white/60 text-white text-sm transition-all"
                             title="Открыть чат в Telegram"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
+                              <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z" />
                             </svg>
                           </button>
-                          <button 
-                            className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all"
+                          <button
+                            className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all whitespace-nowrap"
                           >
                             Профиль
                           </button>
@@ -438,7 +438,7 @@ export default function Profile({
                 )}
               </>
             )}
-
+ 
             {activeTab === 'search' && (
               <>
                 {isSearching ? (
@@ -451,7 +451,7 @@ export default function Profile({
                   </div>
                 ) : (
                   searchResults.map((user) => (
-                    <div key={user.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between">
+                    <div key={user.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between min-h-[80px]">
                       <div className="flex items-center gap-3">
                         {renderUserAvatar(user)}
                         <div>
@@ -459,19 +459,19 @@ export default function Profile({
                           <p className="text-white/40 text-sm">Баланс: {user.balance}ч</p>
                         </div>
                       </div>
-                      <div className="flex gap-2">
-                        <button 
+                      <div className="flex gap-2 flex-shrink-0">
+                        <button
                           onClick={() => openTelegramChat(user.username)}
                           className="p-2 bg-black border border-white/20 hover:border-white/60 text-white text-sm transition-all"
                           title="Открыть чат в Telegram"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
+                            <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z" />
                           </svg>
                         </button>
-                        <button 
+                        <button
                           onClick={() => handleSendFriendRequest(user.id)}
-                          className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all"
+                          className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all whitespace-nowrap"
                           disabled={friendRequestStatus === "sending"}
                         >
                           {friendRequestStatus === "sending" ? "..." : "Добавить"}
@@ -482,7 +482,7 @@ export default function Profile({
                 )}
               </>
             )}
-
+ 
             {activeTab === 'pending' && (
               <>
                 {pendingRequests.length === 0 ? (
@@ -491,7 +491,7 @@ export default function Profile({
                   </div>
                 ) : (
                   pendingRequests.map((request) => (
-                    <div key={request.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between">
+                    <div key={request.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between min-h-[80px]">
                       <div className="flex items-center gap-3">
                         {renderUserAvatar(request.user)}
                         <div>
@@ -499,25 +499,16 @@ export default function Profile({
                           <p className="text-white/40 text-sm">Баланс: {request.user.balance}ч</p>
                         </div>
                       </div>
-                      <div className="flex gap-2">
-                        <button 
-                          onClick={() => openTelegramChat(request.user.username)}
-                          className="p-2 bg-black border border-white/20 hover:border-white/60 text-white text-sm transition-all"
-                          title="Открыть чат в Telegram"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
-                          </svg>
-                        </button>
-                        <button 
+                      <div className="flex gap-2 flex-shrink-0">
+                        <button
                           onClick={() => handleAcceptFriendRequest(request.id)}
-                          className="px-3 py-1 bg-black border border-white/20 hover:border-white/60 text-white text-sm transition-all"
+                          className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all whitespace-nowrap"
                         >
                           Принять
                         </button>
-                        <button 
+                        <button
                           onClick={() => handleRejectFriendRequest(request.id)}
-                          className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all"
+                          className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all whitespace-nowrap"
                         >
                           Отклонить
                         </button>
@@ -527,7 +518,7 @@ export default function Profile({
                 )}
               </>
             )}
-
+ 
             {activeTab === 'partners' && (
               <>
                 {transactionPartners.length === 0 ? (
@@ -536,14 +527,14 @@ export default function Profile({
                   </div>
                 ) : (
                   transactionPartners.map((user) => {
-                    const isAlreadyFriend = friends.some(friend => 
-                      (friend.user_id === user.id && friend.friend_id === id) || 
+                    const isAlreadyFriend = friends.some(friend =>
+                      (friend.user_id === user.id && friend.friend_id === id) ||
                       (friend.user_id === id && friend.friend_id === user.id)
                     );
                     console.log("[Profile.tsx] Rendering transaction partner:", user);
-                    
+ 
                     return (
-                      <div key={user.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between">
+                      <div key={user.id} className="card p-4 glass-card border border-white/10 backdrop-blur-md flex items-center justify-between min-h-[80px]">
                         <div className="flex items-center gap-3">
                           {renderUserAvatar(user)}
                           <div>
@@ -551,20 +542,20 @@ export default function Profile({
                             <p className="text-white/40 text-sm">Баланс: {user.balance}ч</p>
                           </div>
                         </div>
-                        <div className="flex gap-2">
-                          <button 
+                        <div className="flex gap-2 flex-shrink-0">
+                          <button
                             onClick={() => openTelegramChat(user.username)}
                             className="p-2 bg-black border border-white/20 hover:border-white/60 text-white text-sm transition-all"
                             title="Открыть чат в Telegram"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
+                              <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z" />
                             </svg>
                           </button>
                           {!isAlreadyFriend && (
-                            <button 
+                            <button
                               onClick={() => handleSendFriendRequest(user.id)}
-                              className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all"
+                              className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all whitespace-nowrap"
                             >
                               Добавить
                             </button>
@@ -581,7 +572,7 @@ export default function Profile({
             )}
           </div>
         </div>
-
+ 
         <div className="space-y-6">
           <div className="flex justify-between items-center">
             <div className="space-y-1">
@@ -609,11 +600,10 @@ export default function Profile({
                 >
                   <div className="flex justify-between items-start">
                     <div>
-                      <span className={`inline-block px-3 py-1 text-xs tracking-wider uppercase border ${
-                        listing.listing_type === "request"
+                      <span className={`inline-block px-3 py-1 text-xs tracking-wider uppercase border ${listing.listing_type === "request"
                           ? "border-white/20 bg-black/40 text-white/80"
                           : "border-white/20 bg-black/40 text-white/80"
-                      }`}>
+                        }`}>
                         {listing.listing_type === "request" ? "ПОИСК ПОМОЩИ" : "ПРЕДЛОЖЕНИЕ ПОМОЩИ"}
                       </span>
                     </div>
@@ -621,38 +611,37 @@ export default function Profile({
                   </div>
                   <h3 className="text-lg font-medium">{listing.title}</h3>
                   <p className="text-white/90">{listing.description}</p>
-                  
+ 
                   <div className="mt-2">
-                    <span className={`inline-block px-3 py-1 text-xs tracking-wider uppercase border ${
-                      listing.status === "completed"
+                    <span className={`inline-block px-3 py-1 text-xs tracking-wider uppercase border ${listing.status === "completed"
                         ? "border-white/20 bg-black/40 text-white/80"
                         : listing.status === "cancelled"
-                        ? "border-white/20 bg-black/80 text-white/40"
-                        : "border-white/20 bg-black/40 text-white/80"
-                    }`}>
-                      {listing.status === "pending_worker" ? "ОЖИДАЕТ ПОДТВЕРЖДЕНИЯ" : 
-                       listing.status === "in_progress" ? "В ПРОЦЕССЕ" :
-                       listing.status === "completed" ? "ЗАВЕРШЕНО" :
-                       listing.status === "cancelled" ? "ОТМЕНЕНО" : 
-                       listing.status.toUpperCase()}
+                          ? "border-white/20 bg-black/80 text-white/40"
+                          : "border-white/20 bg-black/40 text-white/80"
+                      }`}>
+                      {listing.status === "pending_worker" ? "ОЖИДАЕТ ПОДТВЕРЖДЕНИЯ" :
+                        listing.status === "in_progress" ? "В ПРОЦЕССЕ" :
+                          listing.status === "completed" ? "ЗАВЕРШЕНО" :
+                            listing.status === "cancelled" ? "ОТМЕНЕНО" :
+                              listing.status.toUpperCase()}
                     </span>
                   </div>
-                  
+ 
                   {listing.worker && listing.status !== "active" && (
                     <div className="text-white/60 text-sm mt-2">
                       Исполнитель: @{listing.worker.username}
                     </div>
                   )}
-                  
+ 
                   <div className="flex justify-end mt-4">
                     {listing.status === "active" && listing.user_id === id && (
                       <button className="px-3 py-1 bg-transparent border border-white/20 hover:border-white/60 text-white/70 hover:text-white text-sm transition-all">
                         Отменить
                       </button>
                     )}
-                    
+ 
                     {listing.status === "pending_worker" && listing.user_id === id && listing.worker && (
-                      <button 
+                      <button
                         onClick={() => handleAcceptListing(listing.id)}
                         className="px-3 py-1 bg-black border border-white/20 hover:border-white/60 text-white text-sm transition-all"
                       >
@@ -669,3 +658,4 @@ export default function Profile({
     </>
   );
 }
+ 

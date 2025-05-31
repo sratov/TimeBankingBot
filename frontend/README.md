@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TimeBankingBot Frontend
 
-## Getting Started
+Frontend часть сервиса обмена времени (Time Banking), построенная на Next.js. Позволяет пользователям управлять своим профилем, друзьями, заявками и транзакциями через удобный веб-интерфейс.
 
-First, run the development server:
+## Технологии
 
-```bash
+- Next.js 14 - React фреймворк
+- TypeScript - типизация
+- Tailwind CSS - стилизация
+- React Query - управление состоянием и кэширование
+- Axios - HTTP клиент
+
+## Установка и запуск
+
+1. Установите зависимости:
+npm install
+# или
+yarn install
+
+2. Создайте файл .env.local в корне frontend директории:
+NEXT_PUBLIC_API_BASE=http://localhost:8000
+
+3. Запустите сервер разработки:
 npm run dev
-# or
+# или
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Структура проекта
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+frontend/
+├── src/
+│   ├── app/              # Страницы приложения
+│   ├── components/       # React компоненты
+│   ├── lib/             # Утилиты и API клиент
+│   └── styles/          # Глобальные стили
+├── public/              # Статические файлы
+└── package.json         # Зависимости
 
-## Learn More
+## Основные функции
 
-To learn more about Next.js, take a look at the following resources:
+- Аутентификация через Telegram
+- Управление профилем и аватаром
+- Поиск и добавление друзей
+- Создание и управление заявками
+- Просмотр истории транзакций
+- Управление балансом часов
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Разработка
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Для сборки проекта:
+npm run build
+# или
+yarn build
 
-## Deploy on Vercel
+Для запуска линтера:
+npm run lint
+# или
+yarn lint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Деплой
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Проект можно развернуть на Vercel или любой другой платформе, поддерживающей Next.js.
+
+## Лицензия
+
+MIT
