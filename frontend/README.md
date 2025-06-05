@@ -27,6 +27,13 @@ yarn dev
 
 Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
+4. Добавьте в файл next.config.js свой url из например ngrok:
+```
+  env: {
+    NEXT_PUBLIC_API_BASE: 'your_url',
+  },
+```
+
 ## Структура проекта
 
 frontend/
