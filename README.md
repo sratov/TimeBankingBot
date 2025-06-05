@@ -19,18 +19,6 @@
 
 ---
 
-## Структура проекта
-
-backend/
-├── **init**.py
-├── main.py             # основной сервер (FastAPI)
-├── auth.py             # аутентификация через Telegram, JWT
-├── models.py           # SQLAlchemy модели
-├── schemas.py          # Pydantic схемы
-├── database.py         # подключение к базе
-├── config.py           # конфигурация (env, JWT секреты и т.д.)
-├── static/             # директория для статики (аватары)
-└── logs/               # директория для логов
 
 ````
 
@@ -42,32 +30,54 @@ backend/
 
 ```bash
 git clone https://github.com/sratov/TimeBankingBot.git
-cd TimeBankingBot/backend
+cd TimeBankingBot
 ````
 
 Создайте виртуальное окружение и установите зависимости:
 
 ```bash
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate        # для Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 ```
 
-Настройте переменные окружения (например, в `.env`):
+Настройте переменные окружения в config.py:
 
-```env
-BOT_TOKEN=123456:ABCDEF
-JWT_SECRET_KEY=your_secret_key
-JWT_ALGORITHM=HS256
-JWT_ACCESS_TOKEN_EXPIRE_MINUTES=60
-ENVIRONMENT=development
+```python
+import os
+from dotenv import load_dotenv
+
+# Загружаем переменные окружения из .env файла, если он существует
+load_dotenv()
+
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "your_token")
+
+# JWT Secret Key
+JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "your_key")
+
+# JWT Settings
+JWT_ALGORITHM = "HS256"
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES = int(os.environ.get("JWT_ACCESS_TOKEN_EXPIRE_MINUTES", 60 * 24))  # 24 hours по умолчанию
+
+# Environment settings
+ENVIRONMENT = os.environ.get("ENVIRONMENT", "development")  # По умолчанию - режим разработки
+IS_DEVELOPMENT = ENVIRONMENT.lower() in ["development", "dev", ""]
+IS_PRODUCTION = not IS_DEVELOPMENT 
 ```
 
 Запустите сервер:
 
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
+
+Далее нужен URL, который будет слушать порт 3000, можно использовать ngrok, LocalTunnel, и т.п:
+
+```bash
+ngrok http 3000
+```
+
+Этот url нужно вставить в настройки вашего бота в Botfather в telegram (изменить url для кнопки в меню в bot settings и url самого telegram mini app.
 
 Сервер будет доступен по адресу: **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)**
 Swagger-документация: **[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)**
